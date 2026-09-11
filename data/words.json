@@ -1,0 +1,5202 @@
+[
+  {
+    "word": "햄버거",
+    "category": "음식"
+  },
+  {
+    "word": "피자",
+    "category": "음식"
+  },
+  {
+    "word": "라면",
+    "category": "음식"
+  },
+  {
+    "word": "김밥",
+    "category": "음식"
+  },
+  {
+    "word": "떡볶이",
+    "category": "음식"
+  },
+  {
+    "word": "치킨",
+    "category": "음식"
+  },
+  {
+    "word": "초밥",
+    "category": "음식"
+  },
+  {
+    "word": "돈가스",
+    "category": "음식"
+  },
+  {
+    "word": "파스타",
+    "category": "음식"
+  },
+  {
+    "word": "냉면",
+    "category": "음식"
+  },
+  {
+    "word": "삼겹살",
+    "category": "음식"
+  },
+  {
+    "word": "갈비",
+    "category": "음식"
+  },
+  {
+    "word": "샌드위치",
+    "category": "음식"
+  },
+  {
+    "word": "핫도그",
+    "category": "음식"
+  },
+  {
+    "word": "붕어빵",
+    "category": "음식"
+  },
+  {
+    "word": "호떡",
+    "category": "음식"
+  },
+  {
+    "word": "아이스크림",
+    "category": "음식"
+  },
+  {
+    "word": "케이크",
+    "category": "음식"
+  },
+  {
+    "word": "도넛",
+    "category": "음식"
+  },
+  {
+    "word": "쿠키",
+    "category": "음식"
+  },
+  {
+    "word": "초콜릿",
+    "category": "음식"
+  },
+  {
+    "word": "사탕",
+    "category": "음식"
+  },
+  {
+    "word": "사과",
+    "category": "음식"
+  },
+  {
+    "word": "바나나",
+    "category": "음식"
+  },
+  {
+    "word": "딸기",
+    "category": "음식"
+  },
+  {
+    "word": "수박",
+    "category": "음식"
+  },
+  {
+    "word": "복숭아",
+    "category": "음식"
+  },
+  {
+    "word": "포도",
+    "category": "음식"
+  },
+  {
+    "word": "귤",
+    "category": "음식"
+  },
+  {
+    "word": "망고",
+    "category": "음식"
+  },
+  {
+    "word": "강아지",
+    "category": "동물"
+  },
+  {
+    "word": "고양이",
+    "category": "동물"
+  },
+  {
+    "word": "호랑이",
+    "category": "동물"
+  },
+  {
+    "word": "사자",
+    "category": "동물"
+  },
+  {
+    "word": "코끼리",
+    "category": "동물"
+  },
+  {
+    "word": "기린",
+    "category": "동물"
+  },
+  {
+    "word": "판다",
+    "category": "동물"
+  },
+  {
+    "word": "토끼",
+    "category": "동물"
+  },
+  {
+    "word": "햄스터",
+    "category": "동물"
+  },
+  {
+    "word": "원숭이",
+    "category": "동물"
+  },
+  {
+    "word": "펭귄",
+    "category": "동물"
+  },
+  {
+    "word": "돌고래",
+    "category": "동물"
+  },
+  {
+    "word": "고래",
+    "category": "동물"
+  },
+  {
+    "word": "상어",
+    "category": "동물"
+  },
+  {
+    "word": "문어",
+    "category": "동물"
+  },
+  {
+    "word": "독수리",
+    "category": "동물"
+  },
+  {
+    "word": "부엉이",
+    "category": "동물"
+  },
+  {
+    "word": "여우",
+    "category": "동물"
+  },
+  {
+    "word": "늑대",
+    "category": "동물"
+  },
+  {
+    "word": "곰",
+    "category": "동물"
+  },
+  {
+    "word": "코알라",
+    "category": "동물"
+  },
+  {
+    "word": "캥거루",
+    "category": "동물"
+  },
+  {
+    "word": "악어",
+    "category": "동물"
+  },
+  {
+    "word": "하마",
+    "category": "동물"
+  },
+  {
+    "word": "치타",
+    "category": "동물"
+  },
+  {
+    "word": "얼룩말",
+    "category": "동물"
+  },
+  {
+    "word": "다람쥐",
+    "category": "동물"
+  },
+  {
+    "word": "수달",
+    "category": "동물"
+  },
+  {
+    "word": "거북이",
+    "category": "동물"
+  },
+  {
+    "word": "카피바라",
+    "category": "동물"
+  },
+  {
+    "word": "학교",
+    "category": "장소"
+  },
+  {
+    "word": "편의점",
+    "category": "장소"
+  },
+  {
+    "word": "놀이공원",
+    "category": "장소"
+  },
+  {
+    "word": "영화관",
+    "category": "장소"
+  },
+  {
+    "word": "도서관",
+    "category": "장소"
+  },
+  {
+    "word": "카페",
+    "category": "장소"
+  },
+  {
+    "word": "식당",
+    "category": "장소"
+  },
+  {
+    "word": "공항",
+    "category": "장소"
+  },
+  {
+    "word": "기차역",
+    "category": "장소"
+  },
+  {
+    "word": "버스정류장",
+    "category": "장소"
+  },
+  {
+    "word": "병원",
+    "category": "장소"
+  },
+  {
+    "word": "약국",
+    "category": "장소"
+  },
+  {
+    "word": "은행",
+    "category": "장소"
+  },
+  {
+    "word": "마트",
+    "category": "장소"
+  },
+  {
+    "word": "백화점",
+    "category": "장소"
+  },
+  {
+    "word": "PC방",
+    "category": "장소"
+  },
+  {
+    "word": "노래방",
+    "category": "장소"
+  },
+  {
+    "word": "수영장",
+    "category": "장소"
+  },
+  {
+    "word": "헬스장",
+    "category": "장소"
+  },
+  {
+    "word": "공원",
+    "category": "장소"
+  },
+  {
+    "word": "해변",
+    "category": "장소"
+  },
+  {
+    "word": "산",
+    "category": "장소"
+  },
+  {
+    "word": "캠핑장",
+    "category": "장소"
+  },
+  {
+    "word": "호텔",
+    "category": "장소"
+  },
+  {
+    "word": "미술관",
+    "category": "장소"
+  },
+  {
+    "word": "박물관",
+    "category": "장소"
+  },
+  {
+    "word": "동물원",
+    "category": "장소"
+  },
+  {
+    "word": "수족관",
+    "category": "장소"
+  },
+  {
+    "word": "야구장",
+    "category": "장소"
+  },
+  {
+    "word": "축구장",
+    "category": "장소"
+  },
+  {
+    "word": "우산",
+    "category": "물건"
+  },
+  {
+    "word": "가방",
+    "category": "물건"
+  },
+  {
+    "word": "연필",
+    "category": "물건"
+  },
+  {
+    "word": "지우개",
+    "category": "물건"
+  },
+  {
+    "word": "노트북",
+    "category": "물건"
+  },
+  {
+    "word": "키보드",
+    "category": "물건"
+  },
+  {
+    "word": "마우스",
+    "category": "물건"
+  },
+  {
+    "word": "스마트폰",
+    "category": "물건"
+  },
+  {
+    "word": "이어폰",
+    "category": "물건"
+  },
+  {
+    "word": "헤드폰",
+    "category": "물건"
+  },
+  {
+    "word": "충전기",
+    "category": "물건"
+  },
+  {
+    "word": "시계",
+    "category": "물건"
+  },
+  {
+    "word": "안경",
+    "category": "물건"
+  },
+  {
+    "word": "컵",
+    "category": "물건"
+  },
+  {
+    "word": "접시",
+    "category": "물건"
+  },
+  {
+    "word": "숟가락",
+    "category": "물건"
+  },
+  {
+    "word": "젓가락",
+    "category": "물건"
+  },
+  {
+    "word": "냄비",
+    "category": "물건"
+  },
+  {
+    "word": "프라이팬",
+    "category": "물건"
+  },
+  {
+    "word": "의자",
+    "category": "물건"
+  },
+  {
+    "word": "책상",
+    "category": "물건"
+  },
+  {
+    "word": "침대",
+    "category": "물건"
+  },
+  {
+    "word": "베개",
+    "category": "물건"
+  },
+  {
+    "word": "이불",
+    "category": "물건"
+  },
+  {
+    "word": "선풍기",
+    "category": "물건"
+  },
+  {
+    "word": "에어컨",
+    "category": "물건"
+  },
+  {
+    "word": "냉장고",
+    "category": "물건"
+  },
+  {
+    "word": "전자레인지",
+    "category": "물건"
+  },
+  {
+    "word": "청소기",
+    "category": "물건"
+  },
+  {
+    "word": "세탁기",
+    "category": "물건"
+  },
+  {
+    "word": "축구",
+    "category": "취미"
+  },
+  {
+    "word": "농구",
+    "category": "취미"
+  },
+  {
+    "word": "야구",
+    "category": "취미"
+  },
+  {
+    "word": "배드민턴",
+    "category": "취미"
+  },
+  {
+    "word": "탁구",
+    "category": "취미"
+  },
+  {
+    "word": "테니스",
+    "category": "취미"
+  },
+  {
+    "word": "볼링",
+    "category": "취미"
+  },
+  {
+    "word": "수영",
+    "category": "취미"
+  },
+  {
+    "word": "러닝",
+    "category": "취미"
+  },
+  {
+    "word": "등산",
+    "category": "취미"
+  },
+  {
+    "word": "캠핑",
+    "category": "취미"
+  },
+  {
+    "word": "낚시",
+    "category": "취미"
+  },
+  {
+    "word": "요리",
+    "category": "취미"
+  },
+  {
+    "word": "베이킹",
+    "category": "취미"
+  },
+  {
+    "word": "독서",
+    "category": "취미"
+  },
+  {
+    "word": "그림그리기",
+    "category": "취미"
+  },
+  {
+    "word": "사진촬영",
+    "category": "취미"
+  },
+  {
+    "word": "노래부르기",
+    "category": "취미"
+  },
+  {
+    "word": "춤추기",
+    "category": "취미"
+  },
+  {
+    "word": "게임",
+    "category": "취미"
+  },
+  {
+    "word": "영화보기",
+    "category": "취미"
+  },
+  {
+    "word": "드라마보기",
+    "category": "취미"
+  },
+  {
+    "word": "유튜브보기",
+    "category": "취미"
+  },
+  {
+    "word": "여행",
+    "category": "취미"
+  },
+  {
+    "word": "쇼핑",
+    "category": "취미"
+  },
+  {
+    "word": "자전거타기",
+    "category": "취미"
+  },
+  {
+    "word": "스케이트",
+    "category": "취미"
+  },
+  {
+    "word": "보드게임",
+    "category": "취미"
+  },
+  {
+    "word": "퍼즐",
+    "category": "취미"
+  },
+  {
+    "word": "악기연주",
+    "category": "취미"
+  },
+  {
+    "word": "미니 햄버거",
+    "category": "조합"
+  },
+  {
+    "word": "미니 피자",
+    "category": "조합"
+  },
+  {
+    "word": "미니 라면",
+    "category": "조합"
+  },
+  {
+    "word": "미니 김밥",
+    "category": "조합"
+  },
+  {
+    "word": "미니 떡볶이",
+    "category": "조합"
+  },
+  {
+    "word": "미니 치킨",
+    "category": "조합"
+  },
+  {
+    "word": "미니 초밥",
+    "category": "조합"
+  },
+  {
+    "word": "미니 돈가스",
+    "category": "조합"
+  },
+  {
+    "word": "미니 파스타",
+    "category": "조합"
+  },
+  {
+    "word": "미니 냉면",
+    "category": "조합"
+  },
+  {
+    "word": "미니 삼겹살",
+    "category": "조합"
+  },
+  {
+    "word": "미니 갈비",
+    "category": "조합"
+  },
+  {
+    "word": "미니 샌드위치",
+    "category": "조합"
+  },
+  {
+    "word": "미니 핫도그",
+    "category": "조합"
+  },
+  {
+    "word": "미니 붕어빵",
+    "category": "조합"
+  },
+  {
+    "word": "미니 호떡",
+    "category": "조합"
+  },
+  {
+    "word": "미니 아이스크림",
+    "category": "조합"
+  },
+  {
+    "word": "미니 케이크",
+    "category": "조합"
+  },
+  {
+    "word": "미니 도넛",
+    "category": "조합"
+  },
+  {
+    "word": "미니 쿠키",
+    "category": "조합"
+  },
+  {
+    "word": "미니 초콜릿",
+    "category": "조합"
+  },
+  {
+    "word": "미니 사탕",
+    "category": "조합"
+  },
+  {
+    "word": "미니 사과",
+    "category": "조합"
+  },
+  {
+    "word": "미니 바나나",
+    "category": "조합"
+  },
+  {
+    "word": "미니 딸기",
+    "category": "조합"
+  },
+  {
+    "word": "미니 수박",
+    "category": "조합"
+  },
+  {
+    "word": "미니 복숭아",
+    "category": "조합"
+  },
+  {
+    "word": "미니 포도",
+    "category": "조합"
+  },
+  {
+    "word": "미니 귤",
+    "category": "조합"
+  },
+  {
+    "word": "미니 망고",
+    "category": "조합"
+  },
+  {
+    "word": "미니 강아지",
+    "category": "조합"
+  },
+  {
+    "word": "미니 고양이",
+    "category": "조합"
+  },
+  {
+    "word": "미니 호랑이",
+    "category": "조합"
+  },
+  {
+    "word": "미니 사자",
+    "category": "조합"
+  },
+  {
+    "word": "미니 코끼리",
+    "category": "조합"
+  },
+  {
+    "word": "미니 기린",
+    "category": "조합"
+  },
+  {
+    "word": "미니 판다",
+    "category": "조합"
+  },
+  {
+    "word": "미니 토끼",
+    "category": "조합"
+  },
+  {
+    "word": "미니 햄스터",
+    "category": "조합"
+  },
+  {
+    "word": "미니 원숭이",
+    "category": "조합"
+  },
+  {
+    "word": "미니 펭귄",
+    "category": "조합"
+  },
+  {
+    "word": "미니 돌고래",
+    "category": "조합"
+  },
+  {
+    "word": "미니 고래",
+    "category": "조합"
+  },
+  {
+    "word": "미니 상어",
+    "category": "조합"
+  },
+  {
+    "word": "미니 문어",
+    "category": "조합"
+  },
+  {
+    "word": "미니 독수리",
+    "category": "조합"
+  },
+  {
+    "word": "미니 부엉이",
+    "category": "조합"
+  },
+  {
+    "word": "미니 여우",
+    "category": "조합"
+  },
+  {
+    "word": "미니 늑대",
+    "category": "조합"
+  },
+  {
+    "word": "미니 곰",
+    "category": "조합"
+  },
+  {
+    "word": "미니 코알라",
+    "category": "조합"
+  },
+  {
+    "word": "미니 캥거루",
+    "category": "조합"
+  },
+  {
+    "word": "미니 악어",
+    "category": "조합"
+  },
+  {
+    "word": "미니 하마",
+    "category": "조합"
+  },
+  {
+    "word": "미니 치타",
+    "category": "조합"
+  },
+  {
+    "word": "미니 얼룩말",
+    "category": "조합"
+  },
+  {
+    "word": "미니 다람쥐",
+    "category": "조합"
+  },
+  {
+    "word": "미니 수달",
+    "category": "조합"
+  },
+  {
+    "word": "미니 거북이",
+    "category": "조합"
+  },
+  {
+    "word": "미니 카피바라",
+    "category": "조합"
+  },
+  {
+    "word": "미니 학교",
+    "category": "조합"
+  },
+  {
+    "word": "미니 편의점",
+    "category": "조합"
+  },
+  {
+    "word": "미니 놀이공원",
+    "category": "조합"
+  },
+  {
+    "word": "미니 영화관",
+    "category": "조합"
+  },
+  {
+    "word": "미니 도서관",
+    "category": "조합"
+  },
+  {
+    "word": "미니 카페",
+    "category": "조합"
+  },
+  {
+    "word": "미니 식당",
+    "category": "조합"
+  },
+  {
+    "word": "미니 공항",
+    "category": "조합"
+  },
+  {
+    "word": "미니 기차역",
+    "category": "조합"
+  },
+  {
+    "word": "미니 버스정류장",
+    "category": "조합"
+  },
+  {
+    "word": "미니 병원",
+    "category": "조합"
+  },
+  {
+    "word": "미니 약국",
+    "category": "조합"
+  },
+  {
+    "word": "미니 은행",
+    "category": "조합"
+  },
+  {
+    "word": "미니 마트",
+    "category": "조합"
+  },
+  {
+    "word": "미니 백화점",
+    "category": "조합"
+  },
+  {
+    "word": "미니 PC방",
+    "category": "조합"
+  },
+  {
+    "word": "미니 노래방",
+    "category": "조합"
+  },
+  {
+    "word": "미니 수영장",
+    "category": "조합"
+  },
+  {
+    "word": "미니 헬스장",
+    "category": "조합"
+  },
+  {
+    "word": "미니 공원",
+    "category": "조합"
+  },
+  {
+    "word": "미니 해변",
+    "category": "조합"
+  },
+  {
+    "word": "미니 산",
+    "category": "조합"
+  },
+  {
+    "word": "미니 캠핑장",
+    "category": "조합"
+  },
+  {
+    "word": "미니 호텔",
+    "category": "조합"
+  },
+  {
+    "word": "미니 미술관",
+    "category": "조합"
+  },
+  {
+    "word": "미니 박물관",
+    "category": "조합"
+  },
+  {
+    "word": "미니 동물원",
+    "category": "조합"
+  },
+  {
+    "word": "미니 수족관",
+    "category": "조합"
+  },
+  {
+    "word": "미니 야구장",
+    "category": "조합"
+  },
+  {
+    "word": "미니 축구장",
+    "category": "조합"
+  },
+  {
+    "word": "미니 우산",
+    "category": "조합"
+  },
+  {
+    "word": "미니 가방",
+    "category": "조합"
+  },
+  {
+    "word": "미니 연필",
+    "category": "조합"
+  },
+  {
+    "word": "미니 지우개",
+    "category": "조합"
+  },
+  {
+    "word": "미니 노트북",
+    "category": "조합"
+  },
+  {
+    "word": "미니 키보드",
+    "category": "조합"
+  },
+  {
+    "word": "미니 마우스",
+    "category": "조합"
+  },
+  {
+    "word": "미니 스마트폰",
+    "category": "조합"
+  },
+  {
+    "word": "미니 이어폰",
+    "category": "조합"
+  },
+  {
+    "word": "미니 헤드폰",
+    "category": "조합"
+  },
+  {
+    "word": "미니 충전기",
+    "category": "조합"
+  },
+  {
+    "word": "미니 시계",
+    "category": "조합"
+  },
+  {
+    "word": "미니 안경",
+    "category": "조합"
+  },
+  {
+    "word": "미니 컵",
+    "category": "조합"
+  },
+  {
+    "word": "미니 접시",
+    "category": "조합"
+  },
+  {
+    "word": "미니 숟가락",
+    "category": "조합"
+  },
+  {
+    "word": "미니 젓가락",
+    "category": "조합"
+  },
+  {
+    "word": "미니 냄비",
+    "category": "조합"
+  },
+  {
+    "word": "미니 프라이팬",
+    "category": "조합"
+  },
+  {
+    "word": "미니 의자",
+    "category": "조합"
+  },
+  {
+    "word": "미니 책상",
+    "category": "조합"
+  },
+  {
+    "word": "미니 침대",
+    "category": "조합"
+  },
+  {
+    "word": "미니 베개",
+    "category": "조합"
+  },
+  {
+    "word": "미니 이불",
+    "category": "조합"
+  },
+  {
+    "word": "미니 선풍기",
+    "category": "조합"
+  },
+  {
+    "word": "미니 에어컨",
+    "category": "조합"
+  },
+  {
+    "word": "미니 냉장고",
+    "category": "조합"
+  },
+  {
+    "word": "미니 전자레인지",
+    "category": "조합"
+  },
+  {
+    "word": "미니 청소기",
+    "category": "조합"
+  },
+  {
+    "word": "미니 세탁기",
+    "category": "조합"
+  },
+  {
+    "word": "미니 축구",
+    "category": "조합"
+  },
+  {
+    "word": "미니 농구",
+    "category": "조합"
+  },
+  {
+    "word": "미니 야구",
+    "category": "조합"
+  },
+  {
+    "word": "미니 배드민턴",
+    "category": "조합"
+  },
+  {
+    "word": "미니 탁구",
+    "category": "조합"
+  },
+  {
+    "word": "미니 테니스",
+    "category": "조합"
+  },
+  {
+    "word": "미니 볼링",
+    "category": "조합"
+  },
+  {
+    "word": "미니 수영",
+    "category": "조합"
+  },
+  {
+    "word": "미니 러닝",
+    "category": "조합"
+  },
+  {
+    "word": "미니 등산",
+    "category": "조합"
+  },
+  {
+    "word": "미니 캠핑",
+    "category": "조합"
+  },
+  {
+    "word": "미니 낚시",
+    "category": "조합"
+  },
+  {
+    "word": "미니 요리",
+    "category": "조합"
+  },
+  {
+    "word": "미니 베이킹",
+    "category": "조합"
+  },
+  {
+    "word": "미니 독서",
+    "category": "조합"
+  },
+  {
+    "word": "미니 그림그리기",
+    "category": "조합"
+  },
+  {
+    "word": "미니 사진촬영",
+    "category": "조합"
+  },
+  {
+    "word": "미니 노래부르기",
+    "category": "조합"
+  },
+  {
+    "word": "미니 춤추기",
+    "category": "조합"
+  },
+  {
+    "word": "미니 게임",
+    "category": "조합"
+  },
+  {
+    "word": "미니 영화보기",
+    "category": "조합"
+  },
+  {
+    "word": "미니 드라마보기",
+    "category": "조합"
+  },
+  {
+    "word": "미니 유튜브보기",
+    "category": "조합"
+  },
+  {
+    "word": "미니 여행",
+    "category": "조합"
+  },
+  {
+    "word": "미니 쇼핑",
+    "category": "조합"
+  },
+  {
+    "word": "미니 자전거타기",
+    "category": "조합"
+  },
+  {
+    "word": "미니 스케이트",
+    "category": "조합"
+  },
+  {
+    "word": "미니 보드게임",
+    "category": "조합"
+  },
+  {
+    "word": "미니 퍼즐",
+    "category": "조합"
+  },
+  {
+    "word": "미니 악기연주",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 햄버거",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 피자",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 라면",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 김밥",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 떡볶이",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 치킨",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 초밥",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 돈가스",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 파스타",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 냉면",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 삼겹살",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 갈비",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 샌드위치",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 핫도그",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 붕어빵",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 호떡",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 아이스크림",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 케이크",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 도넛",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 쿠키",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 초콜릿",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 사탕",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 사과",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 바나나",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 딸기",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 수박",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 복숭아",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 포도",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 귤",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 망고",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 강아지",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 고양이",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 호랑이",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 사자",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 코끼리",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 기린",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 판다",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 토끼",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 햄스터",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 원숭이",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 펭귄",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 돌고래",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 고래",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 상어",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 문어",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 독수리",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 부엉이",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 여우",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 늑대",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 곰",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 코알라",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 캥거루",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 악어",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 하마",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 치타",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 얼룩말",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 다람쥐",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 수달",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 거북이",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 카피바라",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 학교",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 편의점",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 놀이공원",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 영화관",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 도서관",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 카페",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 식당",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 공항",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 기차역",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 버스정류장",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 병원",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 약국",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 은행",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 마트",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 백화점",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 PC방",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 노래방",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 수영장",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 헬스장",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 공원",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 해변",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 산",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 캠핑장",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 호텔",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 미술관",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 박물관",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 동물원",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 수족관",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 야구장",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 축구장",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 우산",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 가방",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 연필",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 지우개",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 노트북",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 키보드",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 마우스",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 스마트폰",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 이어폰",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 헤드폰",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 충전기",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 시계",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 안경",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 컵",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 접시",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 숟가락",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 젓가락",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 냄비",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 프라이팬",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 의자",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 책상",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 침대",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 베개",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 이불",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 선풍기",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 에어컨",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 냉장고",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 전자레인지",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 청소기",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 세탁기",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 축구",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 농구",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 야구",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 배드민턴",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 탁구",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 테니스",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 볼링",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 수영",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 러닝",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 등산",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 캠핑",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 낚시",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 요리",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 베이킹",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 독서",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 그림그리기",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 사진촬영",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 노래부르기",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 춤추기",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 게임",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 영화보기",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 드라마보기",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 유튜브보기",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 여행",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 쇼핑",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 자전거타기",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 스케이트",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 보드게임",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 퍼즐",
+    "category": "조합"
+  },
+  {
+    "word": "대왕 악기연주",
+    "category": "조합"
+  },
+  {
+    "word": "황금 햄버거",
+    "category": "조합"
+  },
+  {
+    "word": "황금 피자",
+    "category": "조합"
+  },
+  {
+    "word": "황금 라면",
+    "category": "조합"
+  },
+  {
+    "word": "황금 김밥",
+    "category": "조합"
+  },
+  {
+    "word": "황금 떡볶이",
+    "category": "조합"
+  },
+  {
+    "word": "황금 치킨",
+    "category": "조합"
+  },
+  {
+    "word": "황금 초밥",
+    "category": "조합"
+  },
+  {
+    "word": "황금 돈가스",
+    "category": "조합"
+  },
+  {
+    "word": "황금 파스타",
+    "category": "조합"
+  },
+  {
+    "word": "황금 냉면",
+    "category": "조합"
+  },
+  {
+    "word": "황금 삼겹살",
+    "category": "조합"
+  },
+  {
+    "word": "황금 갈비",
+    "category": "조합"
+  },
+  {
+    "word": "황금 샌드위치",
+    "category": "조합"
+  },
+  {
+    "word": "황금 핫도그",
+    "category": "조합"
+  },
+  {
+    "word": "황금 붕어빵",
+    "category": "조합"
+  },
+  {
+    "word": "황금 호떡",
+    "category": "조합"
+  },
+  {
+    "word": "황금 아이스크림",
+    "category": "조합"
+  },
+  {
+    "word": "황금 케이크",
+    "category": "조합"
+  },
+  {
+    "word": "황금 도넛",
+    "category": "조합"
+  },
+  {
+    "word": "황금 쿠키",
+    "category": "조합"
+  },
+  {
+    "word": "황금 초콜릿",
+    "category": "조합"
+  },
+  {
+    "word": "황금 사탕",
+    "category": "조합"
+  },
+  {
+    "word": "황금 사과",
+    "category": "조합"
+  },
+  {
+    "word": "황금 바나나",
+    "category": "조합"
+  },
+  {
+    "word": "황금 딸기",
+    "category": "조합"
+  },
+  {
+    "word": "황금 수박",
+    "category": "조합"
+  },
+  {
+    "word": "황금 복숭아",
+    "category": "조합"
+  },
+  {
+    "word": "황금 포도",
+    "category": "조합"
+  },
+  {
+    "word": "황금 귤",
+    "category": "조합"
+  },
+  {
+    "word": "황금 망고",
+    "category": "조합"
+  },
+  {
+    "word": "황금 강아지",
+    "category": "조합"
+  },
+  {
+    "word": "황금 고양이",
+    "category": "조합"
+  },
+  {
+    "word": "황금 호랑이",
+    "category": "조합"
+  },
+  {
+    "word": "황금 사자",
+    "category": "조합"
+  },
+  {
+    "word": "황금 코끼리",
+    "category": "조합"
+  },
+  {
+    "word": "황금 기린",
+    "category": "조합"
+  },
+  {
+    "word": "황금 판다",
+    "category": "조합"
+  },
+  {
+    "word": "황금 토끼",
+    "category": "조합"
+  },
+  {
+    "word": "황금 햄스터",
+    "category": "조합"
+  },
+  {
+    "word": "황금 원숭이",
+    "category": "조합"
+  },
+  {
+    "word": "황금 펭귄",
+    "category": "조합"
+  },
+  {
+    "word": "황금 돌고래",
+    "category": "조합"
+  },
+  {
+    "word": "황금 고래",
+    "category": "조합"
+  },
+  {
+    "word": "황금 상어",
+    "category": "조합"
+  },
+  {
+    "word": "황금 문어",
+    "category": "조합"
+  },
+  {
+    "word": "황금 독수리",
+    "category": "조합"
+  },
+  {
+    "word": "황금 부엉이",
+    "category": "조합"
+  },
+  {
+    "word": "황금 여우",
+    "category": "조합"
+  },
+  {
+    "word": "황금 늑대",
+    "category": "조합"
+  },
+  {
+    "word": "황금 곰",
+    "category": "조합"
+  },
+  {
+    "word": "황금 코알라",
+    "category": "조합"
+  },
+  {
+    "word": "황금 캥거루",
+    "category": "조합"
+  },
+  {
+    "word": "황금 악어",
+    "category": "조합"
+  },
+  {
+    "word": "황금 하마",
+    "category": "조합"
+  },
+  {
+    "word": "황금 치타",
+    "category": "조합"
+  },
+  {
+    "word": "황금 얼룩말",
+    "category": "조합"
+  },
+  {
+    "word": "황금 다람쥐",
+    "category": "조합"
+  },
+  {
+    "word": "황금 수달",
+    "category": "조합"
+  },
+  {
+    "word": "황금 거북이",
+    "category": "조합"
+  },
+  {
+    "word": "황금 카피바라",
+    "category": "조합"
+  },
+  {
+    "word": "황금 학교",
+    "category": "조합"
+  },
+  {
+    "word": "황금 편의점",
+    "category": "조합"
+  },
+  {
+    "word": "황금 놀이공원",
+    "category": "조합"
+  },
+  {
+    "word": "황금 영화관",
+    "category": "조합"
+  },
+  {
+    "word": "황금 도서관",
+    "category": "조합"
+  },
+  {
+    "word": "황금 카페",
+    "category": "조합"
+  },
+  {
+    "word": "황금 식당",
+    "category": "조합"
+  },
+  {
+    "word": "황금 공항",
+    "category": "조합"
+  },
+  {
+    "word": "황금 기차역",
+    "category": "조합"
+  },
+  {
+    "word": "황금 버스정류장",
+    "category": "조합"
+  },
+  {
+    "word": "황금 병원",
+    "category": "조합"
+  },
+  {
+    "word": "황금 약국",
+    "category": "조합"
+  },
+  {
+    "word": "황금 은행",
+    "category": "조합"
+  },
+  {
+    "word": "황금 마트",
+    "category": "조합"
+  },
+  {
+    "word": "황금 백화점",
+    "category": "조합"
+  },
+  {
+    "word": "황금 PC방",
+    "category": "조합"
+  },
+  {
+    "word": "황금 노래방",
+    "category": "조합"
+  },
+  {
+    "word": "황금 수영장",
+    "category": "조합"
+  },
+  {
+    "word": "황금 헬스장",
+    "category": "조합"
+  },
+  {
+    "word": "황금 공원",
+    "category": "조합"
+  },
+  {
+    "word": "황금 해변",
+    "category": "조합"
+  },
+  {
+    "word": "황금 산",
+    "category": "조합"
+  },
+  {
+    "word": "황금 캠핑장",
+    "category": "조합"
+  },
+  {
+    "word": "황금 호텔",
+    "category": "조합"
+  },
+  {
+    "word": "황금 미술관",
+    "category": "조합"
+  },
+  {
+    "word": "황금 박물관",
+    "category": "조합"
+  },
+  {
+    "word": "황금 동물원",
+    "category": "조합"
+  },
+  {
+    "word": "황금 수족관",
+    "category": "조합"
+  },
+  {
+    "word": "황금 야구장",
+    "category": "조합"
+  },
+  {
+    "word": "황금 축구장",
+    "category": "조합"
+  },
+  {
+    "word": "황금 우산",
+    "category": "조합"
+  },
+  {
+    "word": "황금 가방",
+    "category": "조합"
+  },
+  {
+    "word": "황금 연필",
+    "category": "조합"
+  },
+  {
+    "word": "황금 지우개",
+    "category": "조합"
+  },
+  {
+    "word": "황금 노트북",
+    "category": "조합"
+  },
+  {
+    "word": "황금 키보드",
+    "category": "조합"
+  },
+  {
+    "word": "황금 마우스",
+    "category": "조합"
+  },
+  {
+    "word": "황금 스마트폰",
+    "category": "조합"
+  },
+  {
+    "word": "황금 이어폰",
+    "category": "조합"
+  },
+  {
+    "word": "황금 헤드폰",
+    "category": "조합"
+  },
+  {
+    "word": "황금 충전기",
+    "category": "조합"
+  },
+  {
+    "word": "황금 시계",
+    "category": "조합"
+  },
+  {
+    "word": "황금 안경",
+    "category": "조합"
+  },
+  {
+    "word": "황금 컵",
+    "category": "조합"
+  },
+  {
+    "word": "황금 접시",
+    "category": "조합"
+  },
+  {
+    "word": "황금 숟가락",
+    "category": "조합"
+  },
+  {
+    "word": "황금 젓가락",
+    "category": "조합"
+  },
+  {
+    "word": "황금 냄비",
+    "category": "조합"
+  },
+  {
+    "word": "황금 프라이팬",
+    "category": "조합"
+  },
+  {
+    "word": "황금 의자",
+    "category": "조합"
+  },
+  {
+    "word": "황금 책상",
+    "category": "조합"
+  },
+  {
+    "word": "황금 침대",
+    "category": "조합"
+  },
+  {
+    "word": "황금 베개",
+    "category": "조합"
+  },
+  {
+    "word": "황금 이불",
+    "category": "조합"
+  },
+  {
+    "word": "황금 선풍기",
+    "category": "조합"
+  },
+  {
+    "word": "황금 에어컨",
+    "category": "조합"
+  },
+  {
+    "word": "황금 냉장고",
+    "category": "조합"
+  },
+  {
+    "word": "황금 전자레인지",
+    "category": "조합"
+  },
+  {
+    "word": "황금 청소기",
+    "category": "조합"
+  },
+  {
+    "word": "황금 세탁기",
+    "category": "조합"
+  },
+  {
+    "word": "황금 축구",
+    "category": "조합"
+  },
+  {
+    "word": "황금 농구",
+    "category": "조합"
+  },
+  {
+    "word": "황금 야구",
+    "category": "조합"
+  },
+  {
+    "word": "황금 배드민턴",
+    "category": "조합"
+  },
+  {
+    "word": "황금 탁구",
+    "category": "조합"
+  },
+  {
+    "word": "황금 테니스",
+    "category": "조합"
+  },
+  {
+    "word": "황금 볼링",
+    "category": "조합"
+  },
+  {
+    "word": "황금 수영",
+    "category": "조합"
+  },
+  {
+    "word": "황금 러닝",
+    "category": "조합"
+  },
+  {
+    "word": "황금 등산",
+    "category": "조합"
+  },
+  {
+    "word": "황금 캠핑",
+    "category": "조합"
+  },
+  {
+    "word": "황금 낚시",
+    "category": "조합"
+  },
+  {
+    "word": "황금 요리",
+    "category": "조합"
+  },
+  {
+    "word": "황금 베이킹",
+    "category": "조합"
+  },
+  {
+    "word": "황금 독서",
+    "category": "조합"
+  },
+  {
+    "word": "황금 그림그리기",
+    "category": "조합"
+  },
+  {
+    "word": "황금 사진촬영",
+    "category": "조합"
+  },
+  {
+    "word": "황금 노래부르기",
+    "category": "조합"
+  },
+  {
+    "word": "황금 춤추기",
+    "category": "조합"
+  },
+  {
+    "word": "황금 게임",
+    "category": "조합"
+  },
+  {
+    "word": "황금 영화보기",
+    "category": "조합"
+  },
+  {
+    "word": "황금 드라마보기",
+    "category": "조합"
+  },
+  {
+    "word": "황금 유튜브보기",
+    "category": "조합"
+  },
+  {
+    "word": "황금 여행",
+    "category": "조합"
+  },
+  {
+    "word": "황금 쇼핑",
+    "category": "조합"
+  },
+  {
+    "word": "황금 자전거타기",
+    "category": "조합"
+  },
+  {
+    "word": "황금 스케이트",
+    "category": "조합"
+  },
+  {
+    "word": "황금 보드게임",
+    "category": "조합"
+  },
+  {
+    "word": "황금 퍼즐",
+    "category": "조합"
+  },
+  {
+    "word": "황금 악기연주",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 햄버거",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 피자",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 라면",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 김밥",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 떡볶이",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 치킨",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 초밥",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 돈가스",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 파스타",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 냉면",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 삼겹살",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 갈비",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 샌드위치",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 핫도그",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 붕어빵",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 호떡",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 아이스크림",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 케이크",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 도넛",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 쿠키",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 초콜릿",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 사탕",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 사과",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 바나나",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 딸기",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 수박",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 복숭아",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 포도",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 귤",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 망고",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 강아지",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 고양이",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 호랑이",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 사자",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 코끼리",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 기린",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 판다",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 토끼",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 햄스터",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 원숭이",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 펭귄",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 돌고래",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 고래",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 상어",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 문어",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 독수리",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 부엉이",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 여우",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 늑대",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 곰",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 코알라",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 캥거루",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 악어",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 하마",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 치타",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 얼룩말",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 다람쥐",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 수달",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 거북이",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 카피바라",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 학교",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 편의점",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 놀이공원",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 영화관",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 도서관",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 카페",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 식당",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 공항",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 기차역",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 버스정류장",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 병원",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 약국",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 은행",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 마트",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 백화점",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 PC방",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 노래방",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 수영장",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 헬스장",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 공원",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 해변",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 산",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 캠핑장",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 호텔",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 미술관",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 박물관",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 동물원",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 수족관",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 야구장",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 축구장",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 우산",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 가방",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 연필",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 지우개",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 노트북",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 키보드",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 마우스",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 스마트폰",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 이어폰",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 헤드폰",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 충전기",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 시계",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 안경",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 컵",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 접시",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 숟가락",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 젓가락",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 냄비",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 프라이팬",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 의자",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 책상",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 침대",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 베개",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 이불",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 선풍기",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 에어컨",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 냉장고",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 전자레인지",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 청소기",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 세탁기",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 축구",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 농구",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 야구",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 배드민턴",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 탁구",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 테니스",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 볼링",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 수영",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 러닝",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 등산",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 캠핑",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 낚시",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 요리",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 베이킹",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 독서",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 그림그리기",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 사진촬영",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 노래부르기",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 춤추기",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 게임",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 영화보기",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 드라마보기",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 유튜브보기",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 여행",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 쇼핑",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 자전거타기",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 스케이트",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 보드게임",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 퍼즐",
+    "category": "조합"
+  },
+  {
+    "word": "얼음 악기연주",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 햄버거",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 피자",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 라면",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 김밥",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 떡볶이",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 치킨",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 초밥",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 돈가스",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 파스타",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 냉면",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 삼겹살",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 갈비",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 샌드위치",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 핫도그",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 붕어빵",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 호떡",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 아이스크림",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 케이크",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 도넛",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 쿠키",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 초콜릿",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 사탕",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 사과",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 바나나",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 딸기",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 수박",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 복숭아",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 포도",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 귤",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 망고",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 강아지",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 고양이",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 호랑이",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 사자",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 코끼리",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 기린",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 판다",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 토끼",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 햄스터",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 원숭이",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 펭귄",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 돌고래",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 고래",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 상어",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 문어",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 독수리",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 부엉이",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 여우",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 늑대",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 곰",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 코알라",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 캥거루",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 악어",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 하마",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 치타",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 얼룩말",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 다람쥐",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 수달",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 거북이",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 카피바라",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 학교",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 편의점",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 놀이공원",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 영화관",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 도서관",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 카페",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 식당",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 공항",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 기차역",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 버스정류장",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 병원",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 약국",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 은행",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 마트",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 백화점",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 PC방",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 노래방",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 수영장",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 헬스장",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 공원",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 해변",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 산",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 캠핑장",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 호텔",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 미술관",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 박물관",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 동물원",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 수족관",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 야구장",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 축구장",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 우산",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 가방",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 연필",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 지우개",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 노트북",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 키보드",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 마우스",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 스마트폰",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 이어폰",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 헤드폰",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 충전기",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 시계",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 안경",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 컵",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 접시",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 숟가락",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 젓가락",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 냄비",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 프라이팬",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 의자",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 책상",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 침대",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 베개",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 이불",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 선풍기",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 에어컨",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 냉장고",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 전자레인지",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 청소기",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 세탁기",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 축구",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 농구",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 야구",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 배드민턴",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 탁구",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 테니스",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 볼링",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 수영",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 러닝",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 등산",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 캠핑",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 낚시",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 요리",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 베이킹",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 독서",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 그림그리기",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 사진촬영",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 노래부르기",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 춤추기",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 게임",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 영화보기",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 드라마보기",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 유튜브보기",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 여행",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 쇼핑",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 자전거타기",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 스케이트",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 보드게임",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 퍼즐",
+    "category": "조합"
+  },
+  {
+    "word": "불꽃 악기연주",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 햄버거",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 피자",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 라면",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 김밥",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 떡볶이",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 치킨",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 초밥",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 돈가스",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 파스타",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 냉면",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 삼겹살",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 갈비",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 샌드위치",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 핫도그",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 붕어빵",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 호떡",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 아이스크림",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 케이크",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 도넛",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 쿠키",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 초콜릿",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 사탕",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 사과",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 바나나",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 딸기",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 수박",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 복숭아",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 포도",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 귤",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 망고",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 강아지",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 고양이",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 호랑이",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 사자",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 코끼리",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 기린",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 판다",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 토끼",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 햄스터",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 원숭이",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 펭귄",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 돌고래",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 고래",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 상어",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 문어",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 독수리",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 부엉이",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 여우",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 늑대",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 곰",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 코알라",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 캥거루",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 악어",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 하마",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 치타",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 얼룩말",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 다람쥐",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 수달",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 거북이",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 카피바라",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 학교",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 편의점",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 놀이공원",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 영화관",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 도서관",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 카페",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 식당",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 공항",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 기차역",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 버스정류장",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 병원",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 약국",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 은행",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 마트",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 백화점",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 PC방",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 노래방",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 수영장",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 헬스장",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 공원",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 해변",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 산",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 캠핑장",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 호텔",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 미술관",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 박물관",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 동물원",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 수족관",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 야구장",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 축구장",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 우산",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 가방",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 연필",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 지우개",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 노트북",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 키보드",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 마우스",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 스마트폰",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 이어폰",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 헤드폰",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 충전기",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 시계",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 안경",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 컵",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 접시",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 숟가락",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 젓가락",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 냄비",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 프라이팬",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 의자",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 책상",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 침대",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 베개",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 이불",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 선풍기",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 에어컨",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 냉장고",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 전자레인지",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 청소기",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 세탁기",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 축구",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 농구",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 야구",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 배드민턴",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 탁구",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 테니스",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 볼링",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 수영",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 러닝",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 등산",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 캠핑",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 낚시",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 요리",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 베이킹",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 독서",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 그림그리기",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 사진촬영",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 노래부르기",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 춤추기",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 게임",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 영화보기",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 드라마보기",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 유튜브보기",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 여행",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 쇼핑",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 자전거타기",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 스케이트",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 보드게임",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 퍼즐",
+    "category": "조합"
+  },
+  {
+    "word": "무지개 악기연주",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 햄버거",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 피자",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 라면",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 김밥",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 떡볶이",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 치킨",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 초밥",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 돈가스",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 파스타",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 냉면",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 삼겹살",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 갈비",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 샌드위치",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 핫도그",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 붕어빵",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 호떡",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 아이스크림",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 케이크",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 도넛",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 쿠키",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 초콜릿",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 사탕",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 사과",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 바나나",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 딸기",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 수박",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 복숭아",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 포도",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 귤",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 망고",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 강아지",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 고양이",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 호랑이",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 사자",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 코끼리",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 기린",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 판다",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 토끼",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 햄스터",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 원숭이",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 펭귄",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 돌고래",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 고래",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 상어",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 문어",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 독수리",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 부엉이",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 여우",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 늑대",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 곰",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 코알라",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 캥거루",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 악어",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 하마",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 치타",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 얼룩말",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 다람쥐",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 수달",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 거북이",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 카피바라",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 학교",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 편의점",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 놀이공원",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 영화관",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 도서관",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 카페",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 식당",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 공항",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 기차역",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 버스정류장",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 병원",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 약국",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 은행",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 마트",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 백화점",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 PC방",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 노래방",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 수영장",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 헬스장",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 공원",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 해변",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 산",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 캠핑장",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 호텔",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 미술관",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 박물관",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 동물원",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 수족관",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 야구장",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 축구장",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 우산",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 가방",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 연필",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 지우개",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 노트북",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 키보드",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 마우스",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 스마트폰",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 이어폰",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 헤드폰",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 충전기",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 시계",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 안경",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 컵",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 접시",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 숟가락",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 젓가락",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 냄비",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 프라이팬",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 의자",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 책상",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 침대",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 베개",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 이불",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 선풍기",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 에어컨",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 냉장고",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 전자레인지",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 청소기",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 세탁기",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 축구",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 농구",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 야구",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 배드민턴",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 탁구",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 테니스",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 볼링",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 수영",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 러닝",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 등산",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 캠핑",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 낚시",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 요리",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 베이킹",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 독서",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 그림그리기",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 사진촬영",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 노래부르기",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 춤추기",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 게임",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 영화보기",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 드라마보기",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 유튜브보기",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 여행",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 쇼핑",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 자전거타기",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 스케이트",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 보드게임",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 퍼즐",
+    "category": "조합"
+  },
+  {
+    "word": "로봇 악기연주",
+    "category": "조합"
+  },
+  {
+    "word": "우주 햄버거",
+    "category": "조합"
+  },
+  {
+    "word": "우주 피자",
+    "category": "조합"
+  },
+  {
+    "word": "우주 라면",
+    "category": "조합"
+  },
+  {
+    "word": "우주 김밥",
+    "category": "조합"
+  },
+  {
+    "word": "우주 떡볶이",
+    "category": "조합"
+  },
+  {
+    "word": "우주 치킨",
+    "category": "조합"
+  },
+  {
+    "word": "우주 초밥",
+    "category": "조합"
+  },
+  {
+    "word": "우주 돈가스",
+    "category": "조합"
+  },
+  {
+    "word": "우주 파스타",
+    "category": "조합"
+  },
+  {
+    "word": "우주 냉면",
+    "category": "조합"
+  },
+  {
+    "word": "우주 삼겹살",
+    "category": "조합"
+  },
+  {
+    "word": "우주 갈비",
+    "category": "조합"
+  },
+  {
+    "word": "우주 샌드위치",
+    "category": "조합"
+  },
+  {
+    "word": "우주 핫도그",
+    "category": "조합"
+  },
+  {
+    "word": "우주 붕어빵",
+    "category": "조합"
+  },
+  {
+    "word": "우주 호떡",
+    "category": "조합"
+  },
+  {
+    "word": "우주 아이스크림",
+    "category": "조합"
+  },
+  {
+    "word": "우주 케이크",
+    "category": "조합"
+  },
+  {
+    "word": "우주 도넛",
+    "category": "조합"
+  },
+  {
+    "word": "우주 쿠키",
+    "category": "조합"
+  },
+  {
+    "word": "우주 초콜릿",
+    "category": "조합"
+  },
+  {
+    "word": "우주 사탕",
+    "category": "조합"
+  },
+  {
+    "word": "우주 사과",
+    "category": "조합"
+  },
+  {
+    "word": "우주 바나나",
+    "category": "조합"
+  },
+  {
+    "word": "우주 딸기",
+    "category": "조합"
+  },
+  {
+    "word": "우주 수박",
+    "category": "조합"
+  },
+  {
+    "word": "우주 복숭아",
+    "category": "조합"
+  },
+  {
+    "word": "우주 포도",
+    "category": "조합"
+  },
+  {
+    "word": "우주 귤",
+    "category": "조합"
+  },
+  {
+    "word": "우주 망고",
+    "category": "조합"
+  },
+  {
+    "word": "우주 강아지",
+    "category": "조합"
+  },
+  {
+    "word": "우주 고양이",
+    "category": "조합"
+  },
+  {
+    "word": "우주 호랑이",
+    "category": "조합"
+  },
+  {
+    "word": "우주 사자",
+    "category": "조합"
+  },
+  {
+    "word": "우주 코끼리",
+    "category": "조합"
+  },
+  {
+    "word": "우주 기린",
+    "category": "조합"
+  },
+  {
+    "word": "우주 판다",
+    "category": "조합"
+  },
+  {
+    "word": "우주 토끼",
+    "category": "조합"
+  },
+  {
+    "word": "우주 햄스터",
+    "category": "조합"
+  },
+  {
+    "word": "우주 원숭이",
+    "category": "조합"
+  },
+  {
+    "word": "우주 펭귄",
+    "category": "조합"
+  },
+  {
+    "word": "우주 돌고래",
+    "category": "조합"
+  },
+  {
+    "word": "우주 고래",
+    "category": "조합"
+  },
+  {
+    "word": "우주 상어",
+    "category": "조합"
+  },
+  {
+    "word": "우주 문어",
+    "category": "조합"
+  },
+  {
+    "word": "우주 독수리",
+    "category": "조합"
+  },
+  {
+    "word": "우주 부엉이",
+    "category": "조합"
+  },
+  {
+    "word": "우주 여우",
+    "category": "조합"
+  },
+  {
+    "word": "우주 늑대",
+    "category": "조합"
+  },
+  {
+    "word": "우주 곰",
+    "category": "조합"
+  },
+  {
+    "word": "우주 코알라",
+    "category": "조합"
+  },
+  {
+    "word": "우주 캥거루",
+    "category": "조합"
+  },
+  {
+    "word": "우주 악어",
+    "category": "조합"
+  },
+  {
+    "word": "우주 하마",
+    "category": "조합"
+  },
+  {
+    "word": "우주 치타",
+    "category": "조합"
+  },
+  {
+    "word": "우주 얼룩말",
+    "category": "조합"
+  },
+  {
+    "word": "우주 다람쥐",
+    "category": "조합"
+  },
+  {
+    "word": "우주 수달",
+    "category": "조합"
+  },
+  {
+    "word": "우주 거북이",
+    "category": "조합"
+  },
+  {
+    "word": "우주 카피바라",
+    "category": "조합"
+  },
+  {
+    "word": "우주 학교",
+    "category": "조합"
+  },
+  {
+    "word": "우주 편의점",
+    "category": "조합"
+  },
+  {
+    "word": "우주 놀이공원",
+    "category": "조합"
+  },
+  {
+    "word": "우주 영화관",
+    "category": "조합"
+  },
+  {
+    "word": "우주 도서관",
+    "category": "조합"
+  },
+  {
+    "word": "우주 카페",
+    "category": "조합"
+  },
+  {
+    "word": "우주 식당",
+    "category": "조합"
+  },
+  {
+    "word": "우주 공항",
+    "category": "조합"
+  },
+  {
+    "word": "우주 기차역",
+    "category": "조합"
+  },
+  {
+    "word": "우주 버스정류장",
+    "category": "조합"
+  },
+  {
+    "word": "우주 병원",
+    "category": "조합"
+  },
+  {
+    "word": "우주 약국",
+    "category": "조합"
+  },
+  {
+    "word": "우주 은행",
+    "category": "조합"
+  },
+  {
+    "word": "우주 마트",
+    "category": "조합"
+  },
+  {
+    "word": "우주 백화점",
+    "category": "조합"
+  },
+  {
+    "word": "우주 PC방",
+    "category": "조합"
+  },
+  {
+    "word": "우주 노래방",
+    "category": "조합"
+  },
+  {
+    "word": "우주 수영장",
+    "category": "조합"
+  },
+  {
+    "word": "우주 헬스장",
+    "category": "조합"
+  },
+  {
+    "word": "우주 공원",
+    "category": "조합"
+  },
+  {
+    "word": "우주 해변",
+    "category": "조합"
+  },
+  {
+    "word": "우주 산",
+    "category": "조합"
+  },
+  {
+    "word": "우주 캠핑장",
+    "category": "조합"
+  },
+  {
+    "word": "우주 호텔",
+    "category": "조합"
+  },
+  {
+    "word": "우주 미술관",
+    "category": "조합"
+  },
+  {
+    "word": "우주 박물관",
+    "category": "조합"
+  },
+  {
+    "word": "우주 동물원",
+    "category": "조합"
+  },
+  {
+    "word": "우주 수족관",
+    "category": "조합"
+  },
+  {
+    "word": "우주 야구장",
+    "category": "조합"
+  },
+  {
+    "word": "우주 축구장",
+    "category": "조합"
+  },
+  {
+    "word": "우주 우산",
+    "category": "조합"
+  },
+  {
+    "word": "우주 가방",
+    "category": "조합"
+  },
+  {
+    "word": "우주 연필",
+    "category": "조합"
+  },
+  {
+    "word": "우주 지우개",
+    "category": "조합"
+  },
+  {
+    "word": "우주 노트북",
+    "category": "조합"
+  },
+  {
+    "word": "우주 키보드",
+    "category": "조합"
+  },
+  {
+    "word": "우주 마우스",
+    "category": "조합"
+  },
+  {
+    "word": "우주 스마트폰",
+    "category": "조합"
+  },
+  {
+    "word": "우주 이어폰",
+    "category": "조합"
+  },
+  {
+    "word": "우주 헤드폰",
+    "category": "조합"
+  }
+]

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#7c5cff">
+  <meta name="description" content="친구들과 즐기는 실시간 온라인 라이어게임">
+  <title>라이어룸</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body><main class="app">
+<header><div><div class="eyebrow">REALTIME PARTY GAME</div><h1>🎭 라이어룸</h1><p>최대 10명 · 모바일/PC · 디스코드 음성채팅과 함께</p></div><div class="header-actions"><button id="installBtn" class="ghost hidden">앱 설치</button><button id="soundBtn" class="ghost">🔊</button><div id="roomBadge" class="room-badge hidden"></div></div></header>
+<section id="home" class="panel hero">
+  <div class="grid2"><div><h2>프로필</h2><label>닉네임<input id="name" maxlength="12" placeholder="닉네임 입력" autocomplete="nickname"></label><div><span class="label">캐릭터</span><div id="avatars" class="avatars"></div></div></div>
+  <div><h2>게임 시작</h2><div class="mode-row"><button class="mode active" data-mode="normal">🕵️ 일반게임<span>한 명만 단어를 모릅니다</span></button><button class="mode" data-mode="question">🔢 질문게임<span>한 명만 질문을 모릅니다</span></button></div><label>방 비밀번호 <span class="optional">선택</span><input id="createPassword" maxlength="24" type="password" placeholder="비워두면 공개방"></label><button id="createBtn" class="primary">새 방 만들기</button><div class="join"><input id="codeInput" maxlength="5" placeholder="방 코드" autocapitalize="characters"><button id="joinBtn">참가하기</button></div><label>참가 비밀번호 <span class="optional">필요한 경우</span><input id="joinPassword" maxlength="24" type="password" placeholder="비밀번호"></label></div></div>
+</section>
+<section id="game" class="hidden">
+  <div class="panel"><div class="topline"><div><span id="phaseText" class="pill"></span><h2 id="title"></h2></div><div class="timer-wrap"><div id="timer" class="timer hidden">--:--</div><div id="hostControls"></div></div></div><div id="privateCard" class="private-card"></div><div id="questionInput" class="hidden"></div><div id="answerBoard"></div><div id="voteArea"></div></div>
+  <div id="settingsPanel" class="panel hidden"></div>
+  <div class="panel"><div class="section-head"><h3>참가자 <span id="count"></span></h3><button id="leaveBtn" class="danger-soft">나가기</button></div><div id="players" class="players"></div></div>
+</section>
+<div id="toast"></div>
+</main><script src="/socket.io/socket.io.js"></script><script src="/app.js"></script></body></html>

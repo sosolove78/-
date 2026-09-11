@@ -1,0 +1,10 @@
+{
+  "name":"라이어룸 - 온라인 라이어게임",
+  "short_name":"라이어룸",
+  "start_url":"/",
+  "display":"standalone",
+  "background_color":"#0b1020",
+  "theme_color":"#7c5cff",
+  "description":"최대 10명이 함께하는 실시간 라이어게임",
+  "icons":[{"src":"/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
