@@ -17,7 +17,7 @@ const words = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'words.jso
 const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'questions.json'), 'utf8'));
 const rooms = new Map();
 const AVATARS = ['🦊','🐼','🐯','🐸','🐧','🐰','🐻','🐨','🦁','🐵','🐙','🦄','🐲','👻','🤖','🥷','🧙','🧛','🧑‍🚀','🕵️','🐺','🦖','🐱','🐶','🐹','🦝','🦋','🐝','🐳','🦈'];
-const ALLOWED_TIMES = [45, 60, 90, 120, 180, 300];
+const ALLOWED_TIMES = [0, 45, 60, 90, 120, 180, 300];
 const ALLOWED_VOTE_TIMES = [15, 20, 30, 45, 60];
 
 function makeCode() {
@@ -56,7 +56,7 @@ function publicRoom(room) {
     settings: room.settings,
     hasPassword: Boolean(room.password),
     deadline: room.deadline,
-    promptMeta: room.mode === 'question' && room.phase !== 'lobby' ? { min: room.prompt?.min, max: room.prompt?.max } : null
+    promptMeta: room.phase !== 'lobby' && room.prompt ? (room.mode === 'question' ? { min: room.prompt?.min, max: room.prompt?.max } : { category: room.prompt?.category }) : null
   };
 }
 
@@ -71,6 +71,7 @@ function emitState(room) {
         isLiar,
         mode: room.mode,
         word: room.mode === 'normal' && !isLiar ? room.prompt.word : null,
+        category: room.mode === 'normal' ? room.prompt.category : null,
         question: room.mode === 'question' && !isLiar ? room.prompt.question : null,
         min: room.mode === 'question' ? room.prompt.min : null,
         max: room.mode === 'question' ? room.prompt.max : null,
@@ -130,7 +131,8 @@ function chooseLiars(room) {
 }
 
 function startDiscussionTimer(room) {
-  armTimer(room, room.settings.roundTime, () => openVoting(room, true));
+  if (room.settings.roundTime > 0) armTimer(room, room.settings.roundTime, () => openVoting(room, true));
+  else clearTimer(room);
 }
 
 function startRound(room) {
@@ -142,7 +144,7 @@ function startRound(room) {
   room.liarIds = chooseLiars(room);
   room.prompt = pickPrompt(room);
   if (room.mode === 'normal') startDiscussionTimer(room);
-  else armTimer(room, room.settings.roundTime, () => revealQuestionAnswers(room, true));
+  else if (room.settings.roundTime > 0) armTimer(room, room.settings.roundTime, () => revealQuestionAnswers(room, true));
   emitState(room);
 }
 
@@ -457,5 +459,5 @@ io.on('connection', socket => {
   });
 });
 
-app.get('/health', (_,res)=>res.json({ok:true, rooms:rooms.size, words:words.length, questions:questions.length, version:'2.0.0'}));
-server.listen(PORT, () => console.log(`Liar game v2 running on http://localhost:${PORT}`));
+app.get('/health', (_,res)=>res.json({ok:true, rooms:rooms.size, words:words.length, questions:questions.length, version:'3.0.0'}));
+server.listen(PORT, () => console.log(`Liar game v3 running on http://localhost:${PORT}`));
