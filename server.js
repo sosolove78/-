@@ -75,7 +75,8 @@ function emitState(room) {
         question: room.mode === 'question' && !isLiar ? room.prompt.question : null,
         min: room.mode === 'question' ? room.prompt.min : null,
         max: room.mode === 'question' ? room.prompt.max : null,
-        canGuess: room.phase === 'liarGuess' && room.guessingLiarId === p.id
+        canGuess: room.phase === 'liarGuess' && room.guessingLiarId === p.id,
+        wordLength: room.mode === 'normal' && room.phase === 'liarGuess' && room.guessingLiarId === p.id ? [...room.prompt.word.replace(/\s/g, '')].length : null
       });
     }
   }

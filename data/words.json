@@ -1,23 +1,23 @@
 [
   {
     "word": "햄버거",
-    "category": "음식"
+    "category": "양식·패스트푸드"
   },
   {
     "word": "피자",
-    "category": "음식"
+    "category": "양식·패스트푸드"
   },
   {
     "word": "라면",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "김밥",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "떡볶이",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "치킨",
@@ -25,99 +25,99 @@
   },
   {
     "word": "초밥",
-    "category": "음식"
+    "category": "해산물"
   },
   {
     "word": "돈가스",
-    "category": "음식"
+    "category": "양식·패스트푸드"
   },
   {
     "word": "파스타",
-    "category": "음식"
+    "category": "양식·패스트푸드"
   },
   {
     "word": "냉면",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "삼겹살",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "갈비",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "샌드위치",
-    "category": "음식"
+    "category": "양식·패스트푸드"
   },
   {
     "word": "핫도그",
-    "category": "음식"
+    "category": "양식·패스트푸드"
   },
   {
     "word": "붕어빵",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "호떡",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "아이스크림",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "케이크",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "도넛",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "쿠키",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "초콜릿",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "사탕",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "사과",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "바나나",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "딸기",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "수박",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "복숭아",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "포도",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "귤",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "망고",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "강아지",
@@ -241,51 +241,51 @@
   },
   {
     "word": "학교",
-    "category": "장소"
+    "category": "학교시설"
   },
   {
     "word": "편의점",
-    "category": "장소"
+    "category": "상점"
   },
   {
     "word": "놀이공원",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "영화관",
-    "category": "장소"
+    "category": "문화시설"
   },
   {
     "word": "도서관",
-    "category": "장소"
+    "category": "문화시설"
   },
   {
     "word": "카페",
-    "category": "장소"
+    "category": "상점"
   },
   {
     "word": "식당",
-    "category": "장소"
+    "category": "상점"
   },
   {
     "word": "공항",
-    "category": "장소"
+    "category": "교통시설"
   },
   {
     "word": "기차역",
-    "category": "장소"
+    "category": "교통시설"
   },
   {
     "word": "버스정류장",
-    "category": "장소"
+    "category": "교통시설"
   },
   {
     "word": "병원",
-    "category": "장소"
+    "category": "의료시설"
   },
   {
     "word": "약국",
-    "category": "장소"
+    "category": "의료시설"
   },
   {
     "word": "은행",
@@ -293,283 +293,283 @@
   },
   {
     "word": "마트",
-    "category": "장소"
+    "category": "상점"
   },
   {
     "word": "백화점",
-    "category": "장소"
+    "category": "상점"
   },
   {
     "word": "PC방",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "노래방",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "수영장",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "헬스장",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "공원",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "해변",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "산",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "캠핑장",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "호텔",
-    "category": "장소"
+    "category": "숙박시설"
   },
   {
     "word": "미술관",
-    "category": "장소"
+    "category": "문화시설"
   },
   {
     "word": "박물관",
-    "category": "장소"
+    "category": "문화시설"
   },
   {
     "word": "동물원",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "수족관",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "야구장",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "축구장",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "우산",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "가방",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "연필",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "지우개",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "노트북",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "키보드",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "마우스",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "스마트폰",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "이어폰",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "헤드폰",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "충전기",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "시계",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "안경",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "컵",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "접시",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "숟가락",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "젓가락",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "냄비",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "프라이팬",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "의자",
-    "category": "물건"
+    "category": "가구·침구"
   },
   {
     "word": "책상",
-    "category": "물건"
+    "category": "가구·침구"
   },
   {
     "word": "침대",
-    "category": "물건"
+    "category": "가구·침구"
   },
   {
     "word": "베개",
-    "category": "물건"
+    "category": "가구·침구"
   },
   {
     "word": "이불",
-    "category": "물건"
+    "category": "가구·침구"
   },
   {
     "word": "선풍기",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "에어컨",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "냉장고",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "전자레인지",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "청소기",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "세탁기",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "축구",
-    "category": "취미"
+    "category": "구기스포츠"
   },
   {
     "word": "농구",
-    "category": "취미"
+    "category": "구기스포츠"
   },
   {
     "word": "야구",
-    "category": "취미"
+    "category": "구기스포츠"
   },
   {
     "word": "배드민턴",
-    "category": "취미"
+    "category": "구기스포츠"
   },
   {
     "word": "탁구",
-    "category": "취미"
+    "category": "구기스포츠"
   },
   {
     "word": "테니스",
-    "category": "취미"
+    "category": "구기스포츠"
   },
   {
     "word": "볼링",
-    "category": "취미"
+    "category": "구기스포츠"
   },
   {
     "word": "수영",
-    "category": "취미"
+    "category": "야외활동"
   },
   {
     "word": "러닝",
-    "category": "취미"
+    "category": "야외활동"
   },
   {
     "word": "등산",
-    "category": "취미"
+    "category": "야외활동"
   },
   {
     "word": "캠핑",
-    "category": "취미"
+    "category": "야외활동"
   },
   {
     "word": "낚시",
-    "category": "취미"
+    "category": "야외활동"
   },
   {
     "word": "요리",
-    "category": "취미"
+    "category": "창작·공예"
   },
   {
     "word": "베이킹",
-    "category": "취미"
+    "category": "창작·공예"
   },
   {
     "word": "독서",
-    "category": "취미"
+    "category": "콘텐츠감상"
   },
   {
     "word": "그림그리기",
-    "category": "취미"
+    "category": "창작·공예"
   },
   {
     "word": "사진촬영",
-    "category": "취미"
+    "category": "창작·공예"
   },
   {
     "word": "노래부르기",
-    "category": "취미"
+    "category": "음악·공연취미"
   },
   {
     "word": "춤추기",
-    "category": "취미"
+    "category": "음악·공연취미"
   },
   {
     "word": "게임",
-    "category": "취미"
+    "category": "두뇌·실내취미"
   },
   {
     "word": "영화보기",
-    "category": "취미"
+    "category": "콘텐츠감상"
   },
   {
     "word": "드라마보기",
-    "category": "취미"
+    "category": "콘텐츠감상"
   },
   {
     "word": "유튜브보기",
-    "category": "취미"
+    "category": "콘텐츠감상"
   },
   {
     "word": "여행",
@@ -581,47 +581,47 @@
   },
   {
     "word": "자전거타기",
-    "category": "취미"
+    "category": "야외활동"
   },
   {
     "word": "스케이트",
-    "category": "취미"
+    "category": "야외활동"
   },
   {
     "word": "보드게임",
-    "category": "취미"
+    "category": "두뇌·실내취미"
   },
   {
     "word": "퍼즐",
-    "category": "취미"
+    "category": "두뇌·실내취미"
   },
   {
     "word": "악기연주",
-    "category": "취미"
+    "category": "음악·공연취미"
   },
   {
     "word": "밥",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "죽",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "국",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "찌개",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "전골",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "국수",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "우동",
@@ -645,27 +645,27 @@
   },
   {
     "word": "족발",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "보쌈",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "불고기",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "비빔밥",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "볶음밥",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "회",
-    "category": "음식"
+    "category": "해산물"
   },
   {
     "word": "카레",
@@ -673,383 +673,383 @@
   },
   {
     "word": "오므라이스",
-    "category": "음식"
+    "category": "양식·패스트푸드"
   },
   {
     "word": "토스트",
-    "category": "음식"
+    "category": "양식·패스트푸드"
   },
   {
     "word": "샐러드",
-    "category": "음식"
+    "category": "양식·패스트푸드"
   },
   {
     "word": "스테이크",
-    "category": "음식"
+    "category": "양식·패스트푸드"
   },
   {
     "word": "스파게티",
-    "category": "음식"
+    "category": "양식·패스트푸드"
   },
   {
     "word": "리조또",
-    "category": "음식"
+    "category": "양식·패스트푸드"
   },
   {
     "word": "타코",
-    "category": "음식"
+    "category": "양식·패스트푸드"
   },
   {
     "word": "와플",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "떡",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "빵",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "젤리",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "팥빙수",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "과자",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "팝콘",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "치즈",
-    "category": "음식"
+    "category": "육류·식재료"
   },
   {
     "word": "우유",
-    "category": "음식"
+    "category": "음료·술"
   },
   {
     "word": "요구르트",
-    "category": "음식"
+    "category": "음료·술"
   },
   {
     "word": "커피",
-    "category": "음식"
+    "category": "음료·술"
   },
   {
     "word": "콜라",
-    "category": "음식"
+    "category": "음료·술"
   },
   {
     "word": "사이다",
-    "category": "음식"
+    "category": "음료·술"
   },
   {
     "word": "주스",
-    "category": "음식"
+    "category": "음료·술"
   },
   {
     "word": "물",
-    "category": "음식"
+    "category": "음료·술"
   },
   {
     "word": "맥주",
-    "category": "음식"
+    "category": "음료·술"
   },
   {
     "word": "소주",
-    "category": "음식"
+    "category": "음료·술"
   },
   {
     "word": "막걸리",
-    "category": "음식"
+    "category": "음료·술"
   },
   {
     "word": "와인",
-    "category": "음식"
+    "category": "음료·술"
   },
   {
     "word": "김치",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "깍두기",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "계란",
-    "category": "음식"
+    "category": "육류·식재료"
   },
   {
     "word": "두부",
-    "category": "음식"
+    "category": "육류·식재료"
   },
   {
     "word": "김",
-    "category": "음식"
+    "category": "해산물"
   },
   {
     "word": "미역",
-    "category": "음식"
+    "category": "해산물"
   },
   {
     "word": "참치",
-    "category": "음식"
+    "category": "해산물"
   },
   {
     "word": "고등어",
-    "category": "음식"
+    "category": "해산물"
   },
   {
     "word": "연어",
-    "category": "음식"
+    "category": "해산물"
   },
   {
     "word": "새우",
-    "category": "음식"
+    "category": "해산물"
   },
   {
     "word": "게",
-    "category": "음식"
+    "category": "해산물"
   },
   {
     "word": "오징어",
-    "category": "음식"
+    "category": "해산물"
   },
   {
     "word": "조개",
-    "category": "음식"
+    "category": "해산물"
   },
   {
     "word": "굴",
-    "category": "음식"
+    "category": "해산물"
   },
   {
     "word": "소고기",
-    "category": "음식"
+    "category": "육류·식재료"
   },
   {
     "word": "돼지고기",
-    "category": "음식"
+    "category": "육류·식재료"
   },
   {
     "word": "닭고기",
-    "category": "음식"
+    "category": "육류·식재료"
   },
   {
     "word": "햄",
-    "category": "음식"
+    "category": "육류·식재료"
   },
   {
     "word": "소시지",
-    "category": "음식"
+    "category": "육류·식재료"
   },
   {
     "word": "감자",
-    "category": "음식"
+    "category": "채소"
   },
   {
     "word": "고구마",
-    "category": "음식"
+    "category": "채소"
   },
   {
     "word": "옥수수",
-    "category": "음식"
+    "category": "채소"
   },
   {
     "word": "양파",
-    "category": "음식"
+    "category": "채소"
   },
   {
     "word": "마늘",
-    "category": "음식"
+    "category": "채소"
   },
   {
     "word": "당근",
-    "category": "음식"
+    "category": "채소"
   },
   {
     "word": "오이",
-    "category": "음식"
+    "category": "채소"
   },
   {
     "word": "배추",
-    "category": "음식"
+    "category": "채소"
   },
   {
     "word": "상추",
-    "category": "음식"
+    "category": "채소"
   },
   {
     "word": "버섯",
-    "category": "음식"
+    "category": "채소"
   },
   {
     "word": "콩나물",
-    "category": "음식"
+    "category": "채소"
   },
   {
     "word": "시금치",
-    "category": "음식"
+    "category": "채소"
   },
   {
     "word": "브로콜리",
-    "category": "음식"
+    "category": "채소"
   },
   {
     "word": "토마토",
-    "category": "음식"
+    "category": "채소"
   },
   {
     "word": "배",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "참외",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "오렌지",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "파인애플",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "키위",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "레몬",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "체리",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "블루베리",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "멜론",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "감",
-    "category": "음식"
+    "category": "과일"
   },
   {
     "word": "감자탕",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "설렁탕",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "곰탕",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "삼계탕",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "육개장",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "순대",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "떡국",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "미역국",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "된장국",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "김치찌개",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "된장찌개",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "순두부",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "부대찌개",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "닭갈비",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "제육볶음",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "잡채",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "파전",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "빈대떡",
-    "category": "음식"
+    "category": "한식"
   },
   {
     "word": "약과",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "한과",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "마카롱",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "푸딩",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "에클레어",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "크루아상",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "베이글",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "머핀",
-    "category": "음식"
+    "category": "디저트·간식"
   },
   {
     "word": "개",
@@ -1333,423 +1333,423 @@
   },
   {
     "word": "지갑",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "열쇠",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "선글라스",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "반지",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "목걸이",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "귀걸이",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "팔찌",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "모자",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "장갑",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "양말",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "신발",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "운동화",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "구두",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "슬리퍼",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "옷",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "바지",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "치마",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "원피스",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "셔츠",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "티셔츠",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "코트",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "점퍼",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "잠옷",
-    "category": "물건"
+    "category": "패션·의류"
   },
   {
     "word": "수건",
-    "category": "물건"
+    "category": "욕실용품"
   },
   {
     "word": "비누",
-    "category": "물건"
+    "category": "욕실용품"
   },
   {
     "word": "칫솔",
-    "category": "물건"
+    "category": "욕실용품"
   },
   {
     "word": "치약",
-    "category": "물건"
+    "category": "욕실용품"
   },
   {
     "word": "샴푸",
-    "category": "물건"
+    "category": "욕실용품"
   },
   {
     "word": "빗",
-    "category": "물건"
+    "category": "욕실용품"
   },
   {
     "word": "거울",
-    "category": "물건"
+    "category": "욕실용품"
   },
   {
     "word": "휴지",
-    "category": "물건"
+    "category": "욕실용품"
   },
   {
     "word": "휴대폰",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "컴퓨터",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "태블릿",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "스피커",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "카메라",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "텔레비전",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "리모컨",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "건조기",
-    "category": "물건"
+    "category": "전자기기"
   },
   {
     "word": "오븐",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "밥솥",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "주전자",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "그릇",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "포크",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "칼",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "가위",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "도마",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "병",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "뚜껑",
-    "category": "물건"
+    "category": "주방용품"
   },
   {
     "word": "소파",
-    "category": "물건"
+    "category": "가구·침구"
   },
   {
     "word": "매트리스",
-    "category": "물건"
+    "category": "가구·침구"
   },
   {
     "word": "옷장",
-    "category": "물건"
+    "category": "가구·침구"
   },
   {
     "word": "서랍장",
-    "category": "물건"
+    "category": "가구·침구"
   },
   {
     "word": "책장",
-    "category": "물건"
+    "category": "가구·침구"
   },
   {
     "word": "전등",
-    "category": "물건"
+    "category": "전기·조명"
   },
   {
     "word": "전구",
-    "category": "물건"
+    "category": "전기·조명"
   },
   {
     "word": "촛불",
-    "category": "물건"
+    "category": "전기·조명"
   },
   {
     "word": "라이터",
-    "category": "물건"
+    "category": "전기·조명"
   },
   {
     "word": "성냥",
-    "category": "물건"
+    "category": "전기·조명"
   },
   {
     "word": "샤프",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "볼펜",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "자",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "공책",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "책",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "달력",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "지도",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "사진",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "액자",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "편지",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "봉투",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "스티커",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "테이프",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "풀",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "계산기",
-    "category": "물건"
+    "category": "문구·학용품"
   },
   {
     "word": "자석",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "망치",
-    "category": "물건"
+    "category": "공구·청소용품"
   },
   {
     "word": "못",
-    "category": "물건"
+    "category": "공구·청소용품"
   },
   {
     "word": "드라이버",
-    "category": "물건"
+    "category": "공구·청소용품"
   },
   {
     "word": "톱",
-    "category": "물건"
+    "category": "공구·청소용품"
   },
   {
     "word": "삽",
-    "category": "물건"
+    "category": "공구·청소용품"
   },
   {
     "word": "빗자루",
-    "category": "물건"
+    "category": "공구·청소용품"
   },
   {
     "word": "쓰레받기",
-    "category": "물건"
+    "category": "공구·청소용품"
   },
   {
     "word": "쓰레기통",
-    "category": "물건"
+    "category": "공구·청소용품"
   },
   {
     "word": "자전거",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "자동차",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "버스",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "지하철",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "기차",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "비행기",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "오토바이",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "킥보드",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "헬멧",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "공",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "풍선",
-    "category": "물건"
+    "category": "게임·놀이"
   },
   {
     "word": "인형",
-    "category": "물건"
+    "category": "게임·놀이"
   },
   {
     "word": "로봇",
-    "category": "물건"
+    "category": "게임·놀이"
   },
   {
     "word": "주사위",
-    "category": "물건"
+    "category": "게임·놀이"
   },
   {
     "word": "카드",
-    "category": "물건"
+    "category": "게임·놀이"
   },
   {
     "word": "화분",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "선물",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "상자",
-    "category": "물건"
+    "category": "생활용품"
   },
   {
     "word": "마스크",
-    "category": "물건"
+    "category": "병원·건강용품"
   },
   {
     "word": "체온계",
-    "category": "물건"
+    "category": "병원·건강용품"
   },
   {
     "word": "약",
-    "category": "물건"
+    "category": "병원·건강용품"
   },
   {
     "word": "붕대",
-    "category": "물건"
+    "category": "병원·건강용품"
   },
   {
     "word": "집",
@@ -1757,99 +1757,99 @@
   },
   {
     "word": "회사",
-    "category": "장소"
+    "category": "회사·업무공간"
   },
   {
     "word": "우체국",
-    "category": "장소"
+    "category": "공공기관"
   },
   {
     "word": "경찰서",
-    "category": "장소"
+    "category": "공공기관"
   },
   {
     "word": "소방서",
-    "category": "장소"
+    "category": "공공기관"
   },
   {
     "word": "법원",
-    "category": "장소"
+    "category": "공공기관"
   },
   {
     "word": "극장",
-    "category": "장소"
+    "category": "문화시설"
   },
   {
     "word": "공연장",
-    "category": "장소"
+    "category": "문화시설"
   },
   {
     "word": "경기장",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "체육관",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "놀이터",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "시장",
-    "category": "장소"
+    "category": "상점"
   },
   {
     "word": "빵집",
-    "category": "장소"
+    "category": "상점"
   },
   {
     "word": "서점",
-    "category": "장소"
+    "category": "상점"
   },
   {
     "word": "문구점",
-    "category": "장소"
+    "category": "상점"
   },
   {
     "word": "미용실",
-    "category": "장소"
+    "category": "상점"
   },
   {
     "word": "세탁소",
-    "category": "장소"
+    "category": "상점"
   },
   {
     "word": "주유소",
-    "category": "장소"
+    "category": "상점"
   },
   {
     "word": "정비소",
-    "category": "장소"
+    "category": "상점"
   },
   {
     "word": "모텔",
-    "category": "장소"
+    "category": "숙박시설"
   },
   {
     "word": "펜션",
-    "category": "장소"
+    "category": "숙박시설"
   },
   {
     "word": "역",
-    "category": "장소"
+    "category": "교통시설"
   },
   {
     "word": "터미널",
-    "category": "장소"
+    "category": "교통시설"
   },
   {
     "word": "정류장",
-    "category": "장소"
+    "category": "교통시설"
   },
   {
     "word": "주차장",
-    "category": "장소"
+    "category": "교통시설"
   },
   {
     "word": "화장실",
@@ -1857,415 +1857,415 @@
   },
   {
     "word": "엘리베이터",
-    "category": "장소"
+    "category": "집안공간"
   },
   {
     "word": "계단",
-    "category": "장소"
+    "category": "집안공간"
   },
   {
     "word": "옥상",
-    "category": "장소"
+    "category": "집안공간"
   },
   {
     "word": "지하실",
-    "category": "장소"
+    "category": "집안공간"
   },
   {
     "word": "거실",
-    "category": "장소"
+    "category": "집안공간"
   },
   {
     "word": "주방",
-    "category": "장소"
+    "category": "집안공간"
   },
   {
     "word": "욕실",
-    "category": "장소"
+    "category": "집안공간"
   },
   {
     "word": "침실",
-    "category": "장소"
+    "category": "집안공간"
   },
   {
     "word": "교실",
-    "category": "장소"
+    "category": "학교시설"
   },
   {
     "word": "운동장",
-    "category": "장소"
+    "category": "학교시설"
   },
   {
     "word": "사무실",
-    "category": "장소"
+    "category": "회사·업무공간"
   },
   {
     "word": "회의실",
-    "category": "장소"
+    "category": "회사·업무공간"
   },
   {
     "word": "공장",
-    "category": "장소"
+    "category": "회사·업무공간"
   },
   {
     "word": "농장",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "목장",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "논",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "밭",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "바다",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "강",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "호수",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "계곡",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "폭포",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "섬",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "사막",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "숲",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "동굴",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "온천",
-    "category": "장소"
+    "category": "자연장소"
   },
   {
     "word": "절",
-    "category": "장소"
+    "category": "종교·전통장소"
   },
   {
     "word": "교회",
-    "category": "장소"
+    "category": "종교·전통장소"
   },
   {
     "word": "성당",
-    "category": "장소"
+    "category": "종교·전통장소"
   },
   {
     "word": "궁궐",
-    "category": "장소"
+    "category": "종교·전통장소"
   },
   {
     "word": "성",
-    "category": "장소"
+    "category": "종교·전통장소"
   },
   {
     "word": "묘지",
-    "category": "장소"
+    "category": "종교·전통장소"
   },
   {
     "word": "군대",
-    "category": "장소"
+    "category": "공공기관"
   },
   {
     "word": "감옥",
-    "category": "장소"
+    "category": "공공기관"
   },
   {
     "word": "찜질방",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "당구장",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "볼링장",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "골프장",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "스키장",
-    "category": "장소"
+    "category": "여가시설"
   },
   {
     "word": "항구",
-    "category": "장소"
+    "category": "교통시설"
   },
   {
     "word": "하늘",
-    "category": "자연"
+    "category": "지형·자연물"
   },
   {
     "word": "땅",
-    "category": "자연"
+    "category": "지형·자연물"
   },
   {
     "word": "해",
-    "category": "자연"
+    "category": "천체·우주"
   },
   {
     "word": "달",
-    "category": "자연"
+    "category": "천체·우주"
   },
   {
     "word": "별",
-    "category": "자연"
+    "category": "천체·우주"
   },
   {
     "word": "구름",
-    "category": "자연"
+    "category": "날씨"
   },
   {
     "word": "비",
-    "category": "자연"
+    "category": "날씨"
   },
   {
     "word": "눈",
-    "category": "자연"
+    "category": "날씨"
   },
   {
     "word": "바람",
-    "category": "자연"
+    "category": "날씨"
   },
   {
     "word": "번개",
-    "category": "자연"
+    "category": "날씨"
   },
   {
     "word": "천둥",
-    "category": "자연"
+    "category": "날씨"
   },
   {
     "word": "안개",
-    "category": "자연"
+    "category": "날씨"
   },
   {
     "word": "무지개",
-    "category": "자연"
+    "category": "날씨"
   },
   {
     "word": "태풍",
-    "category": "자연"
+    "category": "날씨"
   },
   {
     "word": "파도",
-    "category": "자연"
+    "category": "자연현상"
   },
   {
     "word": "모래",
-    "category": "자연"
+    "category": "지형·자연물"
   },
   {
     "word": "돌",
-    "category": "자연"
+    "category": "지형·자연물"
   },
   {
     "word": "바위",
-    "category": "자연"
+    "category": "지형·자연물"
   },
   {
     "word": "흙",
-    "category": "자연"
+    "category": "지형·자연물"
   },
   {
     "word": "불",
-    "category": "자연"
+    "category": "자연현상"
   },
   {
     "word": "얼음",
-    "category": "자연"
+    "category": "자연현상"
   },
   {
     "word": "나무",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "꽃",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "잎",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "씨앗",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "열매",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "뿌리",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "가지",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "장미",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "튤립",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "해바라기",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "민들레",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "벚꽃",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "국화",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "코스모스",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "선인장",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "대나무",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "소나무",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "단풍",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "은행나무",
-    "category": "자연"
+    "category": "식물"
   },
   {
     "word": "화산",
-    "category": "자연"
+    "category": "자연현상"
   },
   {
     "word": "지진",
-    "category": "자연"
+    "category": "자연현상"
   },
   {
     "word": "홍수",
-    "category": "자연"
+    "category": "자연현상"
   },
   {
     "word": "가뭄",
-    "category": "자연"
+    "category": "자연현상"
   },
   {
     "word": "봄",
-    "category": "자연"
+    "category": "계절·시간대"
   },
   {
     "word": "여름",
-    "category": "자연"
+    "category": "계절·시간대"
   },
   {
     "word": "가을",
-    "category": "자연"
+    "category": "계절·시간대"
   },
   {
     "word": "겨울",
-    "category": "자연"
+    "category": "계절·시간대"
   },
   {
     "word": "아침",
-    "category": "자연"
+    "category": "계절·시간대"
   },
   {
     "word": "점심",
-    "category": "자연"
+    "category": "계절·시간대"
   },
   {
     "word": "저녁",
-    "category": "자연"
+    "category": "계절·시간대"
   },
   {
     "word": "밤",
-    "category": "자연"
+    "category": "계절·시간대"
   },
   {
     "word": "새벽",
-    "category": "자연"
+    "category": "계절·시간대"
   },
   {
     "word": "노을",
-    "category": "자연"
+    "category": "계절·시간대"
   },
   {
     "word": "그림자",
-    "category": "자연"
+    "category": "자연현상"
   },
   {
     "word": "공기",
-    "category": "자연"
+    "category": "지형·자연물"
   },
   {
     "word": "햇빛",
-    "category": "자연"
+    "category": "천체·우주"
   },
   {
     "word": "우주",
-    "category": "자연"
+    "category": "천체·우주"
   },
   {
     "word": "지구",
-    "category": "자연"
+    "category": "천체·우주"
   },
   {
     "word": "태양",
-    "category": "자연"
+    "category": "천체·우주"
   },
   {
     "word": "달빛",
-    "category": "자연"
+    "category": "천체·우주"
   },
   {
     "word": "별빛",
-    "category": "자연"
+    "category": "천체·우주"
   },
   {
     "word": "머리",
@@ -2705,7 +2705,7 @@
   },
   {
     "word": "골프",
-    "category": "스포츠"
+    "category": "구기스포츠"
   },
   {
     "word": "달리기",
@@ -2809,63 +2809,63 @@
   },
   {
     "word": "영화",
-    "category": "취미"
+    "category": "콘텐츠감상"
   },
   {
     "word": "음악",
-    "category": "취미"
+    "category": "콘텐츠감상"
   },
   {
     "word": "노래",
-    "category": "취미"
+    "category": "콘텐츠감상"
   },
   {
     "word": "춤",
-    "category": "취미"
+    "category": "음악·공연취미"
   },
   {
     "word": "그림",
-    "category": "취미"
+    "category": "창작·공예"
   },
   {
     "word": "산책",
-    "category": "취미"
+    "category": "야외활동"
   },
   {
     "word": "운동",
-    "category": "취미"
+    "category": "야외활동"
   },
   {
     "word": "드라이브",
-    "category": "취미"
+    "category": "야외활동"
   },
   {
     "word": "뜨개질",
-    "category": "취미"
+    "category": "창작·공예"
   },
   {
     "word": "바느질",
-    "category": "취미"
+    "category": "창작·공예"
   },
   {
     "word": "수집",
-    "category": "취미"
+    "category": "두뇌·실내취미"
   },
   {
     "word": "체스",
-    "category": "취미"
+    "category": "두뇌·실내취미"
   },
   {
     "word": "장기",
-    "category": "취미"
+    "category": "두뇌·실내취미"
   },
   {
     "word": "바둑",
-    "category": "취미"
+    "category": "두뇌·실내취미"
   },
   {
     "word": "화장",
-    "category": "취미"
+    "category": "창작·공예"
   },
   {
     "word": "청소",
@@ -2873,599 +2873,599 @@
   },
   {
     "word": "공부",
-    "category": "취미"
+    "category": "두뇌·실내취미"
   },
   {
     "word": "악기",
-    "category": "취미"
+    "category": "음악·공연취미"
   },
   {
     "word": "피아노",
-    "category": "취미"
+    "category": "음악·공연취미"
   },
   {
     "word": "기타",
-    "category": "취미"
+    "category": "음악·공연취미"
   },
   {
     "word": "바이올린",
-    "category": "취미"
+    "category": "음악·공연취미"
   },
   {
     "word": "드럼",
-    "category": "취미"
+    "category": "음악·공연취미"
   },
   {
     "word": "만화",
-    "category": "취미"
+    "category": "콘텐츠감상"
   },
   {
     "word": "웹툰",
-    "category": "취미"
+    "category": "콘텐츠감상"
   },
   {
     "word": "애니메이션",
-    "category": "취미"
+    "category": "콘텐츠감상"
   },
   {
     "word": "드라마",
-    "category": "취미"
+    "category": "콘텐츠감상"
   },
   {
     "word": "예능",
-    "category": "취미"
+    "category": "콘텐츠감상"
   },
   {
     "word": "유튜브",
-    "category": "취미"
+    "category": "콘텐츠감상"
   },
   {
     "word": "방송",
-    "category": "취미"
+    "category": "콘텐츠감상"
   },
   {
     "word": "인터넷",
-    "category": "취미"
+    "category": "콘텐츠감상"
   },
   {
     "word": "명상",
-    "category": "취미"
+    "category": "두뇌·실내취미"
   },
   {
     "word": "일기",
-    "category": "취미"
+    "category": "두뇌·실내취미"
   },
   {
     "word": "사랑",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "우정",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "가족",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "친구",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "부모",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "엄마",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "아빠",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "형",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "누나",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "오빠",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "언니",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "동생",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "아기",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "할머니",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "할아버지",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "선생님",
-    "category": "생활"
+    "category": "학교생활"
   },
   {
     "word": "이웃",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "손님",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "생일",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "결혼",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "이혼",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "약속",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "휴가",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "방학",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "시험",
-    "category": "생활"
+    "category": "학교생활"
   },
   {
     "word": "숙제",
-    "category": "생활"
+    "category": "학교생활"
   },
   {
     "word": "수업",
-    "category": "생활"
+    "category": "학교생활"
   },
   {
     "word": "출근",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "퇴근",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "월급",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "돈",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "현금",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "동전",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "지폐",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "가격",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "할인",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "택배",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "배달",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "전화",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "문자",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "비밀번호",
-    "category": "생활"
+    "category": "문서·신분"
   },
   {
     "word": "이름",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "별명",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "꿈",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "잠",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "낮잠",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "알람",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "시간",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "날짜",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "주말",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "평일",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "오늘",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "내일",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "어제",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "성공",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "실패",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "실수",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "거짓말",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "비밀",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "소문",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "농담",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "웃음",
-    "category": "생활"
+    "category": "감정·성격"
   },
   {
     "word": "울음",
-    "category": "생활"
+    "category": "감정·성격"
   },
   {
     "word": "화",
-    "category": "생활"
+    "category": "감정·성격"
   },
   {
     "word": "화해",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "싸움",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "키스",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "포옹",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "인사",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "박수",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "응원",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "벌칙",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "점수",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "순위",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "복권",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "행운",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "불운",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "기억",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "추억",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "고민",
-    "category": "생활"
+    "category": "감정·성격"
   },
   {
     "word": "걱정",
-    "category": "생활"
+    "category": "감정·성격"
   },
   {
     "word": "행복",
-    "category": "생활"
+    "category": "감정·성격"
   },
   {
     "word": "슬픔",
-    "category": "생활"
+    "category": "감정·성격"
   },
   {
     "word": "기쁨",
-    "category": "생활"
+    "category": "감정·성격"
   },
   {
     "word": "공포",
-    "category": "생활"
+    "category": "감정·성격"
   },
   {
     "word": "놀람",
-    "category": "생활"
+    "category": "감정·성격"
   },
   {
     "word": "질투",
-    "category": "생활"
+    "category": "가족·관계"
   },
   {
     "word": "용기",
-    "category": "생활"
+    "category": "감정·성격"
   },
   {
     "word": "자신감",
-    "category": "생활"
+    "category": "감정·성격"
   },
   {
     "word": "자존심",
-    "category": "생활"
+    "category": "감정·성격"
   },
   {
     "word": "습관",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "취향",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "유행",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "인기",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "규칙",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "법",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "벌금",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "휴식",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "건강",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "감기",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "기침",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "재채기",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "다이어트",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "식사",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "간식",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "야식",
-    "category": "생활"
+    "category": "일상·시간"
   },
   {
     "word": "택시",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "전철",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "헬리콥터",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "요트",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "잠수함",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "트럭",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "구급차",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "소방차",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "경찰차",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "신호등",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "횡단보도",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "도로",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "고속도로",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "터널",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "골목",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "주차",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "운전",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "면허",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "사고",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "교통카드",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "표",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "좌석",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "안전벨트",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "핸들",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "바퀴",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "엔진",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "브레이크",
-    "category": "교통"
+    "category": "교통수단"
   },
   {
     "word": "한국",
@@ -3773,1634 +3773,1634 @@
   },
   {
     "word": "유재석",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "강호동",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "신동엽",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "이경규",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "전현무",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "박명수",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "하하",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "김종국",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "이효리",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "아이유",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "싸이",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "지드래곤",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "대성",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "임영웅",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "영탁",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "장윤정",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "송가인",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "태연",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "윤아",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "수지",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "제니",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "지수",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "로제",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "리사",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "카리나",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "윈터",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "장원영",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "안유진",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "나연",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "사나",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "모모",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "지효",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "정국",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "뷔",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "지민",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "진",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "RM",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "슈가",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "제이홉",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "차은우",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "도경수",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "백현",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "태민",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "민호",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "박보검",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "공유",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "현빈",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "손예진",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "송중기",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "김수현",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "이민호",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "조정석",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "박서준",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "마동석",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "황정민",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "이병헌",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "정우성",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "하정우",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "최민식",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "류승룡",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "유해진",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "이정재",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "박정민",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "전지현",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "김태리",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "김혜수",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "송혜교",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "한소희",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "박보영",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "김지원",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "김고은",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "라미란",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "이영지",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "덱스",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "기안84",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "침착맨",
-    "category": "연예인"
+    "category": "한국 연예인"
   },
   {
     "word": "소설",
-    "category": "문화"
+    "category": "출판·미디어"
   },
   {
     "word": "동화",
-    "category": "문화"
+    "category": "출판·미디어"
   },
   {
     "word": "시",
-    "category": "문화"
+    "category": "출판·미디어"
   },
   {
     "word": "콘서트",
-    "category": "문화"
+    "category": "공연예술"
   },
   {
     "word": "축제",
-    "category": "문화"
+    "category": "공연예술"
   },
   {
     "word": "공연",
-    "category": "문화"
+    "category": "공연예술"
   },
   {
     "word": "무대",
-    "category": "문화"
+    "category": "공연예술"
   },
   {
     "word": "광고",
-    "category": "문화"
+    "category": "출판·미디어"
   },
   {
     "word": "뉴스",
-    "category": "문화"
+    "category": "출판·미디어"
   },
   {
     "word": "신문",
-    "category": "문화"
+    "category": "출판·미디어"
   },
   {
     "word": "잡지",
-    "category": "문화"
+    "category": "출판·미디어"
   },
   {
     "word": "미술",
-    "category": "문화"
+    "category": "미술"
   },
   {
     "word": "조각",
-    "category": "문화"
+    "category": "미술"
   },
   {
     "word": "발레",
-    "category": "문화"
+    "category": "공연예술"
   },
   {
     "word": "연극",
-    "category": "문화"
+    "category": "공연예술"
   },
   {
     "word": "뮤지컬",
-    "category": "문화"
+    "category": "공연예술"
   },
   {
     "word": "오페라",
-    "category": "문화"
+    "category": "공연예술"
   },
   {
     "word": "국악",
-    "category": "문화"
+    "category": "공연예술"
   },
   {
     "word": "플루트",
-    "category": "문화"
+    "category": "악기·음향"
   },
   {
     "word": "트럼펫",
-    "category": "문화"
+    "category": "악기·음향"
   },
   {
     "word": "마이크",
-    "category": "문화"
+    "category": "악기·음향"
   },
   {
     "word": "캐릭터",
-    "category": "문화"
+    "category": "판타지·캐릭터"
   },
   {
     "word": "주인공",
-    "category": "문화"
+    "category": "판타지·캐릭터"
   },
   {
     "word": "악당",
-    "category": "문화"
+    "category": "판타지·캐릭터"
   },
   {
     "word": "영웅",
-    "category": "문화"
+    "category": "판타지·캐릭터"
   },
   {
     "word": "마법사",
-    "category": "문화"
+    "category": "판타지·캐릭터"
   },
   {
     "word": "좀비",
-    "category": "문화"
+    "category": "판타지·캐릭터"
   },
   {
     "word": "귀신",
-    "category": "문화"
+    "category": "판타지·캐릭터"
   },
   {
     "word": "외계인",
-    "category": "문화"
+    "category": "판타지·캐릭터"
   },
   {
     "word": "공룡",
-    "category": "문화"
+    "category": "판타지·캐릭터"
   },
   {
     "word": "천사",
-    "category": "문화"
+    "category": "판타지·캐릭터"
   },
   {
     "word": "악마",
-    "category": "문화"
+    "category": "판타지·캐릭터"
   },
   {
     "word": "산타",
-    "category": "문화"
+    "category": "판타지·캐릭터"
   },
   {
     "word": "교장",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "칠판",
-    "category": "학교"
+    "category": "문구·학용품"
   },
   {
     "word": "분필",
-    "category": "학교"
+    "category": "문구·학용품"
   },
   {
     "word": "교과서",
-    "category": "학교"
+    "category": "문구·학용품"
   },
   {
     "word": "필통",
-    "category": "학교"
+    "category": "문구·학용품"
   },
   {
     "word": "성적",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "등수",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "급식",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "체육복",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "교복",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "조회",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "개학",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "졸업",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "입학",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "수학",
-    "category": "학교"
+    "category": "교과목"
   },
   {
     "word": "국어",
-    "category": "학교"
+    "category": "교과목"
   },
   {
     "word": "영어",
-    "category": "학교"
+    "category": "교과목"
   },
   {
     "word": "과학",
-    "category": "학교"
+    "category": "교과목"
   },
   {
     "word": "사회",
-    "category": "학교"
+    "category": "교과목"
   },
   {
     "word": "역사",
-    "category": "학교"
+    "category": "교과목"
   },
   {
     "word": "체육",
-    "category": "학교"
+    "category": "교과목"
   },
   {
     "word": "발표",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "질문",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "정답",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "오답",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "문제",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "학원",
-    "category": "학교"
+    "category": "학교시설"
   },
   {
     "word": "짝꿍",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "반장",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "소풍",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "수학여행",
-    "category": "학교"
+    "category": "학교생활"
   },
   {
     "word": "와이파이",
-    "category": "기술"
+    "category": "인터넷·SNS"
   },
   {
     "word": "모니터",
-    "category": "기술"
+    "category": "컴퓨터·소프트웨어"
   },
   {
     "word": "프린터",
-    "category": "기술"
+    "category": "컴퓨터·소프트웨어"
   },
   {
     "word": "영상",
-    "category": "기술"
+    "category": "컴퓨터·소프트웨어"
   },
   {
     "word": "앱",
-    "category": "기술"
+    "category": "컴퓨터·소프트웨어"
   },
   {
     "word": "이메일",
-    "category": "기술"
+    "category": "인터넷·SNS"
   },
   {
     "word": "배터리",
-    "category": "기술"
+    "category": "컴퓨터·소프트웨어"
   },
   {
     "word": "인공지능",
-    "category": "기술"
+    "category": "컴퓨터·소프트웨어"
   },
   {
     "word": "계정",
-    "category": "기술"
+    "category": "인터넷·SNS"
   },
   {
     "word": "로그인",
-    "category": "기술"
+    "category": "인터넷·SNS"
   },
   {
     "word": "검색",
-    "category": "기술"
+    "category": "인터넷·SNS"
   },
   {
     "word": "다운로드",
-    "category": "기술"
+    "category": "인터넷·SNS"
   },
   {
     "word": "업로드",
-    "category": "기술"
+    "category": "인터넷·SNS"
   },
   {
     "word": "댓글",
-    "category": "기술"
+    "category": "인터넷·SNS"
   },
   {
     "word": "좋아요",
-    "category": "기술"
+    "category": "인터넷·SNS"
   },
   {
     "word": "구독",
-    "category": "기술"
+    "category": "인터넷·SNS"
   },
   {
     "word": "알림",
-    "category": "기술"
+    "category": "인터넷·SNS"
   },
   {
     "word": "화면",
-    "category": "기술"
+    "category": "컴퓨터·소프트웨어"
   },
   {
     "word": "버튼",
-    "category": "기술"
+    "category": "컴퓨터·소프트웨어"
   },
   {
     "word": "링크",
-    "category": "기술"
+    "category": "인터넷·SNS"
   },
   {
     "word": "파일",
-    "category": "기술"
+    "category": "컴퓨터·소프트웨어"
   },
   {
     "word": "폴더",
-    "category": "기술"
+    "category": "컴퓨터·소프트웨어"
   },
   {
     "word": "서버",
-    "category": "기술"
+    "category": "컴퓨터·소프트웨어"
   },
   {
     "word": "코드",
-    "category": "기술"
+    "category": "컴퓨터·소프트웨어"
   },
   {
     "word": "프로그램",
-    "category": "기술"
+    "category": "컴퓨터·소프트웨어"
   },
   {
     "word": "가위바위보",
-    "category": "생활"
+    "category": "게임·놀이"
   },
   {
     "word": "숨바꼭질",
-    "category": "생활"
+    "category": "게임·놀이"
   },
   {
     "word": "술래잡기",
-    "category": "생활"
+    "category": "게임·놀이"
   },
   {
     "word": "윷놀이",
-    "category": "생활"
+    "category": "게임·놀이"
   },
   {
     "word": "제기차기",
-    "category": "생활"
+    "category": "게임·놀이"
   },
   {
     "word": "팽이",
-    "category": "생활"
+    "category": "게임·놀이"
   },
   {
     "word": "연날리기",
-    "category": "생활"
+    "category": "게임·놀이"
   },
   {
     "word": "눈사람",
-    "category": "생활"
+    "category": "게임·놀이"
   },
   {
     "word": "눈싸움",
-    "category": "생활"
+    "category": "게임·놀이"
   },
   {
     "word": "물놀이",
-    "category": "생활"
+    "category": "게임·놀이"
   },
   {
     "word": "여행가방",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "여권",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "비자",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "공항버스",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "기념품",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "엽서",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "안내판",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "표지판",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "메뉴판",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "영수증",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "주문",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "계산",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "예약",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "대기",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "줄서기",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "번호표",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "사물함",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "자판기",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "에스컬레이터",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "현관",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "창문",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "문",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "손잡이",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "커튼",
-    "category": "생활"
+    "category": "가구·침구"
   },
   {
     "word": "카펫",
-    "category": "생활"
+    "category": "가구·침구"
   },
   {
     "word": "천장",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "벽",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "바닥",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "지붕",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "담장",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "마당",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "베란다",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "수도꼭지",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "샤워기",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "욕조",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "세면대",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "변기",
-    "category": "생활"
+    "category": "집안공간"
   },
   {
     "word": "빨래",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "건조대",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "옷걸이",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "다리미",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "냉동실",
-    "category": "생활"
+    "category": "주방용품"
   },
   {
     "word": "냉장실",
-    "category": "생활"
+    "category": "주방용품"
   },
   {
     "word": "식탁",
-    "category": "생활"
+    "category": "주방용품"
   },
   {
     "word": "싱크대",
-    "category": "생활"
+    "category": "주방용품"
   },
   {
     "word": "가스레인지",
-    "category": "생활"
+    "category": "주방용품"
   },
   {
     "word": "정수기",
-    "category": "생활"
+    "category": "주방용품"
   },
   {
     "word": "식기세척기",
-    "category": "생활"
+    "category": "주방용품"
   },
   {
     "word": "에어프라이어",
-    "category": "생활"
+    "category": "주방용품"
   },
   {
     "word": "믹서기",
-    "category": "생활"
+    "category": "주방용품"
   },
   {
     "word": "토스터",
-    "category": "생활"
+    "category": "주방용품"
   },
   {
     "word": "체중계",
-    "category": "생활"
+    "category": "병원·건강용품"
   },
   {
     "word": "온도계",
-    "category": "생활"
+    "category": "병원·건강용품"
   },
   {
     "word": "알람시계",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "돋보기",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "망원경",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "현미경",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "나침반",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "자물쇠",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "도장",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "명함",
-    "category": "생활"
+    "category": "문서·신분"
   },
   {
     "word": "통장",
-    "category": "생활"
+    "category": "문서·신분"
   },
   {
     "word": "도장가방",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "우체통",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "택배상자",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "종이가방",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "비닐봉지",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "장바구니",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "쇼핑카트",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "카트",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "계산대",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "마네킹",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "피팅룸",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "탈의실",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "매표소",
-    "category": "생활"
+    "category": "쇼핑·결제"
   },
   {
     "word": "관람차",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "회전목마",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "롤러코스터",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "미끄럼틀",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "그네",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "시소",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "정글짐",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "트램펄린",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "텐트",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "침낭",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "모닥불",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "랜턴",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "손전등",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "배낭",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "등산화",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "지팡이",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "구명조끼",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "튜브",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "수영복",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "수경",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "오리발",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "모래성",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "파라솔",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "선베드",
-    "category": "생활"
+    "category": "여행용품"
   },
   {
     "word": "스키복",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "스키폴",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "스케이트보드",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "라켓",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "골대",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "그물",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "배트",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "글러브",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "야구공",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "농구공",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "축구공",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "배구공",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "셔틀콕",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "골프공",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "골프채",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "메달",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "트로피",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "유니폼",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "호루라기",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "응원봉",
-    "category": "생활"
+    "category": "스포츠용품"
   },
   {
     "word": "현수막",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "꽃다발",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "케이크초",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "폭죽",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "리본",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "포장지",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "카드편지",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "초대장",
-    "category": "생활"
+    "category": "문서·신분"
   },
   {
     "word": "청첩장",
-    "category": "생활"
+    "category": "문서·신분"
   },
   {
     "word": "졸업장",
-    "category": "생활"
+    "category": "문서·신분"
   },
   {
     "word": "상장",
-    "category": "생활"
+    "category": "문서·신분"
   },
   {
     "word": "자격증",
-    "category": "생활"
+    "category": "문서·신분"
   },
   {
     "word": "신분증",
-    "category": "생활"
+    "category": "문서·신분"
   },
   {
     "word": "주민등록증",
-    "category": "생활"
+    "category": "문서·신분"
   },
   {
     "word": "여권사진",
-    "category": "생활"
+    "category": "문서·신분"
   },
   {
     "word": "증명사진",
-    "category": "생활"
+    "category": "문서·신분"
   },
   {
     "word": "셀카",
-    "category": "생활"
+    "category": "촬영용품"
   },
   {
     "word": "삼각대",
-    "category": "생활"
+    "category": "촬영용품"
   },
   {
     "word": "셀카봉",
-    "category": "생활"
+    "category": "촬영용품"
   },
   {
     "word": "보조배터리",
-    "category": "생활"
+    "category": "전자기기"
   },
   {
     "word": "콘센트",
-    "category": "생활"
+    "category": "전기·조명"
   },
   {
     "word": "멀티탭",
-    "category": "생활"
+    "category": "전기·조명"
   },
   {
     "word": "전선",
-    "category": "생활"
+    "category": "전기·조명"
   },
   {
     "word": "형광등",
-    "category": "생활"
+    "category": "전기·조명"
   },
   {
     "word": "스탠드",
-    "category": "생활"
+    "category": "전기·조명"
   },
   {
     "word": "손목시계",
-    "category": "생활"
+    "category": "장신구·귀중품"
   },
   {
     "word": "벽시계",
-    "category": "생활"
+    "category": "장신구·귀중품"
   },
   {
     "word": "모래시계",
-    "category": "생활"
+    "category": "장신구·귀중품"
   },
   {
     "word": "저금통",
-    "category": "생활"
+    "category": "장신구·귀중품"
   },
   {
     "word": "금고",
-    "category": "생활"
+    "category": "장신구·귀중품"
   },
   {
     "word": "금메달",
-    "category": "생활"
+    "category": "장신구·귀중품"
   },
   {
     "word": "왕관",
-    "category": "생활"
+    "category": "장신구·귀중품"
   },
   {
     "word": "보석",
-    "category": "생활"
+    "category": "장신구·귀중품"
   },
   {
     "word": "다이아몬드",
-    "category": "생활"
+    "category": "장신구·귀중품"
   },
   {
     "word": "금",
-    "category": "생활"
+    "category": "장신구·귀중품"
   },
   {
     "word": "은",
-    "category": "생활"
+    "category": "장신구·귀중품"
   },
   {
     "word": "동",
-    "category": "생활"
+    "category": "장신구·귀중품"
   },
   {
     "word": "철",
-    "category": "생활"
+    "category": "재료·소재"
   },
   {
     "word": "유리",
-    "category": "생활"
+    "category": "재료·소재"
   },
   {
     "word": "플라스틱",
-    "category": "생활"
+    "category": "재료·소재"
   },
   {
     "word": "종이",
-    "category": "생활"
+    "category": "재료·소재"
   },
   {
     "word": "고무",
-    "category": "생활"
+    "category": "재료·소재"
   },
   {
     "word": "천",
-    "category": "생활"
+    "category": "재료·소재"
   },
   {
     "word": "가죽",
-    "category": "생활"
+    "category": "재료·소재"
   },
   {
     "word": "솜",
-    "category": "생활"
+    "category": "재료·소재"
   },
   {
     "word": "실",
-    "category": "생활"
+    "category": "재료·소재"
   },
   {
     "word": "바늘",
-    "category": "생활"
+    "category": "재료·소재"
   },
   {
     "word": "단추",
-    "category": "생활"
+    "category": "재료·소재"
   },
   {
     "word": "지퍼",
-    "category": "생활"
+    "category": "재료·소재"
   },
   {
     "word": "끈",
-    "category": "생활"
+    "category": "재료·소재"
   },
   {
     "word": "밧줄",
-    "category": "생활"
+    "category": "재료·소재"
   },
   {
     "word": "체인",
-    "category": "생활"
+    "category": "재료·소재"
   },
   {
     "word": "사다리",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "드릴",
-    "category": "생활"
+    "category": "공구·청소용품"
   },
   {
     "word": "렌치",
-    "category": "생활"
+    "category": "공구·청소용품"
   },
   {
     "word": "펜치",
-    "category": "생활"
+    "category": "공구·청소용품"
   },
   {
     "word": "니퍼",
-    "category": "생활"
+    "category": "공구·청소용품"
   },
   {
     "word": "곡괭이",
-    "category": "생활"
+    "category": "공구·청소용품"
   },
   {
     "word": "호미",
-    "category": "생활"
+    "category": "공구·청소용품"
   },
   {
     "word": "낫",
-    "category": "생활"
+    "category": "공구·청소용품"
   },
   {
     "word": "물뿌리개",
-    "category": "생활"
+    "category": "공구·청소용품"
   },
   {
     "word": "양동이",
-    "category": "생활"
+    "category": "공구·청소용품"
   },
   {
     "word": "대야",
-    "category": "생활"
+    "category": "공구·청소용품"
   },
   {
     "word": "걸레",
-    "category": "생활"
+    "category": "공구·청소용품"
   },
   {
     "word": "수세미",
-    "category": "생활"
+    "category": "주방용품"
   },
   {
     "word": "세제",
-    "category": "생활"
+    "category": "주방용품"
   },
   {
     "word": "섬유유연제",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "치실",
-    "category": "생활"
+    "category": "욕실용품"
   },
   {
     "word": "면봉",
-    "category": "생활"
+    "category": "욕실용품"
   },
   {
     "word": "화장솜",
-    "category": "생활"
+    "category": "욕실용품"
   },
   {
     "word": "로션",
-    "category": "생활"
+    "category": "욕실용품"
   },
   {
     "word": "크림",
-    "category": "생활"
+    "category": "욕실용품"
   },
   {
     "word": "향수",
-    "category": "생활"
+    "category": "욕실용품"
   },
   {
     "word": "립스틱",
-    "category": "생활"
+    "category": "욕실용품"
   },
   {
     "word": "마스카라",
-    "category": "생활"
+    "category": "욕실용품"
   },
   {
     "word": "파운데이션",
-    "category": "생활"
+    "category": "욕실용품"
   },
   {
     "word": "선크림",
-    "category": "생활"
+    "category": "욕실용품"
   },
   {
     "word": "면도기",
-    "category": "생활"
+    "category": "욕실용품"
   },
   {
     "word": "드라이기",
-    "category": "생활"
+    "category": "욕실용품"
   },
   {
     "word": "고데기",
-    "category": "생활"
+    "category": "욕실용품"
   },
   {
     "word": "손톱깎이",
-    "category": "생활"
+    "category": "욕실용품"
   },
   {
     "word": "귀이개",
-    "category": "생활"
+    "category": "욕실용품"
   },
   {
     "word": "파스",
-    "category": "생활"
+    "category": "병원·건강용품"
   },
   {
     "word": "연고",
-    "category": "생활"
+    "category": "병원·건강용품"
   },
   {
     "word": "소독약",
-    "category": "생활"
+    "category": "병원·건강용품"
   },
   {
     "word": "주사",
-    "category": "생활"
+    "category": "병원·건강용품"
   },
   {
     "word": "안대",
-    "category": "생활"
+    "category": "병원·건강용품"
   },
   {
     "word": "귀마개",
-    "category": "생활"
+    "category": "병원·건강용품"
   },
   {
     "word": "목도리",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "넥타이",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "벨트",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "주머니",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "속옷",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "팬티",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "브래지어",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "내복",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "스타킹",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "레깅스",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "청바지",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "반바지",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "정장",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "한복",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "드레스",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "턱시도",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "앞치마",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "우비",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "장화",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "샌들",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "부츠",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "하이힐",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "브로치",
-    "category": "생활"
+    "category": "패션·의류"
   },
   {
     "word": "가면",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "탈",
-    "category": "생활"
+    "category": "일상"
   },
   {
     "word": "인형탈",
-    "category": "생활"
+    "category": "일상"
   }
 ]
