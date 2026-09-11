@@ -21,7 +21,7 @@
   },
   {
     "word": "치킨",
-    "category": "음식"
+    "category": "간편식"
   },
   {
     "word": "초밥",
@@ -121,43 +121,43 @@
   },
   {
     "word": "강아지",
-    "category": "동물"
+    "category": "반려동물"
   },
   {
     "word": "고양이",
-    "category": "동물"
+    "category": "반려동물"
   },
   {
     "word": "호랑이",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "사자",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "코끼리",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "기린",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "판다",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "토끼",
-    "category": "동물"
+    "category": "반려동물"
   },
   {
     "word": "햄스터",
-    "category": "동물"
+    "category": "반려동물"
   },
   {
     "word": "원숭이",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "펭귄",
@@ -165,79 +165,79 @@
   },
   {
     "word": "돌고래",
-    "category": "동물"
+    "category": "바다동물"
   },
   {
     "word": "고래",
-    "category": "동물"
+    "category": "바다동물"
   },
   {
     "word": "상어",
-    "category": "동물"
+    "category": "바다동물"
   },
   {
     "word": "문어",
-    "category": "동물"
+    "category": "바다동물"
   },
   {
     "word": "독수리",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "부엉이",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "여우",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "늑대",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "곰",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "코알라",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "캥거루",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "악어",
-    "category": "동물"
+    "category": "파충류·양서류"
   },
   {
     "word": "하마",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "치타",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "얼룩말",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "다람쥐",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "수달",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "거북이",
-    "category": "동물"
+    "category": "파충류·양서류"
   },
   {
     "word": "카피바라",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "학교",
@@ -289,7 +289,7 @@
   },
   {
     "word": "은행",
-    "category": "장소"
+    "category": "금융시설"
   },
   {
     "word": "마트",
@@ -573,11 +573,11 @@
   },
   {
     "word": "여행",
-    "category": "취미"
+    "category": "여행·외출"
   },
   {
     "word": "쇼핑",
-    "category": "취미"
+    "category": "쇼핑활동"
   },
   {
     "word": "자전거타기",
@@ -625,23 +625,23 @@
   },
   {
     "word": "우동",
-    "category": "음식"
+    "category": "일식"
   },
   {
     "word": "짜장면",
-    "category": "음식"
+    "category": "중식"
   },
   {
     "word": "짬뽕",
-    "category": "음식"
+    "category": "중식"
   },
   {
     "word": "탕수육",
-    "category": "음식"
+    "category": "중식"
   },
   {
     "word": "만두",
-    "category": "음식"
+    "category": "중식"
   },
   {
     "word": "족발",
@@ -669,7 +669,7 @@
   },
   {
     "word": "카레",
-    "category": "음식"
+    "category": "간편식"
   },
   {
     "word": "오므라이스",
@@ -1061,171 +1061,171 @@
   },
   {
     "word": "소",
-    "category": "동물"
+    "category": "농장동물"
   },
   {
     "word": "말",
-    "category": "동물"
+    "category": "농장동물"
   },
   {
     "word": "돼지",
-    "category": "동물"
+    "category": "농장동물"
   },
   {
     "word": "양",
-    "category": "동물"
+    "category": "농장동물"
   },
   {
     "word": "염소",
-    "category": "동물"
+    "category": "농장동물"
   },
   {
     "word": "사슴",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "노루",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "코뿔소",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "낙타",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "고릴라",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "침팬지",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "오랑우탄",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "표범",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "재규어",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "북극곰",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "너구리",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "오소리",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "두더지",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "고슴도치",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "나무늘보",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "박쥐",
-    "category": "동물"
+    "category": "야생동물"
   },
   {
     "word": "매",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "참새",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "까치",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "까마귀",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "비둘기",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "제비",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "갈매기",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "백조",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "오리",
-    "category": "동물"
+    "category": "농장동물"
   },
   {
     "word": "거위",
-    "category": "동물"
+    "category": "농장동물"
   },
   {
     "word": "닭",
-    "category": "동물"
+    "category": "농장동물"
   },
   {
     "word": "병아리",
-    "category": "동물"
+    "category": "농장동물"
   },
   {
     "word": "타조",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "공작",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "올빼미",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "앵무새",
-    "category": "동물"
+    "category": "반려동물"
   },
   {
     "word": "플라밍고",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "두루미",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "황새",
-    "category": "동물"
+    "category": "새"
   },
   {
     "word": "물고기",
-    "category": "동물"
+    "category": "바다동물"
   },
   {
     "word": "금붕어",
-    "category": "동물"
+    "category": "반려동물"
   },
   {
     "word": "잉어",
@@ -1233,103 +1233,103 @@
   },
   {
     "word": "범고래",
-    "category": "동물"
+    "category": "바다동물"
   },
   {
     "word": "낙지",
-    "category": "동물"
+    "category": "바다동물"
   },
   {
     "word": "해파리",
-    "category": "동물"
+    "category": "바다동물"
   },
   {
     "word": "불가사리",
-    "category": "동물"
+    "category": "바다동물"
   },
   {
     "word": "뱀",
-    "category": "동물"
+    "category": "파충류·양서류"
   },
   {
     "word": "도마뱀",
-    "category": "동물"
+    "category": "파충류·양서류"
   },
   {
     "word": "개구리",
-    "category": "동물"
+    "category": "파충류·양서류"
   },
   {
     "word": "두꺼비",
-    "category": "동물"
+    "category": "파충류·양서류"
   },
   {
     "word": "달팽이",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "지렁이",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "개미",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "벌",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "나비",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "잠자리",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "모기",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "파리",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "바퀴벌레",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "사마귀",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "메뚜기",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "귀뚜라미",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "거미",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "전갈",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "장수풍뎅이",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "사슴벌레",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "매미",
-    "category": "동물"
+    "category": "곤충·작은생물"
   },
   {
     "word": "지갑",
@@ -1753,7 +1753,7 @@
   },
   {
     "word": "집",
-    "category": "장소"
+    "category": "주거공간"
   },
   {
     "word": "회사",
@@ -1853,7 +1853,7 @@
   },
   {
     "word": "화장실",
-    "category": "장소"
+    "category": "위생공간"
   },
   {
     "word": "엘리베이터",
@@ -2269,215 +2269,215 @@
   },
   {
     "word": "머리",
-    "category": "신체"
+    "category": "얼굴부위"
   },
   {
     "word": "얼굴",
-    "category": "신체"
+    "category": "얼굴부위"
   },
   {
     "word": "코",
-    "category": "신체"
+    "category": "얼굴부위"
   },
   {
     "word": "입",
-    "category": "신체"
+    "category": "얼굴부위"
   },
   {
     "word": "귀",
-    "category": "신체"
+    "category": "얼굴부위"
   },
   {
     "word": "이마",
-    "category": "신체"
+    "category": "얼굴부위"
   },
   {
     "word": "볼",
-    "category": "신체"
+    "category": "얼굴부위"
   },
   {
     "word": "턱",
-    "category": "신체"
+    "category": "얼굴부위"
   },
   {
     "word": "목",
-    "category": "신체"
+    "category": "상체부위"
   },
   {
     "word": "어깨",
-    "category": "신체"
+    "category": "상체부위"
   },
   {
     "word": "팔꿈치",
-    "category": "신체"
+    "category": "상체부위"
   },
   {
     "word": "팔",
-    "category": "신체"
+    "category": "상체부위"
   },
   {
     "word": "손",
-    "category": "신체"
+    "category": "상체부위"
   },
   {
     "word": "손가락",
-    "category": "신체"
+    "category": "상체부위"
   },
   {
     "word": "손톱",
-    "category": "신체"
+    "category": "상체부위"
   },
   {
     "word": "가슴",
-    "category": "신체"
+    "category": "상체부위"
   },
   {
     "word": "허리",
-    "category": "신체"
+    "category": "상체부위"
   },
   {
     "word": "등",
-    "category": "신체"
+    "category": "상체부위"
   },
   {
     "word": "엉덩이",
-    "category": "신체"
+    "category": "하체부위"
   },
   {
     "word": "다리",
-    "category": "신체"
+    "category": "하체부위"
   },
   {
     "word": "무릎",
-    "category": "신체"
+    "category": "하체부위"
   },
   {
     "word": "발",
-    "category": "신체"
+    "category": "하체부위"
   },
   {
     "word": "발가락",
-    "category": "신체"
+    "category": "하체부위"
   },
   {
     "word": "발목",
-    "category": "신체"
+    "category": "하체부위"
   },
   {
     "word": "피부",
-    "category": "신체"
+    "category": "신체현상"
   },
   {
     "word": "뼈",
-    "category": "신체"
+    "category": "몸속기관"
   },
   {
     "word": "근육",
-    "category": "신체"
+    "category": "몸속기관"
   },
   {
     "word": "피",
-    "category": "신체"
+    "category": "몸속기관"
   },
   {
     "word": "심장",
-    "category": "신체"
+    "category": "몸속기관"
   },
   {
     "word": "폐",
-    "category": "신체"
+    "category": "몸속기관"
   },
   {
     "word": "위",
-    "category": "신체"
+    "category": "몸속기관"
   },
   {
     "word": "간",
-    "category": "신체"
+    "category": "몸속기관"
   },
   {
     "word": "뇌",
-    "category": "신체"
+    "category": "몸속기관"
   },
   {
     "word": "혀",
-    "category": "신체"
+    "category": "얼굴부위"
   },
   {
     "word": "이빨",
-    "category": "신체"
+    "category": "얼굴부위"
   },
   {
     "word": "치아",
-    "category": "신체"
+    "category": "얼굴부위"
   },
   {
     "word": "머리카락",
-    "category": "신체"
+    "category": "얼굴부위"
   },
   {
     "word": "눈썹",
-    "category": "신체"
+    "category": "얼굴부위"
   },
   {
     "word": "속눈썹",
-    "category": "신체"
+    "category": "얼굴부위"
   },
   {
     "word": "수염",
-    "category": "신체"
+    "category": "얼굴부위"
   },
   {
     "word": "주름",
-    "category": "신체"
+    "category": "신체현상"
   },
   {
     "word": "땀",
-    "category": "신체"
+    "category": "신체현상"
   },
   {
     "word": "눈물",
-    "category": "신체"
+    "category": "신체현상"
   },
   {
     "word": "침",
-    "category": "신체"
+    "category": "신체현상"
   },
   {
     "word": "목소리",
-    "category": "신체"
+    "category": "신체현상"
   },
   {
     "word": "키",
-    "category": "신체"
+    "category": "신체현상"
   },
   {
     "word": "몸무게",
-    "category": "신체"
+    "category": "신체현상"
   },
   {
     "word": "체온",
-    "category": "신체"
+    "category": "신체현상"
   },
   {
     "word": "의사",
-    "category": "직업"
+    "category": "의료직"
   },
   {
     "word": "간호사",
-    "category": "직업"
+    "category": "의료직"
   },
   {
     "word": "약사",
-    "category": "직업"
+    "category": "의료직"
   },
   {
     "word": "교사",
-    "category": "직업"
+    "category": "교육직"
   },
   {
     "word": "교수",
-    "category": "직업"
+    "category": "교육직"
   },
   {
     "word": "학생",
@@ -2485,27 +2485,27 @@
   },
   {
     "word": "경찰",
-    "category": "직업"
+    "category": "법률·공공직"
   },
   {
     "word": "소방관",
-    "category": "직업"
+    "category": "법률·공공직"
   },
   {
     "word": "군인",
-    "category": "직업"
+    "category": "법률·공공직"
   },
   {
     "word": "판사",
-    "category": "직업"
+    "category": "법률·공공직"
   },
   {
     "word": "검사",
-    "category": "직업"
+    "category": "법률·공공직"
   },
   {
     "word": "변호사",
-    "category": "직업"
+    "category": "법률·공공직"
   },
   {
     "word": "기자",
@@ -2513,171 +2513,171 @@
   },
   {
     "word": "작가",
-    "category": "직업"
+    "category": "예술·연예직"
   },
   {
     "word": "시인",
-    "category": "직업"
+    "category": "예술·연예직"
   },
   {
     "word": "화가",
-    "category": "직업"
+    "category": "예술·연예직"
   },
   {
     "word": "배우",
-    "category": "직업"
+    "category": "예술·연예직"
   },
   {
     "word": "가수",
-    "category": "직업"
+    "category": "예술·연예직"
   },
   {
     "word": "개그맨",
-    "category": "직업"
+    "category": "예술·연예직"
   },
   {
     "word": "모델",
-    "category": "직업"
+    "category": "예술·연예직"
   },
   {
     "word": "감독",
-    "category": "직업"
+    "category": "예술·연예직"
   },
   {
     "word": "작곡가",
-    "category": "직업"
+    "category": "예술·연예직"
   },
   {
     "word": "요리사",
-    "category": "직업"
+    "category": "서비스직"
   },
   {
     "word": "제빵사",
-    "category": "직업"
+    "category": "서비스직"
   },
   {
     "word": "미용사",
-    "category": "직업"
+    "category": "서비스직"
   },
   {
     "word": "농부",
-    "category": "직업"
+    "category": "농수산·현장직"
   },
   {
     "word": "어부",
-    "category": "직업"
+    "category": "농수산·현장직"
   },
   {
     "word": "목수",
-    "category": "직업"
+    "category": "농수산·현장직"
   },
   {
     "word": "기사",
-    "category": "직업"
+    "category": "운송·정비직"
   },
   {
     "word": "조종사",
-    "category": "직업"
+    "category": "운송·정비직"
   },
   {
     "word": "승무원",
-    "category": "직업"
+    "category": "서비스직"
   },
   {
     "word": "공무원",
-    "category": "직업"
+    "category": "법률·공공직"
   },
   {
     "word": "회사원",
-    "category": "직업"
+    "category": "회사·사업직"
   },
   {
     "word": "사장",
-    "category": "직업"
+    "category": "회사·사업직"
   },
   {
     "word": "비서",
-    "category": "직업"
+    "category": "회사·사업직"
   },
   {
     "word": "경비원",
-    "category": "직업"
+    "category": "서비스직"
   },
   {
     "word": "청소부",
-    "category": "직업"
+    "category": "서비스직"
   },
   {
     "word": "배달원",
-    "category": "직업"
+    "category": "서비스직"
   },
   {
     "word": "택배기사",
-    "category": "직업"
+    "category": "서비스직"
   },
   {
     "word": "운전사",
-    "category": "직업"
+    "category": "운송·정비직"
   },
   {
     "word": "정비사",
-    "category": "직업"
+    "category": "운송·정비직"
   },
   {
     "word": "운동선수",
-    "category": "직업"
+    "category": "스포츠직"
   },
   {
     "word": "축구선수",
-    "category": "직업"
+    "category": "스포츠직"
   },
   {
     "word": "야구선수",
-    "category": "직업"
+    "category": "스포츠직"
   },
   {
     "word": "농구선수",
-    "category": "직업"
+    "category": "스포츠직"
   },
   {
     "word": "심판",
-    "category": "직업"
+    "category": "스포츠직"
   },
   {
     "word": "유튜버",
-    "category": "직업"
+    "category": "온라인크리에이터"
   },
   {
     "word": "스트리머",
-    "category": "직업"
+    "category": "온라인크리에이터"
   },
   {
     "word": "개발자",
-    "category": "직업"
+    "category": "기술·전문직"
   },
   {
     "word": "디자이너",
-    "category": "직업"
+    "category": "기술·전문직"
   },
   {
     "word": "건축가",
-    "category": "직업"
+    "category": "기술·전문직"
   },
   {
     "word": "과학자",
-    "category": "직업"
+    "category": "기술·전문직"
   },
   {
     "word": "연구원",
-    "category": "직업"
+    "category": "기술·전문직"
   },
   {
     "word": "사진가",
-    "category": "직업"
+    "category": "예술·연예직"
   },
   {
     "word": "마술사",
-    "category": "직업"
+    "category": "예술·연예직"
   },
   {
     "word": "탐정",
@@ -2685,7 +2685,7 @@
   },
   {
     "word": "대통령",
-    "category": "직업"
+    "category": "법률·공공직"
   },
   {
     "word": "왕",
@@ -2701,7 +2701,7 @@
   },
   {
     "word": "배구",
-    "category": "스포츠"
+    "category": "기타스포츠"
   },
   {
     "word": "골프",
@@ -2709,103 +2709,103 @@
   },
   {
     "word": "달리기",
-    "category": "스포츠"
+    "category": "육상·체력운동"
   },
   {
     "word": "마라톤",
-    "category": "스포츠"
+    "category": "육상·체력운동"
   },
   {
     "word": "복싱",
-    "category": "스포츠"
+    "category": "격투스포츠"
   },
   {
     "word": "태권도",
-    "category": "스포츠"
+    "category": "격투스포츠"
   },
   {
     "word": "유도",
-    "category": "스포츠"
+    "category": "격투스포츠"
   },
   {
     "word": "씨름",
-    "category": "스포츠"
+    "category": "격투스포츠"
   },
   {
     "word": "레슬링",
-    "category": "스포츠"
+    "category": "격투스포츠"
   },
   {
     "word": "펜싱",
-    "category": "스포츠"
+    "category": "정밀스포츠"
   },
   {
     "word": "양궁",
-    "category": "스포츠"
+    "category": "정밀스포츠"
   },
   {
     "word": "사격",
-    "category": "스포츠"
+    "category": "정밀스포츠"
   },
   {
     "word": "스키",
-    "category": "스포츠"
+    "category": "동계·수상스포츠"
   },
   {
     "word": "스노보드",
-    "category": "스포츠"
+    "category": "동계·수상스포츠"
   },
   {
     "word": "서핑",
-    "category": "스포츠"
+    "category": "동계·수상스포츠"
   },
   {
     "word": "요가",
-    "category": "스포츠"
+    "category": "기타스포츠"
   },
   {
     "word": "당구",
-    "category": "스포츠"
+    "category": "정밀스포츠"
   },
   {
     "word": "체조",
-    "category": "스포츠"
+    "category": "기타스포츠"
   },
   {
     "word": "승마",
-    "category": "스포츠"
+    "category": "기타스포츠"
   },
   {
     "word": "사이클",
-    "category": "스포츠"
+    "category": "기타스포츠"
   },
   {
     "word": "하키",
-    "category": "스포츠"
+    "category": "기타스포츠"
   },
   {
     "word": "럭비",
-    "category": "스포츠"
+    "category": "기타스포츠"
   },
   {
     "word": "족구",
-    "category": "스포츠"
+    "category": "기타스포츠"
   },
   {
     "word": "피구",
-    "category": "스포츠"
+    "category": "기타스포츠"
   },
   {
     "word": "줄넘기",
-    "category": "스포츠"
+    "category": "육상·체력운동"
   },
   {
     "word": "윗몸일으키기",
-    "category": "스포츠"
+    "category": "육상·체력운동"
   },
   {
     "word": "팔굽혀펴기",
-    "category": "스포츠"
+    "category": "육상·체력운동"
   },
   {
     "word": "영화",
@@ -2869,7 +2869,7 @@
   },
   {
     "word": "청소",
-    "category": "취미"
+    "category": "집안일"
   },
   {
     "word": "공부",
@@ -3153,31 +3153,31 @@
   },
   {
     "word": "성공",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "실패",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "실수",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "거짓말",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "비밀",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "소문",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "농담",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "웃음",
@@ -3213,43 +3213,43 @@
   },
   {
     "word": "박수",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "응원",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "벌칙",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "점수",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "순위",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "복권",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "행운",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "불운",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "기억",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "추억",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "고민",
@@ -3305,23 +3305,23 @@
   },
   {
     "word": "유행",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "인기",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "규칙",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "법",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "벌금",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "휴식",
@@ -3329,23 +3329,23 @@
   },
   {
     "word": "건강",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "감기",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "기침",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "재채기",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "다이어트",
-    "category": "일상"
+    "category": "생활개념"
   },
   {
     "word": "식사",
@@ -4505,7 +4505,7 @@
   },
   {
     "word": "메뉴판",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "영수증",
@@ -4537,7 +4537,7 @@
   },
   {
     "word": "사물함",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "자판기",
@@ -4545,7 +4545,7 @@
   },
   {
     "word": "에스컬레이터",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "현관",
@@ -4621,19 +4621,19 @@
   },
   {
     "word": "빨래",
-    "category": "일상"
+    "category": "집안일"
   },
   {
     "word": "건조대",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "옷걸이",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "다리미",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "냉동실",
@@ -4685,31 +4685,31 @@
   },
   {
     "word": "알람시계",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "돋보기",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "망원경",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "현미경",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "나침반",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "자물쇠",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "도장",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "명함",
@@ -4721,11 +4721,11 @@
   },
   {
     "word": "도장가방",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "우체통",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "택배상자",
@@ -4773,35 +4773,35 @@
   },
   {
     "word": "관람차",
-    "category": "일상"
+    "category": "놀이공원시설"
   },
   {
     "word": "회전목마",
-    "category": "일상"
+    "category": "놀이공원시설"
   },
   {
     "word": "롤러코스터",
-    "category": "일상"
+    "category": "놀이공원시설"
   },
   {
     "word": "미끄럼틀",
-    "category": "일상"
+    "category": "놀이터시설"
   },
   {
     "word": "그네",
-    "category": "일상"
+    "category": "놀이터시설"
   },
   {
     "word": "시소",
-    "category": "일상"
+    "category": "놀이터시설"
   },
   {
     "word": "정글짐",
-    "category": "일상"
+    "category": "놀이터시설"
   },
   {
     "word": "트램펄린",
-    "category": "일상"
+    "category": "놀이터시설"
   },
   {
     "word": "텐트",
@@ -4949,31 +4949,31 @@
   },
   {
     "word": "현수막",
-    "category": "일상"
+    "category": "축하·행사용품"
   },
   {
     "word": "꽃다발",
-    "category": "일상"
+    "category": "축하·행사용품"
   },
   {
     "word": "케이크초",
-    "category": "일상"
+    "category": "축하·행사용품"
   },
   {
     "word": "폭죽",
-    "category": "일상"
+    "category": "축하·행사용품"
   },
   {
     "word": "리본",
-    "category": "일상"
+    "category": "축하·행사용품"
   },
   {
     "word": "포장지",
-    "category": "일상"
+    "category": "축하·행사용품"
   },
   {
     "word": "카드편지",
-    "category": "일상"
+    "category": "축하·행사용품"
   },
   {
     "word": "초대장",
@@ -5157,7 +5157,7 @@
   },
   {
     "word": "사다리",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "드릴",
@@ -5213,7 +5213,7 @@
   },
   {
     "word": "섬유유연제",
-    "category": "일상"
+    "category": "생활도구"
   },
   {
     "word": "치실",
@@ -5393,14 +5393,14 @@
   },
   {
     "word": "가면",
-    "category": "일상"
+    "category": "축하·행사용품"
   },
   {
     "word": "탈",
-    "category": "일상"
+    "category": "축하·행사용품"
   },
   {
     "word": "인형탈",
-    "category": "일상"
+    "category": "축하·행사용품"
   }
 ]
