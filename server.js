@@ -16,9 +16,10 @@ const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/question
 const truth = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/truth.json')));
 
 const rooms = new Map();
-const AV = ['🦊','🐼','🐯','🐸','🐧','🐰','🐻','🐨','🦁','🐵','🐙','🦄','🐲','👻','🤖','🥷','🧙','🧛','🧑‍🚀','🕵️','🐺','🦖','🐱','🐶','🦝','🐹','🦦','🐳','🦋','🐝'];
-const LIMITS = { liar:[3,10], mafia:[5,12], truth:[2,10], draw:[2,10], rummi:[2,4] };
-const GAME_NAMES = { liar:'라이어게임', mafia:'마피아게임', truth:'진실게임', draw:'그림퀴즈', rummi:'루미큐브' };
+const AV = Array.from({length:16},(_,i)=>'avatar'+String(i+1).padStart(2,'0'));
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '2580';
+const LIMITS = { liar:[3,10], mafia:[5,12], truth:[2,10], rummi:[2,4] };
+const GAME_NAMES = { liar:'라이어게임', mafia:'마피아게임', truth:'진실게임', rummi:'루미큐브' };
 const ROLE_NAMES = { mafia:'마피아', police:'경찰', doctor:'의사', citizen:'시민' };
 
 const uid = () => crypto.randomUUID();
@@ -30,7 +31,8 @@ const clamp = (n,a,b) => Math.max(a,Math.min(b,n));
 const shuffle = a => [...a].sort(() => Math.random() - .5);
 const pick = a => a[Math.floor(Math.random()*a.length)];
 function code(){ let c; do { c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'.split('').sort(()=>Math.random()-.5).slice(0,5).join(''); } while(rooms.has(c)); return c; }
-function player(name,avatar,sessionId){ return { id:uid(), sessionId, name:clean(name), avatar:AV.includes(avatar)?avatar:AV[0], connected:true, score:0, alive:true, rolePublic:null }; }
+function player(name,avatar,sessionId){ return { id:uid(), sessionId, name:clean(name), avatar:AV.includes(avatar)?avatar:AV[0], connected:true, score:0, alive:true, rolePublic:null, isBot:false }; }
+function botPlayer(r){const n=r.players.filter(p=>p.isBot).length+1;return {id:uid(),sessionId:'bot-'+uid(),name:'소소봇'+n,avatar:AV[(n+2)%AV.length],connected:true,score:0,alive:true,rolePublic:null,isBot:true};}
 function bind(s,r,p){ p.socketId=s.id; p.connected=true; s.join(r.code); s.data.roomCode=r.code; s.data.playerId=p.id; }
 function clearTimer(r){ if(r.timer) clearTimeout(r.timer); r.timer=null; r.deadline=null; }
 function setTimer(r,sec,fn){ clearTimer(r); if(!sec)return; r.deadline=Date.now()+sec*1000; r.timer=setTimeout(()=>{r.timer=null;r.deadline=null;fn();},sec*1000); }
@@ -42,13 +44,38 @@ function resetForGameSwitch(r,game){ clearTimer(r); r.game=game; r.mode='normal'
 
 function publicState(r){
   const base={ code:r.code, hostId:r.hostId, game:r.game, gameName:GAME_NAMES[r.game], mode:r.mode, phase:r.phase, round:r.round,
-    players:r.players.map(p=>({id:p.id,name:p.name,avatar:p.avatar,connected:p.connected,score:p.score,alive:p.alive,rolePublic:p.rolePublic})),
+    players:r.players.map(p=>({id:p.id,name:p.name,avatar:p.avatar,connected:p.connected,score:p.score,alive:p.alive,rolePublic:p.rolePublic,isBot:!!p.isBot})),
     settings:r.settings, deadline:r.deadline, submitted:r.submitted||[], answersRevealed:r.answersRevealed, answers:r.answersRevealed?r.answers:{}, votesSubmitted:r.votesSubmitted||[], voteResult:r.voteResult,
     truthTurnId:r.truthTurnId, truthQuestion:r.truthQuestion, mafiaLog:r.mafiaLog||[], nightSubmitted:r.nightSubmitted||[],
     promptMeta:r.game==='liar'&&r.prompt?{category:r.prompt.category,min:r.prompt.min,max:r.prompt.max}:null };
   if(r.game==='draw' && r.draw) Object.assign(base,{draw:{drawerId:r.draw.drawerId,turn:r.draw.turn,totalTurns:r.draw.totalTurns,category:r.draw.prompt?.category||'',guessedIds:r.draw.guessedIds||[],guessFeed:r.draw.guessFeed||[],revealWord:r.phase==='drawReveal'?r.draw.prompt?.word:null,strokes:r.draw.strokes||[]}});
   if(r.game==='rummi' && r.rummi) Object.assign(base,{rummi:{turnPlayerId:r.rummi.turnOrder[r.rummi.turnIndex],turnNumber:r.rummi.turnNumber,board:r.rummi.board,poolCount:r.rummi.pool.length,registered:r.rummi.registered,winnerId:r.rummi.winnerId||null,lastAction:r.rummi.lastAction||''}});
   return base;
+}
+function scheduleBots(r){
+  clearTimeout(r.botTimer);r.botTimer=setTimeout(()=>{
+    const bots=active(r).filter(p=>p.isBot); if(!bots.length)return;
+    if(r.game==='liar'&&r.mode==='question'&&r.phase==='play'){
+      for(const p of bots)if(!r.submitted.includes(p.id)){const min=r.prompt.min,max=r.prompt.max;r.answers[p.id]=Math.floor(min+Math.random()*(max-min+1));r.submitted.push(p.id)}
+      if(active(r).every(x=>r.submitted.includes(x.id)))return revealAnswers(r);
+    }
+    if(['vote','mafiaVote'].includes(r.phase)){
+      const voters=bots.filter(p=>!r.votesSubmitted.includes(p.id)&&(r.game!=='mafia'||p.alive));
+      for(const p of voters){const targets=active(r).filter(x=>x.id!==p.id&&(r.game!=='mafia'||x.alive));if(targets.length){r.votes[p.id]=pick(targets).id;r.votesSubmitted.push(p.id)}}
+      const all=active(r).filter(x=>r.game!=='mafia'||x.alive);if(all.every(x=>r.votesSubmitted.includes(x.id)))return r.game==='liar'?tallyLiar(r):resolveMafiaVote(r);
+    }
+    if(r.game==='mafia'&&r.phase==='mafiaNight'){
+      const actors=bots.filter(p=>p.alive&&['mafia','doctor','police'].includes(p.role)&&!r.nightSubmitted.includes(p.id));
+      for(const p of actors){let targets=r.players.filter(x=>x.alive&&x.id!==p.id&&(p.role!=='mafia'||x.role!=='mafia'));if(!targets.length)continue;const t=pick(targets);if(p.role==='police')r.inspections[p.id]={name:t.name,isMafia:t.role==='mafia'};else r.nightActions[p.id]={type:p.role==='mafia'?'kill':'save',target:t.id};r.nightSubmitted.push(p.id)}
+      const allActors=r.players.filter(x=>x.alive&&['mafia','doctor','police'].includes(x.role));if(allActors.every(x=>r.nightSubmitted.includes(x.id)))return resolveNight(r);
+    }
+    if(r.game==='liar'&&r.phase==='liarGuess'&&bots.some(p=>p.id===r.guessingLiarId)){
+      const ok=Math.random()<.25;r.guessResult={attempted:true,guess:ok?r.prompt.word:'모르겠어요',answer:r.prompt.word,correct:ok};clearTimer(r);scoreLiarResult(r,ok);r.phase='result';return emitRoom(r);
+    }
+    if(r.game==='rummi'&&r.phase==='rummiPlay'){
+      const pid=r.rummi.turnOrder[r.rummi.turnIndex],bp=by(r,pid);if(bp?.isBot){const t=r.rummi.pool.pop();if(t)r.rummi.racks[pid].push(t);return nextRummi(r,t?`🤖 ${bp.name}이 타일 1개를 가져갔습니다.`:`🤖 ${bp.name}이 턴을 넘겼습니다.`)}
+    }
+  },700+Math.random()*900);
 }
 function emitRoom(r){
   io.to(r.code).emit('roomState',publicState(r));
@@ -73,6 +100,7 @@ function emitRoom(r){
       s.emit('privateData',{game:'rummi',rack:r.rummi.racks[p.id]||[],isTurn:r.rummi.turnOrder[r.rummi.turnIndex]===p.id,registered:!!r.rummi.registered[p.id]});
     }
   }
+  scheduleBots(r);
 }
 
 // ---------- Liar / Spy ----------
@@ -139,6 +167,8 @@ function validateRummiDraft(r,pid,draft){
 }
 
 io.on('connection', s => {
+  s.on('adminLogin',(d,cb)=>{if(String(d.password||'')!==ADMIN_PASSWORD)return cb?.({ok:false,error:'관리자 비밀번호가 올바르지 않습니다.'});s.data.adminToken=uid();cb?.({ok:true,token:s.data.adminToken});});
+  s.on('adminBot',(d,cb)=>{try{const r=rooms.get(s.data.roomCode);if(!r||r.hostId!==s.data.playerId)throw Error('방장만 사용할 수 있습니다.');if(!s.data.adminToken||d.token!==s.data.adminToken)throw Error('관리자 인증이 필요합니다.');if(r.phase!=='lobby')throw Error('AI 인원 변경은 대기실에서만 가능합니다.');const [min,max]=LIMITS[r.game];const add=()=>{if(r.players.length>=max)return false;r.players.push(botPlayer(r));return true};if(d.action==='add')add();else if(d.action==='min')while(r.players.length<min)add();else if(d.action==='max')while(r.players.length<max)add();else if(d.action==='clear')r.players=r.players.filter(p=>!p.isBot);else throw Error('알 수 없는 관리자 명령입니다.');emitRoom(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message});}});
   s.on('createRoom',(d,cb)=>{try{const game=LIMITS[d.game]?d.game:'liar',sid=String(d.sessionId||uid()),p=player(d.name,d.avatar,sid),r=newRoom(game,d.mode,d.password,p);rooms.set(r.code,r);bind(s,r,p);cb?.({ok:true,code:r.code,playerId:p.id,sessionId:sid});emitRoom(r);}catch(e){cb?.({ok:false,error:e.message});}});
   s.on('joinRoom',(d,cb)=>{try{const r=rooms.get(String(d.code||'').toUpperCase());if(!r)throw Error('방을 찾을 수 없습니다.');if(r.password&&r.password!==String(d.password||''))throw Error('비밀번호가 올바르지 않습니다.');const sid=String(d.sessionId||uid()),old=r.players.find(p=>p.sessionId===sid);if(old){bind(s,r,old);cb?.({ok:true,code:r.code,playerId:old.id,sessionId:sid});emitRoom(r);return;}const max=LIMITS[r.game][1];if(r.players.length>=max)throw Error(`현재 게임은 최대 ${max}명입니다.`);if(r.phase!=='lobby')throw Error('게임 진행 중에는 새로 참가할 수 없습니다.');const p=player(d.name,d.avatar,sid);r.players.push(p);bind(s,r,p);cb?.({ok:true,code:r.code,playerId:p.id,sessionId:sid});emitRoom(r);}catch(e){cb?.({ok:false,error:e.message});}});
   s.on('resumeSession',(d,cb)=>{const r=rooms.get(String(d.code||'').toUpperCase()),p=r?.players.find(x=>x.sessionId===d.sessionId);if(!r||!p)return cb?.({ok:false});bind(s,r,p);cb?.({ok:true,code:r.code,playerId:p.id,sessionId:d.sessionId});emitRoom(r);});
