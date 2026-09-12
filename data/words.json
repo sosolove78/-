@@ -121,63 +121,63 @@
   },
   {
     "word": "강아지",
-    "category": "반려동물"
+    "category": "포유류 동물"
   },
   {
     "word": "고양이",
-    "category": "반려동물"
+    "category": "포유류 동물"
   },
   {
     "word": "호랑이",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "사자",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "코끼리",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "기린",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "판다",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "토끼",
-    "category": "반려동물"
+    "category": "포유류 동물"
   },
   {
     "word": "햄스터",
-    "category": "반려동물"
+    "category": "포유류 동물"
   },
   {
     "word": "원숭이",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "펭귄",
-    "category": "동물"
+    "category": "새·조류"
   },
   {
     "word": "돌고래",
-    "category": "바다동물"
+    "category": "바다 생물"
   },
   {
     "word": "고래",
-    "category": "바다동물"
+    "category": "바다 생물"
   },
   {
     "word": "상어",
-    "category": "바다동물"
+    "category": "바다 생물"
   },
   {
     "word": "문어",
-    "category": "바다동물"
+    "category": "바다 생물"
   },
   {
     "word": "독수리",
@@ -189,23 +189,23 @@
   },
   {
     "word": "여우",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "늑대",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "곰",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "코알라",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "캥거루",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "악어",
@@ -213,23 +213,23 @@
   },
   {
     "word": "하마",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "치타",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "얼룩말",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "다람쥐",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "수달",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "거북이",
@@ -237,7 +237,7 @@
   },
   {
     "word": "카피바라",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "학교",
@@ -1053,95 +1053,95 @@
   },
   {
     "word": "개",
-    "category": "동물"
+    "category": "포유류 동물"
   },
   {
     "word": "쥐",
-    "category": "동물"
+    "category": "포유류 동물"
   },
   {
     "word": "소",
-    "category": "농장동물"
+    "category": "포유류 동물"
   },
   {
     "word": "말",
-    "category": "농장동물"
+    "category": "포유류 동물"
   },
   {
     "word": "돼지",
-    "category": "농장동물"
+    "category": "포유류 동물"
   },
   {
     "word": "양",
-    "category": "농장동물"
+    "category": "포유류 동물"
   },
   {
     "word": "염소",
-    "category": "농장동물"
+    "category": "포유류 동물"
   },
   {
     "word": "사슴",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "노루",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "코뿔소",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "낙타",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "고릴라",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "침팬지",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "오랑우탄",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "표범",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "재규어",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "북극곰",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "너구리",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "오소리",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "두더지",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "고슴도치",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "나무늘보",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "박쥐",
-    "category": "야생동물"
+    "category": "포유류 동물"
   },
   {
     "word": "매",
@@ -1177,19 +1177,19 @@
   },
   {
     "word": "오리",
-    "category": "농장동물"
+    "category": "새·조류"
   },
   {
     "word": "거위",
-    "category": "농장동물"
+    "category": "새·조류"
   },
   {
     "word": "닭",
-    "category": "농장동물"
+    "category": "새·조류"
   },
   {
     "word": "병아리",
-    "category": "농장동물"
+    "category": "새·조류"
   },
   {
     "word": "타조",
@@ -1205,7 +1205,7 @@
   },
   {
     "word": "앵무새",
-    "category": "반려동물"
+    "category": "새·조류"
   },
   {
     "word": "플라밍고",
@@ -1221,31 +1221,31 @@
   },
   {
     "word": "물고기",
-    "category": "바다동물"
+    "category": "바다 생물"
   },
   {
     "word": "금붕어",
-    "category": "반려동물"
+    "category": "물고기"
   },
   {
     "word": "잉어",
-    "category": "동물"
+    "category": "물고기"
   },
   {
     "word": "범고래",
-    "category": "바다동물"
+    "category": "바다 생물"
   },
   {
     "word": "낙지",
-    "category": "바다동물"
+    "category": "바다 생물"
   },
   {
     "word": "해파리",
-    "category": "바다동물"
+    "category": "바다 생물"
   },
   {
     "word": "불가사리",
-    "category": "바다동물"
+    "category": "바다 생물"
   },
   {
     "word": "뱀",
