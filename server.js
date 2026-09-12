@@ -34,19 +34,20 @@ function code(){ let c; do { c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'.split('').sort
 function player(name,avatar,sessionId){ return { id:uid(), sessionId, name:clean(name), avatar:AV.includes(avatar)?avatar:AV[0], gender:null, connected:true, score:0, alive:true, rolePublic:null, isBot:false }; }
 function botPlayer(r){const n=r.players.filter(p=>p.isBot).length+1;return {id:uid(),sessionId:'bot-'+uid(),name:'소소봇'+n,avatar:AV[(n+2)%AV.length],gender:n%2?'male':'female',connected:true,score:0,alive:true,rolePublic:null,isBot:true};}
 function bind(s,r,p){ p.socketId=s.id; p.connected=true; s.join(r.code); s.data.roomCode=r.code; s.data.playerId=p.id; }
-function clearTimer(r){ if(r.timer) clearTimeout(r.timer); r.timer=null; r.deadline=null; }
+function clearTimer(r){ if(r.timer) clearTimeout(r.timer); if(r.nightMinTimer) clearTimeout(r.nightMinTimer); r.timer=null; r.nightMinTimer=null; r.deadline=null; }
 function setTimer(r,sec,fn){ clearTimer(r); if(!sec)return; r.deadline=Date.now()+sec*1000; r.timer=setTimeout(()=>{r.timer=null;r.deadline=null;fn();},sec*1000); }
 
 function baseSettings(){ return { liarCount:1, roundTime:120, voteTime:30, liarFinalGuess:true, liarRoleMode:'liar', truthLevel:'normal', drawTime:90, drawRounds:1, rummiTurnTime:60 }; }
 function newRoom(game,mode,password,p){ return { code:code(), hostId:p.id, players:[p], game, mode:mode||'normal', phase:'lobby', round:0, password:String(password||'').slice(0,24), settings:baseSettings(), submitted:[], answers:{}, votes:{}, liarIds:[], settingsVersion:1 }; }
-function resetRound(r){ clearTimer(r); r.submitted=[]; r.answers={}; r.answersRevealed=false; r.votes={}; r.votesSubmitted=[]; r.voteResult=null; r.guessResult=null; r.nightActions={}; r.nightSubmitted=[]; r.inspections={}; }
+function resetRound(r){ clearTimer(r); r.submitted=[]; r.answers={}; r.answersRevealed=false; r.votes={}; r.votesSubmitted=[]; r.voteResult=null; r.guessResult=null; r.nightActions={}; r.nightSubmitted=[]; r.inspections={}; r.discussionStarterId=null; r.discussionDirection=null; }
 function resetForGameSwitch(r,game){ clearTimer(r); r.game=game; r.mode='normal'; r.phase='lobby'; r.round=0; r.players.forEach(p=>{p.alive=true;p.role=null;p.rolePublic=null;p.score=0;}); r.settings=baseSettings(); r.prompt=null; r.liarIds=[]; r.draw=null; r.rummi=null; r.mafiaLog=[]; r.truthQuestion=null; r.truthTurnId=null; resetRound(r); }
 
 function publicState(r){
   const base={ code:r.code, hostId:r.hostId, game:r.game, gameName:GAME_NAMES[r.game], mode:r.mode, phase:r.phase, round:r.round,
     players:r.players.map(p=>({id:p.id,name:p.name,avatar:p.avatar,gender:p.gender||null,connected:p.connected,score:p.score,alive:p.alive,rolePublic:p.rolePublic,isBot:!!p.isBot})),
     settings:r.settings, deadline:r.deadline, submitted:r.submitted||[], answersRevealed:r.answersRevealed, answers:r.answersRevealed?r.answers:{}, votesSubmitted:r.votesSubmitted||[], voteResult:r.voteResult,
-    truthTurnId:r.truthTurnId, truthQuestion:r.truthQuestion, mafiaLog:r.mafiaLog||[], nightSubmitted:r.nightSubmitted||[],
+    truthTurnId:r.truthTurnId, truthQuestion:r.truthQuestion, mafiaLog:r.mafiaLog||[], nightSubmitted:r.nightSubmitted||[], mafiaRoleRevealSeq:r.mafiaRoleRevealSeq||0, nightMinEndAt:r.nightMinEndAt||null,
+    discussionStarterId:r.discussionStarterId||null, discussionDirection:r.discussionDirection||null,
     promptMeta:r.game==='liar'&&r.prompt?{category:r.prompt.category,min:r.prompt.min,max:r.prompt.max}:null };
   if(r.game==='draw' && r.draw) Object.assign(base,{draw:{drawerId:r.draw.drawerId,turn:r.draw.turn,totalTurns:r.draw.totalTurns,category:r.draw.prompt?.category||'',guessedIds:r.draw.guessedIds||[],guessFeed:r.draw.guessFeed||[],revealWord:r.phase==='drawReveal'?r.draw.prompt?.word:null,strokes:r.draw.strokes||[]}});
   if(r.game==='rummi' && r.rummi) Object.assign(base,{rummi:{turnPlayerId:r.rummi.turnOrder[r.rummi.turnIndex],turnNumber:r.rummi.turnNumber,board:r.rummi.board,poolCount:r.rummi.pool.length,registered:r.rummi.registered,winnerId:r.rummi.winnerId||null,lastAction:r.rummi.lastAction||''}});
@@ -67,7 +68,7 @@ function scheduleBots(r){
     if(r.game==='mafia'&&r.phase==='mafiaNight'){
       const actors=bots.filter(p=>p.alive&&['mafia','doctor','police'].includes(p.role)&&!r.nightSubmitted.includes(p.id));
       for(const p of actors){let targets=r.players.filter(x=>x.alive&&x.id!==p.id&&(p.role!=='mafia'||x.role!=='mafia'));if(!targets.length)continue;const t=pick(targets);if(p.role==='police')r.inspections[p.id]={name:t.name,isMafia:t.role==='mafia'};else r.nightActions[p.id]={type:p.role==='mafia'?'kill':'save',target:t.id};r.nightSubmitted.push(p.id)}
-      const allActors=r.players.filter(x=>x.alive&&['mafia','doctor','police'].includes(x.role));if(allActors.every(x=>r.nightSubmitted.includes(x.id)))return resolveNight(r);
+      const allActors=r.players.filter(x=>x.alive&&['mafia','doctor','police'].includes(x.role));if(allActors.every(x=>r.nightSubmitted.includes(x.id)))return finishNightWhenReady(r);
     }
     if(r.game==='liar'&&r.phase==='liarGuess'&&bots.some(p=>p.id===r.guessingLiarId)){
       const ok=Math.random()<.25;r.guessResult={attempted:true,guess:ok?r.prompt.word:'모르겠어요',answer:r.prompt.word,correct:ok};clearTimer(r);scoreLiarResult(r,ok);r.phase='result';return emitRoom(r);
@@ -91,7 +92,7 @@ function emitRoom(r){
     }
     if(r.game==='mafia' && r.phase!=='lobby'){
       const canSeeMafia=p.role==='mafia'||!p.alive||r.phase==='mafiaResult';
-      s.emit('privateData',{game:'mafia',role:p.role,alive:p.alive,mafiaIds:canSeeMafia?r.players.filter(x=>x.role==='mafia').map(x=>x.id):[],mafiaNames:p.role==='mafia'?r.players.filter(x=>x.role==='mafia').map(x=>x.name):[],inspection:r.inspections?.[p.id]||null});
+      s.emit('privateData',{game:'mafia',role:p.role,alive:p.alive,roleRevealSeq:r.mafiaRoleRevealSeq||0,mafiaIds:canSeeMafia?r.players.filter(x=>x.role==='mafia').map(x=>x.id):[],mafiaNames:p.role==='mafia'?r.players.filter(x=>x.role==='mafia').map(x=>x.name):[],inspection:r.inspections?.[p.id]||null});
     }
     if(r.game==='draw' && r.draw && r.phase!=='lobby'){
       s.emit('privateData',{game:'draw',isDrawer:r.draw.drawerId===p.id,word:r.draw.drawerId===p.id?r.draw.prompt.word:null,category:r.draw.prompt.category});
@@ -110,6 +111,7 @@ function startLiar(r){
   const n=clamp(r.settings.liarCount,1,Math.min(3,active(r).length-1)); r.liarIds=shuffle(active(r)).slice(0,n).map(p=>p.id);
   r.liarRoleMode=r.mode==='question'?'liar':(r.settings.liarRoleMode==='random'?(Math.random()<.5?'liar':'spy'):r.settings.liarRoleMode);
   r.prompt=pick(r.mode==='question'?questions:words); r.spyWord=r.liarRoleMode==='spy'?chooseSpyWord(r.prompt):null;
+  const talkers=active(r); r.discussionStarterId=pick(talkers).id; r.discussionDirection=Math.random()<.5?'left':'right';
   if(r.settings.roundTime)setTimer(r,r.settings.roundTime,()=>r.mode==='question'?revealAnswers(r):openLiarVote(r)); emitRoom(r);
 }
 function revealAnswers(r){ if(r.game!=='liar'||r.mode!=='question'||r.phase!=='play')return; for(const p of active(r))if(r.answers[p.id]===undefined)r.answers[p.id]=null; r.answersRevealed=true;r.phase='reveal'; if(r.settings.roundTime)setTimer(r,r.settings.roundTime,()=>openLiarVote(r)); emitRoom(r); }
@@ -130,9 +132,33 @@ function startTruth(r){ if(active(r).length<2)throw Error('진실게임은 최�
 function makeTruth(r){ const level=r.settings.truthLevel||'normal';const targeted=active(r).length>2&&Math.random()<.48;const pool=targeted?truth.targeted[level]:truth[level];let q=pick(pool);if(targeted){const turn=by(r,r.truthTurnId);let targets=active(r).filter(x=>x.id!==r.truthTurnId);if(q.includes('{opposite}')&&turn?.gender)targets=targets.filter(x=>x.gender&&x.gender!==turn.gender);const t=pick(targets.length?targets:active(r).filter(x=>x.id!==r.truthTurnId));if(t)q=q.replaceAll('{target}',t.name).replaceAll('{opposite}',t.name);}r.truthQuestion=q; }
 
 // ---------- Mafia ----------
-function mafiaSetup(r){ if(active(r).length<5)throw Error('마피아게임은 최소 5명입니다.');resetRound(r);r.round=1;r.players.forEach(p=>{p.alive=true;p.rolePublic=null;p.score=0});const ps=shuffle(active(r)),mc=ps.length>=8?2:1;ps.forEach((p,i)=>p.role=i<mc?'mafia':i===mc?'police':i===mc+1?'doctor':'citizen');r.mafiaLog=[];r.day=1;r.inspections={};startMafiaNight(r); }
-function startMafiaNight(r){resetRound(r);r.phase='mafiaNight';r.mafiaLog.push(`🌙 ${r.day}일차 밤이 되었습니다.`);setTimer(r,r.settings.roundTime||60,()=>resolveNight(r));emitRoom(r);}
-function resolveNight(r){if(r.phase!=='mafiaNight')return;clearTimer(r);const acts=Object.values(r.nightActions),kills=acts.filter(a=>a.type==='kill').map(a=>a.target),save=acts.find(a=>a.type==='save')?.target;let victim=null;if(kills.length){const c={};kills.forEach(x=>c[x]=(c[x]||0)+1);victim=Object.keys(c).sort((a,b)=>c[b]-c[a])[0]}if(victim&&victim!==save){const p=by(r,victim);if(p){p.alive=false;r.mafiaLog.push(`☀️ 아침이 밝았습니다. ${p.name}님이 밤에 사망했습니다. 💀`)}}else r.mafiaLog.push('☀️ 아침이 밝았습니다. 지난밤 아무도 사망하지 않았습니다.');if(checkMafiaEnd(r))return;r.phase='mafiaDay';setTimer(r,r.settings.roundTime||120,()=>startMafiaVote(r));emitRoom(r);}
+function mafiaSetup(r){
+  if(active(r).length<5)throw Error('마피아게임은 최소 5명입니다.');
+  resetRound(r);r.round=1;r.players.forEach(p=>{p.alive=true;p.rolePublic=null;p.score=0});
+  const ps=shuffle(active(r)),mc=ps.length>=8?2:1;
+  ps.forEach((p,i)=>p.role=i<mc?'mafia':i===mc?'police':i===mc+1?'doctor':'citizen');
+  r.mafiaLog=[];r.day=1;r.inspections={};r.mafiaRoleRevealSeq=(r.mafiaRoleRevealSeq||0)+1;
+  r.phase='mafiaRoleReveal';
+  // 역할을 충분히 확인할 수 있도록 5초 동안 역할 공개 화면을 유지한 뒤 첫 밤으로 넘어갑니다.
+  setTimer(r,5,()=>startMafiaNight(r));emitRoom(r);
+}
+function startMafiaNight(r){
+  resetRound(r);r.phase='mafiaNight';r.nightStartedAt=Date.now();r.nightMinEndAt=r.nightStartedAt+30000;
+  r.mafiaLog.push(`🌙 ${r.day}일차 밤이 되었습니다.`);
+  // 설정한 진행 시간이 밤의 최대 시간입니다. 제한없음이면 모든 능력 수행 후(최소 30초 이후) 아침으로 넘어갑니다.
+  if(r.settings.roundTime)setTimer(r,r.settings.roundTime,()=>resolveNight(r));
+  emitRoom(r);
+}
+function finishNightWhenReady(r){
+  if(r.phase!=='mafiaNight')return;
+  const remain=Math.max(0,(r.nightMinEndAt||0)-Date.now());
+  if(remain<=0)return resolveNight(r);
+  // 모두 행동을 마쳐도 밤 시작 후 최소 30초는 유지합니다. 화면 타이머도 실제 남은 대기시간에 맞춥니다.
+  clearTimer(r);r.deadline=Date.now()+remain;
+  r.nightMinTimer=setTimeout(()=>{r.nightMinTimer=null;r.deadline=null;resolveNight(r);},remain);
+  emitRoom(r);
+}
+function resolveNight(r){if(r.phase!=='mafiaNight')return;clearTimer(r);r.nightMinEndAt=null;const acts=Object.values(r.nightActions),kills=acts.filter(a=>a.type==='kill').map(a=>a.target),save=acts.find(a=>a.type==='save')?.target;let victim=null;if(kills.length){const c={};kills.forEach(x=>c[x]=(c[x]||0)+1);victim=Object.keys(c).sort((a,b)=>c[b]-c[a])[0]}if(victim&&victim!==save){const p=by(r,victim);if(p){p.alive=false;r.mafiaLog.push(`☀️ 아침이 밝았습니다. ${p.name}님이 밤에 사망했습니다. 💀`)}}else r.mafiaLog.push('☀️ 아침이 밝았습니다. 지난밤 아무도 사망하지 않았습니다.');if(checkMafiaEnd(r))return;r.phase='mafiaDay';if(r.settings.roundTime)setTimer(r,r.settings.roundTime,()=>startMafiaVote(r));emitRoom(r);}
 function startMafiaVote(r){clearTimer(r);r.phase='mafiaVote';r.votes={};r.votesSubmitted=[];setTimer(r,r.settings.voteTime||30,()=>resolveMafiaVote(r));emitRoom(r);}
 function resolveMafiaVote(r){if(r.phase!=='mafiaVote')return;clearTimer(r);const c={};Object.values(r.votes).forEach(x=>c[x]=(c[x]||0)+1);const m=Math.max(0,...Object.values(c));const top=Object.keys(c).filter(x=>c[x]===m&&m);if(top.length===1){const p=by(r,top[0]);if(p){p.alive=false;p.rolePublic=p.role;r.mafiaLog.push(`⚖️ 투표로 ${p.name}님이 처형되었습니다. 역할: ${ROLE_NAMES[p.role]}`)}}else r.mafiaLog.push('⚖️ 투표가 동률이라 아무도 처형되지 않았습니다.');if(checkMafiaEnd(r))return;r.day++;startMafiaNight(r);}
 function checkMafiaEnd(r){const aliveP=r.players.filter(p=>p.alive),m=aliveP.filter(p=>p.role==='mafia').length,c=aliveP.length-m;if(m===0||m>=c){r.phase='mafiaResult';r.mafiaWinner=m===0?'시민팀':'마피아팀';r.mafiaLog.push(`🏆 ${r.mafiaWinner} 승리!`);r.players.forEach(p=>p.rolePublic=p.role);emitRoom(r);return true}return false;}
@@ -182,7 +208,7 @@ io.on('connection', s => {
   s.on('submitLiarGuess',(d,cb)=>{try{const r=rooms.get(s.data.roomCode);if(!r||r.phase!=='liarGuess'||r.guessingLiarId!==s.data.playerId)throw Error('추측할 수 없습니다.');const ok=normalizeGuess(d.guess)===normalizeGuess(r.prompt.word);r.guessResult={attempted:true,guess:clean(d.guess),answer:r.prompt.word,correct:ok};clearTimer(r);scoreLiarResult(r,ok);r.phase='result';emitRoom(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message});}});
   s.on('truthNext',()=>{const r=rooms.get(s.data.roomCode);if(r&&r.hostId===s.data.playerId)startTruth(r);});
   s.on('truthReroll',()=>{const r=rooms.get(s.data.roomCode);if(r&&r.hostId===s.data.playerId&&r.phase==='truth'){makeTruth(r);emitRoom(r);}});
-  s.on('nightAction',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId),t=by(r,d.targetId);if(!r||r.phase!=='mafiaNight'||!p?.alive||!t?.alive)throw Error('지금 선택할 수 없습니다.');if(r.nightSubmitted.includes(p.id))throw Error('이미 행동했습니다.');let type;if(p.role==='mafia')type='kill';else if(p.role==='doctor')type='save';else if(p.role==='police')type='inspect';else throw Error('밤 능력이 없습니다.');if(type==='inspect')r.inspections[p.id]={name:t.name,isMafia:t.role==='mafia'};else r.nightActions[p.id]={type,target:t.id};r.nightSubmitted.push(p.id);const actors=r.players.filter(x=>x.alive&&['mafia','doctor','police'].includes(x.role));if(actors.every(x=>r.nightSubmitted.includes(x.id)))resolveNight(r);else emitRoom(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message});}});
+  s.on('nightAction',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId),t=by(r,d.targetId);if(!r||r.phase!=='mafiaNight'||!p?.alive||!t?.alive)throw Error('지금 선택할 수 없습니다.');if(r.nightSubmitted.includes(p.id))throw Error('이미 행동했습니다.');let type;if(p.role==='mafia')type='kill';else if(p.role==='doctor')type='save';else if(p.role==='police')type='inspect';else throw Error('밤 능력이 없습니다.');if(type==='inspect')r.inspections[p.id]={name:t.name,isMafia:t.role==='mafia'};else r.nightActions[p.id]={type,target:t.id};r.nightSubmitted.push(p.id);const actors=r.players.filter(x=>x.alive&&['mafia','doctor','police'].includes(x.role));if(actors.every(x=>r.nightSubmitted.includes(x.id)))finishNightWhenReady(r);else emitRoom(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message});}});
   // Drawing
   s.on('drawStroke',(d)=>{const r=rooms.get(s.data.roomCode);if(!r||r.game!=='draw'||r.phase!=='drawPlay'||r.draw.drawerId!==s.data.playerId)return;const st={x1:+d.x1,y1:+d.y1,x2:+d.x2,y2:+d.y2,color:String(d.color||'#111').slice(0,20),size:clamp(+d.size||4,1,30)};r.draw.strokes.push(st);if(r.draw.strokes.length>8000)r.draw.strokes.shift();s.to(r.code).emit('drawStroke',st);});
   s.on('drawClear',()=>{const r=rooms.get(s.data.roomCode);if(r&&r.game==='draw'&&r.phase==='drawPlay'&&r.draw.drawerId===s.data.playerId){r.draw.strokes=[];io.to(r.code).emit('canvasClear');}});

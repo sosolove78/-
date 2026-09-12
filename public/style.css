@@ -11,3 +11,58 @@ body{background:linear-gradient(180deg,#0b1128,#111831 55%,#0b1020)}.app{max-wid
 /* v9 desktop-first game room */
 .event-popup{position:fixed;z-index:200;left:50%;top:16%;transform:translate(-50%,-18px) scale(.94);opacity:0;pointer-events:none;max-width:min(720px,90vw);padding:22px 30px;border-radius:22px;background:#171e37;border:2px solid #65729c;box-shadow:0 25px 90px #000b;text-align:center;font-size:clamp(22px,3vw,38px);font-weight:1000;transition:.2s}.event-popup.show{opacity:1;transform:translate(-50%,0) scale(1)}.event-popup.danger{background:#421421;border-color:#ff5d7a}.event-popup.mafia{background:#421421;border-color:#ff435f}.event-popup.police{background:#102f51;border-color:#4aa7ff}.event-popup.doctor{background:#123a2b;border-color:#50d890}.event-popup.citizen{background:#423719;border-color:#f3ce69}
 @media(min-width:901px){#room{display:grid;grid-template-columns:minmax(0,1fr) 330px;grid-template-areas:"game players" "settings players" "admin players";gap:14px;align-items:start}#room>.panel:first-child{grid-area:game;margin:0;min-height:430px}#room>#settings{grid-area:settings;margin:0}#room>#adminRoomPanel{grid-area:admin;margin:0}#room>.panel:last-child{grid-area:players;margin:0;position:sticky;top:14px;max-height:calc(100vh - 28px);overflow:auto}#room .players{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}#room .player{min-height:112px;padding:10px}#room .private-card{margin:12px 0;padding:18px}#room #actionArea{max-height:46vh;overflow:auto;padding-right:4px}.settings-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.mafia-scene{display:grid;grid-template-columns:minmax(230px,.75fr) minmax(300px,1.25fr);gap:16px;align-items:center}.mafia-scene .phase-hero{grid-column:1/-1;margin:0}.mafia-scene .role-card{margin:0}.mafia-log{margin:0}.vote-grid{grid-template-columns:repeat(3,1fr)}.answer-card{display:inline-flex;width:calc(33.333% - 8px);margin:4px}.rummi-table{min-height:310px}.rack{flex-wrap:wrap;overflow:visible}.game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* v9.1 Mafia pacing & event readability */
+.mafia-scene.rolephase{background:linear-gradient(135deg,#191429,#35204b);border:1px solid #7e5ca8}
+.role-card.role-focus{animation:roleRevealPulse 1.15s ease-in-out 2;box-shadow:0 0 0 1px #ffffff18,0 16px 50px #0007}
+.role-wait{text-align:center;padding:18px;border-radius:16px;background:#151a2c;border:1px solid #39466b}
+.role-wait h2{font-size:clamp(24px,3vw,34px);margin:0 0 8px}
+.mafia-log{display:flex;flex-direction:column;gap:7px}
+.mafia-log-item{padding:8px 10px;border-radius:10px;transition:.2s}
+.mafia-log-item.past{color:#7f879c;opacity:.72;background:#ffffff05}
+.mafia-log-item.latest{color:#f7f8ff;background:#202943;border:1px solid #44547d;font-size:20px;font-weight:900;box-shadow:0 6px 20px #0003}
+.event-popup.role-reveal{font-size:clamp(30px,4vw,48px);padding:30px 42px;animation:rolePopupIn .65s cubic-bezier(.2,.9,.2,1)}
+@keyframes roleRevealPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.025);filter:brightness(1.12)}}
+@keyframes rolePopupIn{0%{opacity:0;transform:translate(-50%,-35px) scale(.78)}65%{opacity:1;transform:translate(-50%,4px) scale(1.05)}100%{opacity:1;transform:translate(-50%,0) scale(1)}}
+@media(max-width:760px){.mafia-log-item.latest{font-size:17px}.event-popup.role-reveal{font-size:28px;padding:24px 22px}}
+
+/* v9.2 Rummikub desktop table-first layout */
+.rummi-turnline{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.rummi-turnline>strong{font-size:clamp(18px,2vw,25px);font-weight:1000}
+.rummi-last-action{margin-top:8px;color:var(--muted);font-size:13px}
+.rummi-section-head,.rummi-rack-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.rummi-section-head h3,.rummi-rack-head h3{margin:0}
+.rummi-rack-head{margin:14px 0 8px}
+.rummi-rack-head .rummi-controls{margin:0}
+.rummi-help{margin-bottom:0}
+@media(min-width:901px){
+  #room.room-rummi{grid-template-columns:1fr;grid-template-areas:"players" "game" "settings" "admin";gap:12px}
+  #room.room-rummi>.panel:first-child{grid-area:game;min-height:0}
+  #room.room-rummi>.panel:last-child{grid-area:players;position:static;max-height:none;overflow:visible;padding:14px 18px}
+  #room.room-rummi>#settings{grid-area:settings}
+  #room.room-rummi>#adminRoomPanel{grid-area:admin}
+  #room.room-rummi>.panel:last-child .section-head{margin-bottom:8px}
+  #room.room-rummi .players{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+  #room.room-rummi .player{min-height:82px;padding:8px 10px;display:grid;grid-template-columns:46px minmax(0,1fr);grid-template-rows:auto auto;column-gap:9px;text-align:left;align-items:center}
+  #room.room-rummi .player .face{grid-row:1/3;width:42px;height:42px;margin:0;display:flex;align-items:center;justify-content:center}
+  #room.room-rummi .player .face .emoji-avatar{font-size:32px}
+  #room.room-rummi .player .name{align-self:end}
+  #room.room-rummi .player .score{align-self:start;margin-top:2px}
+  #room.room-rummi #mainCard{margin:8px 0 12px;padding:10px 14px;border-radius:14px;text-align:left}
+  #room.room-rummi #actionArea{max-height:none;overflow:visible;padding:0}
+  #room.room-rummi .rummi-table{min-height:460px;width:100%;padding:20px;gap:14px;align-content:flex-start;border-width:6px;background:linear-gradient(180deg,#146348,#0f513b)}
+  #room.room-rummi .rummi-group{min-height:76px;padding:8px;gap:5px}
+  #room.room-rummi .rummi-new{min-width:145px}
+  #room.room-rummi .rack{min-height:98px;flex-wrap:wrap;overflow:visible;padding:13px}
+  #room.room-rummi .tile{width:48px;height:68px;font-size:24px}
+}
+@media(min-width:1200px){
+  #room.room-rummi .rummi-table{min-height:520px}
+  #room.room-rummi .tile{width:50px;height:70px}
+}
+
+/* v9.3 liar discussion starter */
+.player.first-speaker-player{border-color:#ffcf5c;box-shadow:0 0 0 2px rgba(255,207,92,.16),0 0 22px rgba(255,207,92,.12)}
+.first-speaker{position:absolute;z-index:4;top:-13px;left:50%;transform:translateX(-50%);padding:5px 10px;border-radius:999px;background:linear-gradient(135deg,#ffcf5c,#ff9f43);color:#201508;font-size:13px;font-weight:1000;letter-spacing:.02em;white-space:nowrap;box-shadow:0 5px 16px #0006;border:2px solid #fff2}
+.first-speaker.left{padding-left:12px}.first-speaker.right{padding-right:12px}
+@media(max-width:760px){.first-speaker{font-size:12px;top:-11px;padding:4px 8px}}
