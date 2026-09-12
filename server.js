@@ -16,8 +16,8 @@ const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/question
 const truth = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/truth.json')));
 
 const rooms = new Map();
-const AV = Array.from({length:16},(_,i)=>'avatar'+String(i+1).padStart(2,'0'));
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '2580';
+const AV = ['🐶','🐱','🐰','🐻','🐼','🐨','🦊','🐯','🦁','🐸','🐵','🐧','🐥','🦄','🐙','🦖','👻','🤖','👽','🥷','🧙','🧛','🧚','🧑‍🚀','🕵️','👑','😎','🤠','🥳','😈'];
+const ADMIN_PASSWORD = '4890';
 const LIMITS = { liar:[3,10], mafia:[5,12], truth:[2,10], rummi:[2,4] };
 const GAME_NAMES = { liar:'라이어게임', mafia:'마피아게임', truth:'진실게임', rummi:'루미큐브' };
 const ROLE_NAMES = { mafia:'마피아', police:'경찰', doctor:'의사', citizen:'시민' };

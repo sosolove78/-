@@ -1,8 +1,8 @@
 const socket=io();
 const $=q=>document.querySelector(q), $$=q=>[...document.querySelectorAll(q)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const AV=Array.from({length:16},(_,i)=>'avatar'+String(i+1).padStart(2,'0'));
-const avatarHtml=(a,cls='')=>`<img class="${cls}" src="/avatars/${esc(a)}.png" alt="캐릭터">`;
+const AV=['🐶','🐱','🐰','🐻','🐼','🐨','🦊','🐯','🦁','🐸','🐵','🐧','🐥','🦄','🐙','🦖','👻','🤖','👽','🥷','🧙','🧛','🧚','🧑‍🚀','🕵️','👑','😎','🤠','🥳','😈'];
+const avatarHtml=(a,cls='')=>`<span class="emoji-avatar ${cls}" aria-label="캐릭터">${esc(a)}</span>`;
 let adminToken=sessionStorage.sosoAdmin||'';
 let game='liar',mode='normal',avatar=AV[0],me=null,state=null,priv=null,tick=null,toastT=null;
 let canvas=null,ctx=null,drawing=false,lastPt=null,penColor='#111111',penSize=5;
@@ -13,7 +13,6 @@ $('#avatars').innerHTML=AV.map((a,i)=>`<button class="avatar ${i?'':'active'}">$
 $$('.avatar').forEach((b,i)=>b.onclick=()=>{avatar=AV[i];$$('.avatar').forEach(x=>x.classList.toggle('active',x===b))});
 $$('.game').forEach(b=>b.onclick=()=>{game=b.dataset.game;$$('.game').forEach(x=>x.classList.toggle('active',x===b));$('#liarModes').classList.toggle('hidden',game!=='liar')});
 $$('.mode').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;$$('.mode').forEach(x=>x.classList.toggle('active',x===b))});
-$$('[data-scroll]').forEach(b=>b.onclick=()=>$('#'+b.dataset.scroll)?.scrollIntoView({behavior:'smooth',block:'start'}));
 function setAdminUI(on){adminToken=on?adminToken:'';sessionStorage.sosoAdmin=adminToken;$('#adminRoomPanel')?.classList.toggle('hidden',!(on&&state&&host()));}
 $('#adminOpen').onclick=()=>$('#adminModal').classList.remove('hidden');$('#adminClose').onclick=()=>$('#adminModal').classList.add('hidden');
 $('#adminLogin').onclick=()=>socket.emit('adminLogin',{password:$('#adminPassword').value},r=>{if(!r.ok)return toast(r.error);adminToken=r.token;sessionStorage.sosoAdmin=adminToken;$('#adminModal').classList.add('hidden');toast('관리자 테스트 모드가 켜졌습니다.');render()});
