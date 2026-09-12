@@ -1,8 +1,8 @@
 {
   "name": "soso-party-game",
-  "version": "9.4.0",
+  "version": "9.5.0",
   "private": true,
-  "description": "Realtime Korean party game suite: liar, mafia, truth and tile game",
+  "description": "Realtime Korean party game suite: liar, mafia, truth, tile and Korean word-chain game",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
