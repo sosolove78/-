@@ -1,8 +1,8 @@
 {
   "name": "soso-party-game",
-  "version": "19.0.0",
+  "version": "20.0.0",
   "private": true,
-  "description": "SOSO Game Room v18 with party games, Genius games, Deathmatch Indian Poker, expanded Stock War and free-input Word Chain",
+  "description": "SOSO Game Room v20 with shared audio settings, Brain Game profiles, Genius test bots, Stock War image rulebook and revised round timing",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
