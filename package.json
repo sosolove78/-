@@ -1,8 +1,8 @@
 {
   "name": "soso-party-game",
-  "version": "11.0.0",
+  "version": "12.0.0",
   "private": true,
-  "description": "SOSO Party Game with Genius Room and expanded Stock War",
+  "description": "SOSO Party Game v12 with immersive Mafia and Genius Stock War",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

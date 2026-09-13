@@ -41,7 +41,7 @@ function code(){ let c; do { c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'.split('').sort
 function player(name,avatar,sessionId){ return { id:uid(), sessionId, name:clean(name), avatar:AV.includes(avatar)?avatar:AV[0], gender:null, connected:true, score:0, alive:true, rolePublic:null, isBot:false }; }
 function botPlayer(r){const n=r.players.filter(p=>p.isBot).length+1;return {id:uid(),sessionId:'bot-'+uid(),name:'소소봇'+n,avatar:AV[(n+2)%AV.length],gender:n%2?'male':'female',connected:true,score:0,alive:true,rolePublic:null,isBot:true};}
 function bind(s,r,p){ p.socketId=s.id; p.connected=true; s.join(r.code); s.data.roomCode=r.code; s.data.playerId=p.id; }
-function clearTimer(r){ if(r.timer) clearTimeout(r.timer); if(r.nightMinTimer) clearTimeout(r.nightMinTimer); r.timer=null; r.nightMinTimer=null; r.deadline=null; }
+function clearTimer(r){ if(r.timer) clearTimeout(r.timer); if(r.nightMinTimer) clearTimeout(r.nightMinTimer); if(r.nightHardTimer) clearTimeout(r.nightHardTimer); if(r.stepTimer) clearTimeout(r.stepTimer); r.timer=null; r.nightMinTimer=null; r.nightHardTimer=null; r.stepTimer=null; r.deadline=null; }
 function setTimer(r,sec,fn){ clearTimer(r); if(!sec)return; r.deadline=Date.now()+sec*1000; r.timer=setTimeout(()=>{r.timer=null;r.deadline=null;fn();},sec*1000); }
 
 function mafiaRolesFor(n){
@@ -55,12 +55,13 @@ function resetForGameSwitch(r,game){ clearTimer(r); r.game=game; r.mode='normal'
 
 function publicState(r){
   const base={ code:r.code, hostId:r.hostId, game:r.game, gameName:GAME_NAMES[r.game], mode:r.mode, phase:r.phase, round:r.round,
-    players:r.players.map(p=>({id:p.id,name:p.name,avatar:p.avatar,gender:p.gender||null,connected:p.connected,score:p.score,alive:p.alive,rolePublic:p.rolePublic,isBot:!!p.isBot,geniusName:p.geniusName||null,geniusGarnets:p.geniusName?(geniusAccounts[p.geniusName]?.garnets||0):null,geniusWins:p.geniusName?(geniusAccounts[p.geniusName]?.wins||0):null})),
+    players:r.players.map(p=>({id:p.id,name:p.name,avatar:p.avatar,gender:p.gender||null,connected:p.connected,score:p.score,alive:p.alive,rolePublic:p.rolePublic,claimedRole:p.claimedRole||null,isBot:!!p.isBot,geniusName:p.geniusName||null,geniusGarnets:p.geniusName?(geniusAccounts[p.geniusName]?.garnets||0):null,geniusWins:p.geniusName?(geniusAccounts[p.geniusName]?.wins||0):null})),
     settings:r.settings, deadline:r.deadline, submitted:r.submitted||[], answersRevealed:r.answersRevealed, answers:r.answersRevealed?r.answers:{}, votesSubmitted:r.votesSubmitted||[], voteResult:r.voteResult,
     truthTurnId:r.truthTurnId, truthQuestion:r.truthQuestion, mafiaLog:r.mafiaLog||[], nightSubmitted:r.nightSubmitted||[], mafiaRoleRevealSeq:r.mafiaRoleRevealSeq||0, nightMinEndAt:r.nightMinEndAt||null,
+    mafiaDealer:r.mafiaDealer||'', mafiaNightStep:r.mafiaNightStep||null, mafiaCandidateId:r.mafiaCandidateId||null, executeVotesSubmitted:r.executeVotesSubmitted||[], mafiaAwards:r.mafiaAwards||[],
     terroristPickId:r.terroristPickId||null, discussionStarterId:r.discussionStarterId||null, discussionDirection:r.discussionDirection||null,
     promptMeta:r.game==='liar'&&r.prompt?{category:r.prompt.category,min:r.prompt.min,max:r.prompt.max}:null };
-  if(r.game==='stockwar'&&r.stock) Object.assign(base,{stock:{round:r.stock.round,companies:r.stock.companies,news:r.stock.news,marketEvent:r.stock.marketEvent||null,phase:r.stock.phase,portfolioPublic:false,dealer:r.stock.dealer,tradeEndsAt:r.stock.tradeEndsAt||null,ranking:r.stock.ranking||[],volume:r.stock.volume||{},whaleAlerts:(r.stock.whaleAlerts||[]).slice(-5),auction:r.stock.auction?{active:r.stock.auction.active,endsAt:r.stock.auction.endsAt,highBid:r.stock.auction.highBid,highBidderName:r.stock.auction.highBidderName,round:r.stock.auction.round}:null,afterMarket:r.stock.afterMarket||null,garnetPot:r.stock.garnetPot||0,liveRanking:r.phase==='stockTrade'||r.phase==='stockResult'||r.phase==='stockAuction'?active(r).map(p=>({id:r.settings.stockRankHidden?null:p.id,name:r.settings.stockRankHidden?'???':p.name,value:stockValue(r,p.id)})).sort((a,b)=>b.value-a.value):[]}});
+  if(r.game==='stockwar'&&r.stock) Object.assign(base,{stock:{round:r.stock.round,companies:r.stock.companies,news:r.stock.news,marketEvent:r.stock.marketEvent||null,phase:r.stock.phase,portfolioPublic:false,dealer:r.stock.dealer,tradeEndsAt:r.stock.tradeEndsAt||null,ranking:r.stock.ranking||[],volume:r.stock.volume||{},whaleAlerts:(r.stock.whaleAlerts||[]).slice(-5),briefingReady:r.stock.briefingReady||[],briefingTotal:active(r).filter(x=>!x.isBot).length,auction:r.stock.auction?{active:r.stock.auction.active,endsAt:r.stock.auction.endsAt,highBid:r.stock.auction.highBid,highBidderName:r.stock.auction.highBidderName,round:r.stock.auction.round}:null,afterMarket:r.stock.afterMarket||null,garnetPot:r.stock.garnetPot||0,liveRanking:r.phase==='stockTrade'||r.phase==='stockResult'||r.phase==='stockAuction'?active(r).map(p=>({id:r.settings.stockRankHidden?null:p.id,name:r.settings.stockRankHidden?'???':p.name,value:stockValue(r,p.id)})).sort((a,b)=>b.value-a.value):[]}});
   if(r.game==='rummi' && r.rummi) Object.assign(base,{rummi:{turnPlayerId:r.rummi.turnOrder[r.rummi.turnIndex],turnNumber:r.rummi.turnNumber,board:r.rummi.board,poolCount:r.rummi.pool.length,registered:r.rummi.registered,winnerId:r.rummi.winnerId||null,lastAction:r.rummi.lastAction||'',rackCounts:Object.fromEntries(Object.entries(r.rummi.racks).map(([id,rack])=>[id,rack.length]))}});
   if(r.game==='wordchain' && r.wordchain) Object.assign(base,{wordchain:{turnPlayerId:r.wordchain.turnOrder[r.wordchain.turnIndex],turnNumber:r.wordchain.turnNumber,currentWord:r.wordchain.currentWord,required:r.wordchain.required,direction:r.wordchain.direction,lives:r.wordchain.lives,eliminated:r.wordchain.eliminated,history:r.wordchain.history.slice(-18),lastAction:r.wordchain.lastAction||'',winnerId:r.wordchain.winnerId||null,items:r.wordchain.items}});
   return base;
@@ -78,9 +79,24 @@ function scheduleBots(r){
       const all=active(r).filter(x=>r.game!=='mafia'||x.alive);if(all.every(x=>r.votesSubmitted.includes(x.id)))return r.game==='liar'?tallyLiar(r):resolveMafiaVote(r);
     }
     if(r.game==='mafia'&&r.phase==='mafiaNight'){
-      const actors=bots.filter(p=>p.alive&&['mafia','doctor','police','reporter'].includes(p.role)&&!r.nightSubmitted.includes(p.id));
-      for(const p of actors){let targets=r.players.filter(x=>x.alive&&(p.role==='doctor'||x.id!==p.id)&&(p.role!=='mafia'||x.role!=='mafia'));if(!targets.length)continue;const t=pick(targets);if(p.role==='police')r.inspections[p.id]={name:t.name,isMafia:t.role==='mafia'};else if(p.role==='reporter'){r.nightActions[p.id]={type:'report',target:t.id};r.reporterUsed[p.id]=true}else r.nightActions[p.id]={type:p.role==='mafia'?'kill':'save',target:t.id};r.nightSubmitted.push(p.id)}
-      const allActors=r.players.filter(x=>x.alive&&(['mafia','doctor','police'].includes(x.role)||(x.role==='reporter'&&!r.reporterUsed?.[x.id])));if(allActors.every(x=>r.nightSubmitted.includes(x.id)))return finishNightWhenReady(r);
+      const step=r.mafiaNightStep,actors=bots.filter(p=>p.alive&&p.role===step&&!r.nightSubmitted.includes(p.id)&&(step!=='reporter'||!r.reporterUsed?.[p.id]));
+      for(const p of actors){
+        let targets=r.players.filter(x=>x.alive&&(p.role==='doctor'||x.id!==p.id)&&(p.role!=='mafia'||!['mafia','spy'].includes(x.role)));if(!targets.length)continue;
+        let t;if(p.role==='mafia'&&r.mafiaTargetId)t=by(r,r.mafiaTargetId);else t=pick(targets);
+        if(p.role==='mafia'){r.mafiaTargetId=t.id;r.nightActions[p.id]={type:'kill',target:t.id}}
+        else if(p.role==='police'){r.inspections[p.id]={name:t.name,isMafia:t.role==='mafia'};r.mafiaStats.investigations[p.id]=(r.mafiaStats.investigations[p.id]||0)+(t.role==='mafia'?1:0)}
+        else if(p.role==='reporter'){r.nightActions[p.id]={type:'report',target:t.id};r.reporterUsed[p.id]=true}
+        else r.nightActions[p.id]={type:'save',target:t.id};
+        r.nightSubmitted.push(p.id)
+      }
+      const current=currentMafiaStepActors(r);if(current.length&&current.every(x=>r.nightSubmitted.includes(x.id)))return advanceMafiaNightStep(r);
+    }
+    if(r.game==='mafia'&&r.phase==='mafiaExecuteVote'){
+      for(const p of bots.filter(x=>x.alive&&!r.executeVotesSubmitted.includes(x.id))){r.executeVotes[p.id]=Math.random()<.62?'execute':'spare';r.executeVotesSubmitted.push(p.id)}
+      const voters=r.players.filter(x=>x.alive);if(voters.every(x=>r.executeVotesSubmitted.includes(x.id)))return resolveMafiaExecuteVote(r);
+    }
+    if(r.game==='stockwar'&&r.phase==='stockBriefing'){
+      for(const p of bots)if(!r.stock.briefingReady.includes(p.id))r.stock.briefingReady.push(p.id);
     }
     if(r.game==='liar'&&r.phase==='liarGuess'&&bots.some(p=>p.id===r.guessingLiarId)){
       const ok=Math.random()<.25;r.guessResult={attempted:true,guess:ok?r.prompt.word:'모르겠어요',answer:r.prompt.word,correct:ok};clearTimer(r);scoreLiarResult(r,ok);r.phase='result';return emitRoom(r);
@@ -113,7 +129,7 @@ function emitRoom(r){
     if(r.game==='mafia' && r.phase!=='lobby'){
       const team=['mafia','spy'].includes(p.role), canSeeMafia=team||!p.alive||r.phase==='mafiaResult';
       const loverId=(r.loverIds||[]).includes(p.id)?r.loverIds.find(x=>x!==p.id):null;
-      s.emit('privateData',{game:'mafia',role:p.role,alive:p.alive,roleRevealSeq:r.mafiaRoleRevealSeq||0,mafiaIds:canSeeMafia?r.players.filter(x=>x.role==='mafia').map(x=>x.id):[],mafiaTeamIds:canSeeMafia?r.players.filter(x=>['mafia','spy'].includes(x.role)).map(x=>x.id):[],mafiaNames:team?r.players.filter(x=>['mafia','spy'].includes(x.role)).map(x=>x.name):[],inspection:r.inspections?.[p.id]||null,loverId,loverName:loverId?by(r,loverId)?.name:null,reporterUsed:!!r.reporterUsed?.[p.id],terroristCandidates:r.terroristPickId===p.id?(r.terroristCandidates||[]):[],teamChat:team?(r.mafiaChats?.team||[]):[],deadChat:!p.alive?(r.mafiaChats?.dead||[]):[]});
+      s.emit('privateData',{game:'mafia',role:p.role,alive:p.alive,roleRevealSeq:r.mafiaRoleRevealSeq||0,mafiaIds:canSeeMafia?r.players.filter(x=>x.role==='mafia').map(x=>x.id):[],mafiaTeamIds:canSeeMafia?r.players.filter(x=>['mafia','spy'].includes(x.role)).map(x=>x.id):[],mafiaNames:team?r.players.filter(x=>['mafia','spy'].includes(x.role)).map(x=>x.name):[],allRoles:(!p.alive||r.phase==='mafiaResult')?Object.fromEntries(r.players.map(x=>[x.id,x.role])):{},inspection:r.inspections?.[p.id]||null,loverId,loverName:loverId?by(r,loverId)?.name:null,reporterUsed:!!r.reporterUsed?.[p.id],terroristCandidates:r.terroristPickId===p.id?(r.terroristCandidates||[]):[],teamChat:team?(r.mafiaChats?.team||[]):[],deadChat:!p.alive?(r.mafiaChats?.dead||[]):[]});
     }
     if(r.game==='wordchain' && r.wordchain && r.phase!=='lobby'){
       s.emit('privateData',{game:'wordchain',items:r.wordchain.items[p.id]||[]});
@@ -154,39 +170,134 @@ function startTruth(r){ if(active(r).length<2)throw Error('진실게임은 최�
 function makeTruth(r){ const level=r.settings.truthLevel||'normal';const targeted=active(r).length>2&&Math.random()<.48;const pool=targeted?truth.targeted[level]:truth[level];let q=pick(pool);if(targeted){const turn=by(r,r.truthTurnId);let targets=active(r).filter(x=>x.id!==r.truthTurnId);if(q.includes('{opposite}')&&turn?.gender)targets=targets.filter(x=>x.gender&&x.gender!==turn.gender);const t=pick(targets.length?targets:active(r).filter(x=>x.id!==r.truthTurnId));if(t)q=q.replaceAll('{target}',t.name).replaceAll('{opposite}',t.name);}r.truthQuestion=q; }
 
 // ---------- Mafia ----------
+function mafiaDealerTextForStep(step){
+  return step==='mafia'?'마피아는 눈을 뜨고 제거할 사람을 선택하십시오.':
+    step==='police'?'경찰은 눈을 뜨고 조사할 사람을 선택하십시오.':
+    step==='doctor'?'의사는 눈을 뜨고 살릴 사람을 선택하십시오.':
+    step==='reporter'?'기자는 취재할 사람을 선택하십시오.':'밤의 행동을 기다리고 있습니다.';
+}
 function mafiaSetup(r){
   const n=active(r).length;if(n<5)throw Error('마피아게임은 최소 5명입니다.');
-  resetRound(r);r.round=1;r.players.forEach(p=>{p.alive=true;p.rolePublic=null;p.score=0});
+  resetRound(r);r.round=1;r.players.forEach(p=>{p.alive=true;p.rolePublic=null;p.claimedRole=null;p.score=0});
   const ps=shuffle(active(r)), roles=shuffle(mafiaRolesFor(n)); ps.forEach((p,i)=>p.role=roles[i]);
-  r.mafiaLog=[];r.day=1;r.inspections={};r.reporterUsed={};r.soldierShieldUsed={};r.mafiaChats={team:[],dead:[]};r.loverIds=[];r.terroristPickId=null;r.mafiaRoleRevealSeq=(r.mafiaRoleRevealSeq||0)+1;
+  r.mafiaLog=[];r.day=1;r.inspections={};r.reporterUsed={};r.soldierShieldUsed={};r.mafiaChats={team:[],dead:[]};r.loverIds=[];r.terroristPickId=null;
+  r.mafiaStats={saves:{},correctVotes:{},investigations:{}};r.mafiaAwards=[];r.mafiaRoleRevealSeq=(r.mafiaRoleRevealSeq||0)+1;
   if(n>=12){const eligible=shuffle(ps);let a=eligible[0],b=eligible.find(x=>x.id!==a.id && !(a.role==='mafia'&&x.role==='mafia'));if(b)r.loverIds=[a.id,b.id]}
-  r.phase='mafiaRoleReveal';setTimer(r,5,()=>startMafiaNight(r));emitRoom(r);
+  r.phase='mafiaRoleReveal';r.mafiaDealer='지금부터 마피아 게임을 시작합니다. 당신에게 주어진 역할을 확인하고 기억하십시오.';
+  setTimer(r,7,()=>startMafiaNight(r));emitRoom(r);
+}
+function currentMafiaStepActors(r){
+  const step=r.mafiaNightStep;
+  return r.players.filter(x=>x.alive && x.role===step && (step!=='reporter'||!r.reporterUsed?.[x.id]));
+}
+function setMafiaNightStep(r,idx){
+  r.mafiaNightStepIndex=idx;
+  const step=r.mafiaNightSteps[idx]||null;r.mafiaNightStep=step;
+  if(!step)return finishNightWhenReady(r);
+  r.mafiaDealer=mafiaDealerTextForStep(step);
+  emitRoom(r);
+}
+function advanceMafiaNightStep(r){
+  if(r.phase!=='mafiaNight')return;
+  if(r.stepTimer)clearTimeout(r.stepTimer);
+  r.stepTimer=setTimeout(()=>setMafiaNightStep(r,(r.mafiaNightStepIndex||0)+1),2200);
 }
 function startMafiaNight(r){
-  resetRound(r);r.phase='mafiaNight';r.nightStartedAt=Date.now();r.nightMinEndAt=r.nightStartedAt+30000;r.mafiaLog.push(`🌙 ${r.day}일차 밤이 되었습니다.`);
-  if(r.settings.roundTime)setTimer(r,r.settings.roundTime,()=>resolveNight(r));emitRoom(r);
+  resetRound(r);r.phase='mafiaNight';r.nightStartedAt=Date.now();r.nightMinEndAt=r.nightStartedAt+30000;r.mafiaTargetId=null;
+  r.mafiaLog.push(`🌙 ${r.day}일차 밤이 되었습니다.`);
+  r.mafiaNightSteps=['mafia','police','doctor','reporter'].filter(role=>r.players.some(x=>x.alive&&x.role===role&&(role!=='reporter'||!r.reporterUsed?.[x.id])));
+  r.mafiaNightStepIndex=0;r.mafiaNightStep=r.mafiaNightSteps[0]||null;
+  r.mafiaDealer=mafiaDealerTextForStep(r.mafiaNightStep);
+  const maxSec=Math.max(30,+r.settings.roundTime||60);r.deadline=Date.now()+maxSec*1000;
+  r.nightHardTimer=setTimeout(()=>resolveNight(r),maxSec*1000);emitRoom(r);
 }
 function mafiaNightActors(r){return r.players.filter(x=>x.alive&&(['mafia','doctor','police'].includes(x.role)||(x.role==='reporter'&&!r.reporterUsed?.[x.id])))}
-function finishNightWhenReady(r){if(r.phase!=='mafiaNight')return;const remain=Math.max(0,(r.nightMinEndAt||0)-Date.now());if(remain<=0)return resolveNight(r);clearTimer(r);r.deadline=Date.now()+remain;r.nightMinTimer=setTimeout(()=>{r.nightMinTimer=null;r.deadline=null;resolveNight(r)},remain);emitRoom(r)}
+function finishNightWhenReady(r){
+  if(r.phase!=='mafiaNight')return;
+  const remain=Math.max(0,(r.nightMinEndAt||0)-Date.now());
+  if(remain<=0)return resolveNight(r);
+  r.mafiaNightStep=null;r.mafiaDealer='모든 역할의 행동이 끝났습니다. 밤이 끝날 때까지 잠시 기다려주십시오.';
+  if(r.stepTimer)clearTimeout(r.stepTimer);
+  r.stepTimer=setTimeout(()=>resolveNight(r),remain);emitRoom(r);
+}
 function mafiaPublicTeam(role){return ['mafia','spy'].includes(role)?'mafiaTeam':'citizenTeam'}
 function killPlayer(r,p,reason){if(!p?.alive)return null;p.alive=false;p.rolePublic=mafiaPublicTeam(p.role);r.mafiaLog.push(reason);return p}
 function resolveNight(r){
-  if(r.phase!=='mafiaNight')return;clearTimer(r);r.nightMinEndAt=null;const acts=Object.values(r.nightActions),kills=acts.filter(a=>a.type==='kill').map(a=>a.target),save=acts.find(a=>a.type==='save')?.target;
+  if(r.phase!=='mafiaNight')return;
+  if(r.nightHardTimer)clearTimeout(r.nightHardTimer);if(r.stepTimer)clearTimeout(r.stepTimer);r.nightHardTimer=null;r.stepTimer=null;r.deadline=null;r.nightMinEndAt=null;
+  const acts=Object.values(r.nightActions),kills=acts.filter(a=>a.type==='kill').map(a=>a.target),saveEntry=Object.entries(r.nightActions).find(([,a])=>a.type==='save'),save=saveEntry?.[1]?.target,doctorId=saveEntry?.[0];
   const reports=acts.filter(a=>a.type==='report'); for(const a of reports){const t=by(r,a.target);if(t)r.mafiaLog.push(`📰 특종! ${t.name}님의 직업은 ${ROLE_NAMES[t.role]}입니다!`)}
   let victim=null;if(kills.length){const c={};kills.forEach(x=>c[x]=(c[x]||0)+1);victim=Object.keys(c).sort((a,b)=>c[b]-c[a])[0]}
-  if(victim&&victim!==save){let p=by(r,victim);const lover=(r.loverIds||[]).includes(victim)?by(r,r.loverIds.find(x=>x!==victim)):null;if(lover?.alive){killPlayer(r,lover,`💘 ${lover.name}님이 연인 ${p.name}님을 대신해 희생했습니다. 💔`)}else if(p?.role==='soldier'&&!r.soldierShieldUsed[p.id]){r.soldierShieldUsed[p.id]=true;r.mafiaLog.push('☀️ 아침이 밝았습니다. 지난밤 아무도 사망하지 않았습니다.')}else if(p)killPlayer(r,p,`☀️ 아침이 밝았습니다. ${p.name}님이 밤에 사망했습니다. 💀`)
-  }else r.mafiaLog.push('☀️ 아침이 밝았습니다. 지난밤 아무도 사망하지 않았습니다.');
-  if(checkMafiaEnd(r))return;r.phase='mafiaDay';if(r.settings.roundTime)setTimer(r,r.settings.roundTime,()=>startMafiaVote(r));emitRoom(r)
+  if(victim&&victim!==save){
+    let vp=by(r,victim);const lover=(r.loverIds||[]).includes(victim)?by(r,r.loverIds.find(x=>x!==victim)):null;
+    if(lover?.alive){killPlayer(r,lover,`💘 ${lover.name}님이 연인 ${vp.name}님을 대신해 희생했습니다. 💔`)}
+    else if(vp?.role==='soldier'&&!r.soldierShieldUsed[vp.id]){r.soldierShieldUsed[vp.id]=true;r.mafiaLog.push('☀️ 아침이 밝았습니다. 지난밤 아무도 사망하지 않았습니다.')}
+    else if(vp)killPlayer(r,vp,`☀️ 아침이 밝았습니다. ${vp.name}님이 밤에 사망했습니다. 💀`)
+  }else{
+    if(victim&&victim===save&&save&&doctorId){r.mafiaStats.saves[doctorId]=(r.mafiaStats.saves[doctorId]||0)+1}
+    r.mafiaLog.push('☀️ 아침이 밝았습니다. 지난밤 아무도 사망하지 않았습니다.');
+  }
+  if(checkMafiaEnd(r))return;
+  r.phase='mafiaDay';r.mafiaNightStep=null;r.mafiaDealer='아침이 밝았습니다. 지난밤의 결과를 확인하고 자유롭게 토론하십시오.';
+  if(r.settings.roundTime)setTimer(r,r.settings.roundTime,()=>startMafiaVote(r));emitRoom(r)
 }
-function startMafiaVote(r){clearTimer(r);r.phase='mafiaVote';r.votes={};r.votesSubmitted=[];setTimer(r,r.settings.voteTime||30,()=>resolveMafiaVote(r));emitRoom(r)}
+function startMafiaVote(r){
+  clearTimer(r);r.phase='mafiaVote';r.votes={};r.votesSubmitted=[];r.mafiaCandidateId=null;r.mafiaDealer='자유 토론이 종료되었습니다. 처형 후보를 한 명 선택하거나 기권하십시오.';
+  setTimer(r,r.settings.voteTime||30,()=>resolveMafiaVote(r));emitRoom(r)
+}
+function startMafiaDefense(r,candidateId){
+  clearTimer(r);r.mafiaCandidateId=candidateId;r.phase='mafiaDefense';const p=by(r,candidateId);
+  r.mafiaDealer=`${p?.name||'처형 후보'}님에게 최후 변론 30초를 드립니다. 다른 플레이어는 변론을 들어주십시오.`;
+  setTimer(r,30,()=>startMafiaExecuteVote(r));emitRoom(r)
+}
+function startMafiaExecuteVote(r){
+  clearTimer(r);r.phase='mafiaExecuteVote';r.executeVotes={};r.executeVotesSubmitted=[];const p=by(r,r.mafiaCandidateId);
+  r.mafiaDealer=`${p?.name||'후보'}님을 처형할지 최종 투표합니다. 처형 또는 살려준다를 선택하십시오.`;
+  setTimer(r,20,()=>resolveMafiaExecuteVote(r));emitRoom(r)
+}
 function resolveMafiaVote(r){
-  if(r.phase!=='mafiaVote')return;clearTimer(r);const c={};for(const [voter,target] of Object.entries(r.votes)){if(target==='abstain')continue;const vp=by(r,voter);c[target]=(c[target]||0)+(vp?.role==='politician'?2:1)}const m=Math.max(0,...Object.values(c)),top=Object.keys(c).filter(x=>c[x]===m&&m);
-  if(top.length===1){const p=by(r,top[0]);if(p){killPlayer(r,p,`⚖️ 투표로 ${p.name}님이 처형되었습니다. 소속: ${mafiaPublicTeam(p.role)==='mafiaTeam'?'마피아팀':'시민팀'}`);if(p.role==='terrorist'){const candidates=Object.entries(r.votes).filter(([vid,t])=>t===p.id&&by(r,vid)?.alive).map(([vid])=>vid);if(candidates.length){r.phase='terroristPick';r.terroristPickId=p.id;r.terroristCandidates=candidates;r.deadline=Date.now()+15000;r.timer=setTimeout(()=>resolveTerrorist(r,p.id,pick(candidates)),15000);emitRoom(r);return}}}}
-  else r.mafiaLog.push(top.length?'⚖️ 투표가 동률이라 아무도 처형되지 않았습니다.':'⚖️ 기권 또는 무효표로 아무도 처형되지 않았습니다.');
-  if(checkMafiaEnd(r))return;r.day++;startMafiaNight(r)
+  if(r.phase!=='mafiaVote')return;clearTimer(r);const c={};
+  for(const [voter,target] of Object.entries(r.votes)){if(target==='abstain')continue;const vp=by(r,voter);c[target]=(c[target]||0)+(vp?.role==='politician'?2:1)}
+  const m=Math.max(0,...Object.values(c)),top=Object.keys(c).filter(x=>c[x]===m&&m);
+  for(const [voter,target] of Object.entries(r.votes)){const vp=by(r,voter),tp=by(r,target);if(vp&&tp&&['mafia','spy'].includes(tp.role)&&!['mafia','spy'].includes(vp.role))r.mafiaStats.correctVotes[voter]=(r.mafiaStats.correctVotes[voter]||0)+1}
+  if(top.length===1)return startMafiaDefense(r,top[0]);
+  r.mafiaLog.push(top.length?'⚖️ 투표가 동률이라 처형 후보가 정해지지 않았습니다.':'⚖️ 기권 또는 무효표로 처형 후보가 정해지지 않았습니다.');
+  r.mafiaDealer='처형 후보가 정해지지 않았습니다. 잠시 후 다시 밤이 시작됩니다.';r.stepTimer=setTimeout(()=>{r.day++;startMafiaNight(r)},4500);emitRoom(r)
 }
-function resolveTerrorist(r,pid,targetId){if(r.phase!=='terroristPick'||r.terroristPickId!==pid)return;clearTimer(r);const t=by(r,targetId);if(t?.alive)killPlayer(r,t,`💣 테러리스트가 ${t.name}님을 함께 데려갔습니다!`);r.terroristPickId=null;r.terroristCandidates=[];if(checkMafiaEnd(r))return;r.day++;startMafiaNight(r)}
-function checkMafiaEnd(r){const aliveP=r.players.filter(p=>p.alive),realM=aliveP.filter(p=>p.role==='mafia').length,m=aliveP.filter(p=>['mafia','spy'].includes(p.role)).length,c=aliveP.length-m;if(realM===0||m>=c){r.phase='mafiaResult';r.mafiaWinner=realM===0?'시민팀':'마피아팀';r.mafiaLog.push(`🏆 ${r.mafiaWinner} 승리!`);r.players.forEach(p=>p.rolePublic=p.role);emitRoom(r);return true}return false}
+function resolveMafiaExecuteVote(r){
+  if(r.phase!=='mafiaExecuteVote')return;clearTimer(r);let yes=0,no=0;
+  for(const [voter,v] of Object.entries(r.executeVotes||{})){const weight=by(r,voter)?.role==='politician'?2:1;if(v==='execute')yes+=weight;else no+=weight}
+  const p=by(r,r.mafiaCandidateId);
+  if(p&&yes>no){
+    killPlayer(r,p,`⚖️ 최종 투표 ${yes}:${no}로 ${p.name}님이 처형되었습니다. 소속: ${mafiaPublicTeam(p.role)==='mafiaTeam'?'마피아팀':'시민팀'}`);
+    if(p.role==='terrorist'){
+      const candidates=Object.entries(r.votes||{}).filter(([vid,t])=>t===p.id&&by(r,vid)?.alive).map(([vid])=>vid);
+      if(candidates.length){r.phase='terroristPick';r.terroristPickId=p.id;r.terroristCandidates=candidates;r.deadline=Date.now()+15000;r.timer=setTimeout(()=>resolveTerrorist(r,p.id,pick(candidates)),15000);r.mafiaDealer='처형된 플레이어는 테러리스트였습니다. 함께 데려갈 플레이어를 선택합니다.';emitRoom(r);return}
+    }
+  }else{
+    r.mafiaLog.push(`🕊️ 최종 투표 ${yes}:${no}로 ${p?.name||'후보'}님은 살아남았습니다.`);
+  }
+  r.mafiaCandidateId=null;r.executeVotes={};r.executeVotesSubmitted=[];
+  if(checkMafiaEnd(r))return;r.day++;r.stepTimer=setTimeout(()=>startMafiaNight(r),3500);emitRoom(r)
+}
+function resolveTerrorist(r,pid,targetId){
+  if(r.phase!=='terroristPick'||r.terroristPickId!==pid)return;clearTimer(r);const t=by(r,targetId);
+  if(t?.alive)killPlayer(r,t,`💣 테러리스트가 ${t.name}님을 함께 데려갔습니다!`);
+  r.terroristPickId=null;r.terroristCandidates=[];if(checkMafiaEnd(r))return;r.day++;r.stepTimer=setTimeout(()=>startMafiaNight(r),3500);emitRoom(r)
+}
+function mafiaBuildAwards(r){
+  const out=[];
+  const correct=Object.entries(r.mafiaStats?.correctVotes||{}).sort((a,b)=>b[1]-a[1])[0];if(correct&&correct[1])out.push(`🎯 명탐정 · ${by(r,correct[0])?.name||''} (${correct[1]}회)`);
+  const saves=Object.entries(r.mafiaStats?.saves||{}).sort((a,b)=>b[1]-a[1])[0];if(saves&&saves[1])out.push(`💉 명의 · ${by(r,saves[0])?.name||''} (${saves[1]}회 구조)`);const inv=Object.entries(r.mafiaStats?.investigations||{}).sort((a,b)=>b[1]-a[1])[0];if(inv&&inv[1])out.push(`🚓 베테랑 경찰 · ${by(r,inv[0])?.name||''} (마피아 ${inv[1]}회 발견)`);
+  const survivor=r.players.find(p=>p.alive&&p.role==='mafia');if(survivor)out.push(`🐍 연기의 신 · ${survivor.name}`);
+  const sacrificed=(r.loverIds||[]).find(id=>!by(r,id)?.alive);if(sacrificed)out.push(`💘 사랑꾼 · ${by(r,sacrificed)?.name||''}`);
+  return out;
+}
+function checkMafiaEnd(r){
+  const aliveP=r.players.filter(p=>p.alive),realM=aliveP.filter(p=>p.role==='mafia').length,m=aliveP.filter(p=>['mafia','spy'].includes(p.role)).length,c=aliveP.length-m;
+  if(realM===0||m>=c){clearTimer(r);r.phase='mafiaResult';r.mafiaWinner=realM===0?'시민팀':'마피아팀';r.mafiaDealer=`게임이 종료되었습니다. ${r.mafiaWinner}의 승리입니다. 모든 플레이어의 실제 직업을 공개합니다.`;r.mafiaLog.push(`🏆 ${r.mafiaWinner} 승리!`);r.players.forEach(p=>p.rolePublic=p.role);r.mafiaAwards=mafiaBuildAwards(r);emitRoom(r);return true}
+  return false
+}
 
 // ---------- Word Chain ----------
 const DUEUM = {'녀':['녀','여'],'뇨':['뇨','요'],'뉴':['뉴','유'],'니':['니','이'],'랴':['랴','야'],'려':['려','여'],'례':['례','예'],'료':['료','요'],'류':['류','유'],'리':['리','이'],'라':['라','나'],'락':['락','낙'],'란':['란','난'],'람':['람','남'],'랑':['랑','낭'],'래':['래','내'],'랭':['랭','냉'],'로':['로','노'],'록':['록','녹'],'론':['론','논'],'롱':['롱','농'],'뢰':['뢰','뇌'],'루':['루','누'],'륜':['륜','윤'],'률':['률','율'],'륭':['륭','융'],'륵':['륵','늑'],'름':['름','늠'],'릉':['릉','능'],'린':['린','인'],'림':['림','임'],'립':['립','입']};
@@ -273,18 +384,18 @@ function stockMission(r,p,i){const c=r.stock.companies[i%r.stock.companies.lengt
 function stockDealer(r,text){r.stock.dealer=text;emitRoom(r)}
 function stockSetup(r){
   resetRound(r);r.round=1;const ps=active(r);const companies=STOCK_COMPANIES.map(c=>({...c,price:100,change:0,history:[100]}));
-  r.stock={round:1,companies,accounts:{},info:{},messages:{},offers:{},contractLog:{},tradeLog:{},missions:{},volume:{},netFlow:{},whaleAlerts:[],news:'시장이 곧 개장합니다.',dealer:'주식전쟁을 시작합니다. 모든 플레이어는 1,000코인으로 시작합니다.',phase:'briefing',tradeEndsAt:null,scenario:[],garnetPot:0,botActedRound:{}};
+  r.stock={round:1,companies,accounts:{},info:{},messages:{},offers:{},contractLog:{},tradeLog:{},missions:{},volume:{},netFlow:{},whaleAlerts:[],news:'시장이 곧 개장합니다.',dealer:'주식전쟁을 시작합니다. 모든 플레이어는 1,000코인으로 시작합니다.',phase:'briefing',tradeEndsAt:null,scenario:[],garnetPot:0,botActedRound:{},briefingReady:[]};
   for(let round=1;round<=8;round++){const target=pick(companies),ev=pick(STOCK_EVENTS[target.id]);const market=pick(MARKET_EVENTS);r.stock.scenario.push({round,targetId:target.id,eventText:ev[0],eventPct:ev[1],market})}
   ps.forEach((p,i)=>{r.stock.accounts[p.id]={cash:1000,holdings:{},traded:new Set()};r.stock.info[p.id]=[];r.stock.messages[p.id]=[];r.stock.offers[p.id]=[];r.stock.contractLog[p.id]=[];r.stock.tradeLog[p.id]=[];r.stock.missions[p.id]=stockMission(r,p,i)});
   if(r.settings.stockGarnetMatch){const eligible=ps.every(p=>p.geniusName&&geniusAccounts[p.geniusName]?.garnets>=1);if(eligible){for(const p of ps){geniusAccounts[p.geniusName].garnets--;r.stock.garnetPot++}saveAccounts()}else r.settings.stockGarnetMatch=false}
-  r.phase='stockBriefing';setTimer(r,12,()=>stockPrepareRound(r));emitRoom(r)
+  r.phase='stockBriefing';r.stock.dealer='브리핑을 천천히 확인한 뒤 준비 완료 버튼을 눌러주세요. 전원이 준비하면 시작하며, 최대 3분 후에는 자동으로 시작합니다.';setTimer(r,180,()=>stockPrepareRound(r));emitRoom(r)
 }
 function stockPrepareRound(r){
   if(!r.stock||r.stock.round>8)return stockFinish(r);r.round=r.stock.round;const sc=r.stock.scenario[r.stock.round-1],target=r.stock.companies.find(c=>c.id===sc.targetId);r.stock.pending=sc;r.stock.volume=Object.fromEntries(r.stock.companies.map(c=>[c.id,0]));r.stock.netFlow=Object.fromEntries(r.stock.companies.map(c=>[c.id,0]));r.stock.whaleAlerts=[];r.stock.marketEvent=sc.market;
   const ps=active(r);ps.forEach((p,i)=>r.stock.info[p.id].push(stockInfoCard(r,p,target,[sc.eventText,sc.eventPct],i+r.stock.round)));
   r.stock.news=sc.market.pct?`시장 브리핑 · ${sc.market.text}`:`${target.sector} 업종을 둘러싼 시장의 관심이 커지고 있습니다.`;
-  if([3,6].includes(r.stock.round))return stockAuctionStart(r,target,sc);
-  stockOpenTrade(r)
+  r.stock.phase='intro';r.phase='stockRoundIntro';r.stock.dealer=`ROUND ${r.stock.round}. 새로운 정보가 도착했습니다. 8초 동안 비밀정보와 공개 뉴스를 먼저 확인하십시오.`;
+  setTimer(r,8,()=>{if([3,6].includes(r.stock.round))stockAuctionStart(r,target,sc);else stockOpenTrade(r)});emitRoom(r)
 }
 function stockAuctionStart(r,target,sc){
   r.stock.phase='auction';r.phase='stockAuction';r.stock.auction={active:true,round:r.stock.round,endsAt:Date.now()+20000,highBid:0,highBidderId:null,highBidderName:'없음',bids:{},info:{id:uid(),round:r.stock.round,grade:'★★★★★ 특급정보',source:'시장 내부자',reliability:5,companyId:target.id,text:`${target.name}은 이번 장 마감 후 ${sc.eventPct>0?'상승':'하락'}하며, 예상 변동폭은 약 ${Math.abs(sc.eventPct)}%입니다.`,truth:{direction:sc.eventPct>0?'상승':'하락',pct:sc.eventPct}}};
@@ -296,9 +407,23 @@ function stockAuctionClose(r){
 }
 function stockOpenTrade(r){r.stock.phase='trade';r.phase='stockTrade';const sec=+r.settings.stockTradeTime||90;r.stock.dealer=`ROUND ${r.stock.round}. 새로운 비밀정보가 도착했습니다. 지금부터 ${sec}초 동안 투자와 협상을 진행합니다.`;r.stock.tradeEndsAt=Date.now()+sec*1000;setTimer(r,sec,()=>stockClose(r));emitRoom(r)}
 function stockClose(r){
-  if(!r.stock||r.phase!=='stockTrade')return;clearTimer(r);const sc=r.stock.pending;for(const c of r.stock.companies){const base=c.id===sc.targetId?sc.eventPct:Math.round(Math.random()*7-3),market=sc.market?.pct||0,flow=clamp(Math.round((r.stock.netFlow[c.id]||0)/4),-8,8),pct=clamp(base+market+flow,-55,65),old=c.price;c.price=Math.max(20,Math.round(old*(1+pct/100)));c.change=Math.round((c.price/old-1)*1000)/10;c.history.push(c.price)}const c=r.stock.companies.find(x=>x.id===sc.targetId);r.stock.news=`긴급속보 · ${c.name}: ${sc.eventText}`;r.stock.phase='result';r.phase='stockResult';r.stock.dealer=`장이 마감되었습니다. ${c.name} 관련 속보입니다. 주가 변동과 거래량을 확인하세요.`;setTimer(r,12,()=>{r.stock.round++;stockPrepareRound(r)});emitRoom(r)
+  if(!r.stock||r.phase!=='stockTrade')return;clearTimer(r);const sc=r.stock.pending;for(const c of r.stock.companies){const base=c.id===sc.targetId?sc.eventPct:Math.round(Math.random()*7-3),market=sc.market?.pct||0,flow=clamp(Math.round((r.stock.netFlow[c.id]||0)/4),-8,8),pct=clamp(base+market+flow,-55,65),old=c.price;c.price=Math.max(20,Math.round(old*(1+pct/100)));c.change=Math.round((c.price/old-1)*1000)/10;c.history.push(c.price)}const c=r.stock.companies.find(x=>x.id===sc.targetId);r.stock.news=`긴급속보 · ${c.name}: ${sc.eventText}`;r.stock.phase='result';r.phase='stockResult';r.stock.dealer=`장이 마감되었습니다. ${c.name} 관련 속보입니다. 주가 변동과 거래량을 충분히 확인하세요.`;setTimer(r,20,()=>{r.stock.round++;stockPrepareRound(r)});emitRoom(r)
 }
 function missionSuccess(r,p){const m=r.stock.missions[p.id],a=r.stock.accounts[p.id];if(!m)return false;if(m.type==='hold')return (a.holdings[m.companyId]||0)>=m.target;if(m.type==='cash')return a.cash>=m.target;if(m.type==='diverse')return a.traded?.size>=m.target;if(m.type==='top3')return (r.stock.ranking||[]).slice(0,3).some(x=>x.id===p.id);return false}
+function stockDealerAnswer(r,p,q){
+  const text=String(q||'').trim(); if(!text)return '질문을 입력해주세요.';
+  if(/몇.?라운드|라운드.*몇/.test(text))return `현재 ${r.stock.round}라운드이며, 주식전쟁은 총 8라운드입니다.`;
+  if(/승리|이기는|우승/.test(text))return '8라운드가 끝난 뒤 현금과 보유 주식의 평가액을 합친 총자산이 가장 높은 플레이어가 승리합니다.';
+  if(/인증|정보.*거래|거래.*정보/.test(text))return '말로 전달하는 정보는 거짓일 수 있지만 인증정보 거래는 시스템이 실제 정보카드를 전달하므로 위조할 수 없습니다.';
+  if(/밀담|비밀.*대화/.test(text))return '비밀 대화는 선택한 상대와만 보입니다. 다른 플레이어는 대화 내용을 볼 수 없습니다.';
+  if(/매수|매도|주식.*사|주식.*팔/.test(text))return r.phase==='stockTrade'?'지금은 시장이 열려 있습니다. 종목 카드에서 수량을 정한 뒤 매수 또는 매도를 누르세요.':'현재는 거래 시간이 아닙니다. 다음 MARKET OPEN을 기다려주세요.';
+  if(/가넷/.test(text))return '가넷은 지니어스 프로필에 누적되는 별도 재화입니다. 주식전쟁의 코인과는 서로 다른 자산입니다.';
+  if(/정보.*믿|진짜|거짓/.test(text))return '딜러는 다른 플레이어가 한 말의 진실 여부를 판정하지 않습니다. SYSTEM VERIFIED 표시가 있는 정보만 확실하게 검증된 정보입니다.';
+  const company=r.stock.companies.find(c=>text.includes(c.name));
+  if(company)return `${company.name}의 현재 가격은 ${company.price}코인입니다. 미래 주가나 숨겨진 사건은 딜러가 공개할 수 없습니다.`;
+  if(/시간|몇.?초|남았/.test(text))return r.deadline?`현재 단계는 약 ${Math.max(0,Math.ceil((r.deadline-Date.now())/1000))}초 남았습니다.`:'현재 단계에는 별도 카운트다운이 없습니다.';
+  return '게임 규칙과 현재 공개된 시장 정보에 대해서는 답변할 수 있습니다. 숨겨진 미래 주가, 다른 플레이어의 비밀정보, 거짓말 여부는 알려드릴 수 없습니다.';
+}
 function stockFinish(r){
   clearTimer(r);r.phase='stockFinal';r.stock.phase='final';r.stock.dealer='모든 장이 종료되었습니다. 최종 자산과 시장의 진실을 공개합니다.';r.stock.ranking=active(r).map(p=>({id:p.id,name:p.name,value:stockValue(r,p.id)})).sort((a,b)=>b.value-a.value);
   const awards=[];const tradeAll=Object.entries(r.stock.tradeLog).flatMap(([pid,x])=>x.map(t=>({...t,pid,name:by(r,pid)?.name})));if(tradeAll.length){const biggest=[...tradeAll].sort((a,b)=>b.amount-a.amount)[0];awards.push(`🐋 가장 과감한 거래 · ${biggest.name} ${biggest.amount}C`)}const whisperKing=active(r).map(p=>({name:p.name,n:(r.stock.messages[p.id]||[]).filter(m=>m.own).length})).sort((a,b)=>b.n-a.n)[0];if(whisperKing)awards.push(`🤫 밀담 최다 · ${whisperKing.name} ${whisperKing.n}회`);
@@ -310,12 +435,12 @@ function stockFinish(r){
 }
 
 io.on('connection', s => {
-  s.on('geniusAuth',(d,cb)=>{try{const name=clean(d.name),pw=String(d.password||'');if(pw.length<4)throw Error('비밀번호는 4자 이상 입력해주세요.');let a=geniusAccounts[name];if(!a){a=geniusAccounts[name]={password:hashPassword(pw),garnets:0,wins:0};saveAccounts()}else if(a.password!==hashPassword(pw))throw Error('비밀번호가 올바르지 않습니다.');s.data.geniusName=name;const rr=rooms.get(s.data.roomCode),rp=rr&&by(rr,s.data.playerId);if(rp){rp.geniusName=name;emitRoom(rr)}cb?.({ok:true,profile:{name,garnets:a.garnets||0,wins:a.wins||0}})}catch(e){cb?.({ok:false,error:e.message})}});
+  s.on('geniusAuth',(d,cb)=>{try{const name=clean(d.name),pw=String(d.password||'');if(pw.length<4)throw Error('비밀번호는 4자 이상 입력해주세요.');let a=geniusAccounts[name];if(!a){a=geniusAccounts[name]={password:hashPassword(pw),garnets:0,wins:0};saveAccounts()}else if(a.password!==hashPassword(pw))throw Error('비밀번호가 올바르지 않습니다.');s.data.geniusName=name;const rr=rooms.get(s.data.roomCode),rp=rr&&by(rr,s.data.playerId);if(rp){rp.geniusName=name;if(rr.game==='genius'||rr.parentGame==='genius'||rr.game==='stockwar'){rp.name=name;rp.avatar='💎';}emitRoom(rr)}cb?.({ok:true,profile:{name,garnets:a.garnets||0,wins:a.wins||0}})}catch(e){cb?.({ok:false,error:e.message})}});
 
   s.on('adminLogin',(d,cb)=>{if(String(d.password||'')!==ADMIN_PASSWORD)return cb?.({ok:false,error:'관리자 비밀번호가 올바르지 않습니다.'});s.data.adminToken=uid();cb?.({ok:true,token:s.data.adminToken});});
   s.on('adminBot',(d,cb)=>{try{const r=rooms.get(s.data.roomCode);if(!r||r.hostId!==s.data.playerId)throw Error('방장만 사용할 수 있습니다.');if(!s.data.adminToken||d.token!==s.data.adminToken)throw Error('관리자 인증이 필요합니다.');if(r.phase!=='lobby')throw Error('AI 인원 변경은 대기실에서만 가능합니다.');const [min,max]=LIMITS[r.game];const add=()=>{if(r.players.length>=max)return false;r.players.push(botPlayer(r));return true};if(d.action==='add')add();else if(d.action==='min')while(r.players.length<min)add();else if(d.action==='max')while(r.players.length<max)add();else if(d.action==='clear')r.players=r.players.filter(p=>!p.isBot);else throw Error('알 수 없는 관리자 명령입니다.');emitRoom(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message});}});
-  s.on('createRoom',(d,cb)=>{try{const game=LIMITS[d.game]?d.game:'liar';if(game==='genius'&&!s.data.geniusName)throw Error('GENIUS_AUTH_REQUIRED');const sid=String(d.sessionId||uid()),p=player(d.name,d.avatar,sid),r=newRoom(game,d.mode,d.password,p);if(game==='genius')p.geniusName=s.data.geniusName;rooms.set(r.code,r);bind(s,r,p);cb?.({ok:true,code:r.code,playerId:p.id,sessionId:sid});emitRoom(r);}catch(e){cb?.({ok:false,error:e.message});}});
-  s.on('joinRoom',(d,cb)=>{try{const r=rooms.get(String(d.code||'').toUpperCase());if(!r)throw Error('방을 찾을 수 없습니다.');if(r.game==='genius'&&!s.data.geniusName)throw Error('GENIUS_AUTH_REQUIRED');if(r.password&&r.password!==String(d.password||''))throw Error('비밀번호가 올바르지 않습니다.');const sid=String(d.sessionId||uid()),old=r.players.find(p=>p.sessionId===sid);if(old){bind(s,r,old);cb?.({ok:true,code:r.code,playerId:old.id,sessionId:sid});emitRoom(r);return;}const max=LIMITS[r.game][1];if(r.players.length>=max)throw Error(`현재 게임은 최대 ${max}명입니다.`);if(r.phase!=='lobby')throw Error('게임 진행 중에는 새로 참가할 수 없습니다.');const p=player(d.name,d.avatar,sid);if(r.game==='genius')p.geniusName=s.data.geniusName;r.players.push(p);bind(s,r,p);cb?.({ok:true,code:r.code,playerId:p.id,sessionId:sid});emitRoom(r);}catch(e){cb?.({ok:false,error:e.message});}});
+  s.on('createRoom',(d,cb)=>{try{const game=LIMITS[d.game]?d.game:'liar';if(game==='genius'&&!s.data.geniusName)throw Error('GENIUS_AUTH_REQUIRED');const sid=String(d.sessionId||uid()),p=player(game==='genius'?s.data.geniusName:d.name,d.avatar,sid),r=newRoom(game,d.mode,d.password,p);if(game==='genius'){p.geniusName=s.data.geniusName;p.name=s.data.geniusName;p.avatar='💎';}rooms.set(r.code,r);bind(s,r,p);cb?.({ok:true,code:r.code,playerId:p.id,sessionId:sid});emitRoom(r);}catch(e){cb?.({ok:false,error:e.message});}});
+  s.on('joinRoom',(d,cb)=>{try{const r=rooms.get(String(d.code||'').toUpperCase());if(!r)throw Error('방을 찾을 수 없습니다.');if(r.game==='genius'&&!s.data.geniusName)throw Error('GENIUS_AUTH_REQUIRED');if(r.password&&r.password!==String(d.password||''))throw Error('비밀번호가 올바르지 않습니다.');const sid=String(d.sessionId||uid()),old=r.players.find(p=>p.sessionId===sid);if(old){bind(s,r,old);cb?.({ok:true,code:r.code,playerId:old.id,sessionId:sid});emitRoom(r);return;}const max=LIMITS[r.game][1];if(r.players.length>=max)throw Error(`현재 게임은 최대 ${max}명입니다.`);if(r.phase!=='lobby')throw Error('게임 진행 중에는 새로 참가할 수 없습니다.');const p=player(r.game==='genius'?s.data.geniusName:d.name,d.avatar,sid);if(r.game==='genius'){p.geniusName=s.data.geniusName;p.name=s.data.geniusName;p.avatar='💎';}r.players.push(p);bind(s,r,p);cb?.({ok:true,code:r.code,playerId:p.id,sessionId:sid});emitRoom(r);}catch(e){cb?.({ok:false,error:e.message});}});
   s.on('resumeSession',(d,cb)=>{const r=rooms.get(String(d.code||'').toUpperCase()),p=r?.players.find(x=>x.sessionId===d.sessionId);if(!r||!p)return cb?.({ok:false});bind(s,r,p);cb?.({ok:true,code:r.code,playerId:p.id,sessionId:d.sessionId});emitRoom(r);});
   s.on('switchGame',(d,cb)=>{try{const r=rooms.get(s.data.roomCode);if(!r||r.hostId!==s.data.playerId||r.phase!=='lobby')throw Error('대기실에서 방장만 게임을 바꿀 수 있습니다.');const g=d.game;if(!LIMITS[g])throw Error('지원하지 않는 게임입니다.');if(r.players.length>LIMITS[g][1])throw Error(`${GAME_NAMES[g]}은 최대 ${LIMITS[g][1]}명입니다.`);resetForGameSwitch(r,g);emitRoom(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message});}});
   s.on('setGender',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||!p)throw Error('플레이어를 찾을 수 없습니다.');if(!['male','female'].includes(d.gender))throw Error('성별을 선택해주세요.');p.gender=d.gender;emitRoom(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message});}});
@@ -327,7 +452,23 @@ io.on('connection', s => {
   s.on('submitLiarGuess',(d,cb)=>{try{const r=rooms.get(s.data.roomCode);if(!r||r.phase!=='liarGuess'||r.guessingLiarId!==s.data.playerId)throw Error('추측할 수 없습니다.');const ok=normalizeGuess(d.guess)===normalizeGuess(r.prompt.word);r.guessResult={attempted:true,guess:clean(d.guess),answer:r.prompt.word,correct:ok};clearTimer(r);scoreLiarResult(r,ok);r.phase='result';emitRoom(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message});}});
   s.on('truthNext',()=>{const r=rooms.get(s.data.roomCode);if(r&&r.hostId===s.data.playerId)startTruth(r);});
   s.on('truthReroll',()=>{const r=rooms.get(s.data.roomCode);if(r&&r.hostId===s.data.playerId&&r.phase==='truth'){makeTruth(r);emitRoom(r);}});
-  s.on('nightAction',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId),t=by(r,d.targetId);if(!r||r.phase!=='mafiaNight'||!p?.alive||!t?.alive)throw Error('지금 선택할 수 없습니다.');if(r.nightSubmitted.includes(p.id))throw Error('이미 행동했습니다.');let type;if(p.role==='mafia')type='kill';else if(p.role==='doctor')type='save';else if(p.role==='police')type='inspect';else if(p.role==='reporter'&&!r.reporterUsed?.[p.id])type='report';else throw Error('밤 능력이 없습니다.');if(type==='inspect')r.inspections[p.id]={name:t.name,isMafia:t.role==='mafia'};else {r.nightActions[p.id]={type,target:t.id};if(type==='report')r.reporterUsed[p.id]=true}r.nightSubmitted.push(p.id);const actors=mafiaNightActors(r);if(actors.every(x=>r.nightSubmitted.includes(x.id)))finishNightWhenReady(r);else emitRoom(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message});}});
+  s.on('nightAction',(d,cb)=>{try{
+    const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId),t=by(r,d.targetId);
+    if(!r||r.phase!=='mafiaNight'||!p?.alive||!t?.alive)throw Error('지금 선택할 수 없습니다.');
+    if(p.role!==r.mafiaNightStep)throw Error('지금은 다른 역할의 행동 시간입니다.');
+    if(r.nightSubmitted.includes(p.id))throw Error('이미 행동했습니다.');
+    let type;
+    if(p.role==='mafia')type='kill';else if(p.role==='doctor')type='save';else if(p.role==='police')type='inspect';else if(p.role==='reporter'&&!r.reporterUsed?.[p.id])type='report';else throw Error('밤 능력이 없습니다.');
+    if(type!=='save'&&t.id===p.id)throw Error('자기 자신은 선택할 수 없습니다.');
+    if(type==='kill'&&['mafia','spy'].includes(t.role))throw Error('마피아팀은 공격할 수 없습니다.');
+    if(type==='kill'&&r.mafiaTargetId&&r.mafiaTargetId!==t.id)throw Error('마피아팀이 같은 대상을 선택해야 합니다. 비밀채팅으로 합의해주세요.');
+    if(type==='kill'){r.mafiaTargetId=t.id;r.nightActions[p.id]={type:'kill',target:t.id}}
+    else if(type==='inspect'){r.inspections[p.id]={name:t.name,isMafia:t.role==='mafia'};r.mafiaStats.investigations[p.id]=(r.mafiaStats.investigations[p.id]||0)+(t.role==='mafia'?1:0)}
+    else {r.nightActions[p.id]={type,target:t.id};if(type==='report')r.reporterUsed[p.id]=true}
+    r.nightSubmitted.push(p.id);const actors=currentMafiaStepActors(r);if(actors.every(x=>r.nightSubmitted.includes(x.id)))advanceMafiaNightStep(r);else emitRoom(r);cb?.({ok:true});
+  }catch(e){cb?.({ok:false,error:e.message});}});
+  s.on('stockBriefingReady',(_,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||r.phase!=='stockBriefing'||!p)throw Error('지금은 브리핑 단계가 아닙니다.');r.stock.briefingReady=r.stock.briefingReady||[];if(!r.stock.briefingReady.includes(p.id))r.stock.briefingReady.push(p.id);const ready=active(r).filter(x=>!x.isBot).every(x=>r.stock.briefingReady.includes(x.id));if(ready){clearTimer(r);stockPrepareRound(r)}else emitRoom(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message})}});
+  s.on('stockDealerAsk',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||r.game!=='stockwar'||!p)throw Error('주식전쟁에서만 질문할 수 있습니다.');cb?.({ok:true,answer:stockDealerAnswer(r,p,d.question)});}catch(e){cb?.({ok:false,error:e.message})}});
   s.on('stockTrade',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||r.phase!=='stockTrade'||!p)throw Error('지금은 거래할 수 없습니다.');const a=r.stock.accounts[p.id],c=r.stock.companies.find(x=>x.id===d.companyId),q=Math.max(1,Math.min(99,+d.qty||1));if(!c)throw Error('종목을 찾을 수 없습니다.');const amount=c.price*q;if(d.side==='buy'){if(a.cash<amount)throw Error('코인이 부족합니다.');a.cash-=amount;a.holdings[c.id]=(a.holdings[c.id]||0)+q;r.stock.netFlow[c.id]=(r.stock.netFlow[c.id]||0)+q}else{if((a.holdings[c.id]||0)<q)throw Error('보유 수량이 부족합니다.');a.holdings[c.id]-=q;a.cash+=amount;r.stock.netFlow[c.id]=(r.stock.netFlow[c.id]||0)-q}a.traded.add(c.id);r.stock.volume[c.id]=(r.stock.volume[c.id]||0)+q;r.stock.tradeLog[p.id].push({round:r.stock.round,side:d.side,companyId:c.id,company:c.name,qty:q,price:c.price,amount});if(amount>=250){r.stock.whaleAlerts.push({text:`익명의 투자자가 ${c.name}을(를) 대량 ${d.side==='buy'?'매수':'매도'}했습니다.`,at:Date.now()});r.stock.whaleAlerts=r.stock.whaleAlerts.slice(-5)}emitRoom(r);cb?.({ok:true})}catch(e){cb?.({ok:false,error:e.message})}});
   s.on('stockWhisper',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId),t=by(r,d.targetId);if(!r||r.game!=='stockwar'||!p||!t)throw Error('대상을 찾을 수 없습니다.');const text=String(d.text||'').trim().slice(0,160);if(!text)throw Error('메시지를 입력하세요.');r.stock.messages[p.id].push({from:p.id,to:t.id,name:p.name,text,own:true});r.stock.messages[t.id].push({from:p.id,to:t.id,name:p.name,text,own:false});r.stock.messages[p.id]=r.stock.messages[p.id].slice(-40);r.stock.messages[t.id]=r.stock.messages[t.id].slice(-40);emitRoom(r);cb?.({ok:true})}catch(e){cb?.({ok:false,error:e.message})}});
   s.on('stockAuctionBid',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||r.phase!=='stockAuction'||!r.stock?.auction?.active||!p)throw Error('지금은 경매 시간이 아닙니다.');const bid=Math.floor(+d.amount||0),a=r.stock.accounts[p.id];if(bid<=r.stock.auction.highBid)throw Error('현재 최고 입찰가보다 높게 입찰해주세요.');if(bid>a.cash)throw Error('보유 코인이 부족합니다.');r.stock.auction.highBid=bid;r.stock.auction.highBidderId=p.id;r.stock.auction.highBidderName=p.name;r.stock.auction.bids[p.id]=bid;emitRoom(r);cb?.({ok:true})}catch(e){cb?.({ok:false,error:e.message})}});
@@ -342,6 +483,8 @@ io.on('connection', s => {
   s.on('rummiCommit',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),pid=s.data.playerId;if(!r||r.game!=='rummi'||r.phase!=='rummiPlay'||r.rummi.turnOrder[r.rummi.turnIndex]!==pid)throw Error('내 차례가 아닙니다.');const v=validateRummiDraft(r,pid,d);r.rummi.board=v.board;r.rummi.racks[pid]=v.rack;if(!r.rummi.registered[pid])r.rummi.registered[pid]=true;if(v.rack.length===0){clearTimer(r);r.rummi.winnerId=pid;r.phase='rummiResult';r.rummi.lastAction=`🏆 ${by(r,pid).name}님이 모든 타일을 내려놓고 승리했습니다!`;emitRoom(r);return cb?.({ok:true});}nextRummi(r,`✅ ${by(r,pid).name}님이 ${v.usedOwn.length}개 타일을 내려놓았습니다.`);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message});}});
   s.on('rummiDraw',(_,cb)=>{try{const r=rooms.get(s.data.roomCode),pid=s.data.playerId;if(!r||r.game!=='rummi'||r.phase!=='rummiPlay'||r.rummi.turnOrder[r.rummi.turnIndex]!==pid)throw Error('내 차례가 아닙니다.');const t=r.rummi.pool.pop();if(t)r.rummi.racks[pid].push(t);nextRummi(r,t?`➕ ${by(r,pid).name}님이 타일 1개를 가져갔습니다.`:`📭 남은 타일이 없습니다.`);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message});}});
   s.on('backToLobby',(_,cb)=>{const r=rooms.get(s.data.roomCode);if(r&&r.hostId===s.data.playerId){clearTimer(r);if(r.parentGame==='genius'){r.game='genius';r.parentGame=null;r.stock=null;}r.phase='lobby';r.players.forEach(p=>{p.alive=true;p.rolePublic=null});emitRoom(r);cb?.({ok:true});}});
+  s.on('mafiaClaim',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||r.game!=='mafia'||!p?.alive)throw Error('지금은 직업 주장을 바꿀 수 없습니다.');const allowed=['','citizen','police','doctor','soldier','reporter','politician','terrorist'];const v=allowed.includes(d.role)?d.role:'';p.claimedRole=v||null;emitRoom(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message})}});
+  s.on('mafiaExecuteVote',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||r.phase!=='mafiaExecuteVote'||!p?.alive)throw Error('지금은 최종 처형 투표 시간이 아닙니다.');if(r.executeVotesSubmitted.includes(p.id))throw Error('이미 투표했습니다.');const v=d.choice==='execute'?'execute':'spare';r.executeVotes[p.id]=v;r.executeVotesSubmitted.push(p.id);const voters=r.players.filter(x=>x.alive);if(voters.every(x=>r.executeVotesSubmitted.includes(x.id)))resolveMafiaExecuteVote(r);else emitRoom(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message})}});
   s.on('mafiaChat',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||r.game!=='mafia'||r.phase==='lobby')throw Error('채팅을 사용할 수 없습니다.');const text=String(d.text||'').trim().slice(0,120);if(!text)throw Error('메시지를 입력하세요.');let ch;if(!p.alive)ch='dead';else if(['mafia','spy'].includes(p.role)&&r.players.filter(x=>x.alive&&['mafia','spy'].includes(x.role)).length>=2)ch='team';else throw Error('사용할 수 있는 비밀 채팅이 없습니다.');r.mafiaChats=r.mafiaChats||{team:[],dead:[]};r.mafiaChats[ch].push({name:p.name,text,at:Date.now()});r.mafiaChats[ch]=r.mafiaChats[ch].slice(-50);emitRoom(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message})}});
   s.on('terroristPick',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||r.phase!=='terroristPick'||r.terroristPickId!==p?.id)throw Error('지금 선택할 수 없습니다.');if(!r.terroristCandidates?.includes(d.targetId))throw Error('함께 데려갈 수 없는 대상입니다.');resolveTerrorist(r,p.id,d.targetId);cb?.({ok:true})}catch(e){cb?.({ok:false,error:e.message})}});
   s.on('nextRound',(_,cb)=>{try{const r=rooms.get(s.data.roomCode);if(!r||r.hostId!==s.data.playerId)throw Error('방장만 진행할 수 있습니다.');if(r.game==='liar')startLiar(r);else if(r.game==='truth')startTruth(r);else if(r.game==='mafia')mafiaSetup(r);else if(r.game==='rummi')rummiSetup(r);else if(r.game==='wordchain')wordchainSetup(r);else if(r.game==='genius'){if(active(r).some(p=>!p.isBot&&!p.geniusName))throw Error('모든 플레이어가 지니어스 프로필 로그인을 완료해야 합니다.');r.parentGame='genius';r.game=r.settings.geniusGame||'stockwar';if(r.game==='stockwar')stockSetup(r);else throw Error('선택한 지니어스게임은 아직 준비 중입니다.');}else if(r.game==='stockwar')stockSetup(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message});}});
