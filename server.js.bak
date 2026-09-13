@@ -38,9 +38,8 @@ const clamp = (n,a,b) => Math.max(a,Math.min(b,n));
 const shuffle = a => [...a].sort(() => Math.random() - .5);
 const pick = a => a[Math.floor(Math.random()*a.length)];
 function code(){ let c; do { c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'.split('').sort(()=>Math.random()-.5).slice(0,5).join(''); } while(rooms.has(c)); return c; }
-function player(name,avatar,sessionId){ return { id:uid(), sessionId, name:clean(name), avatar:AV.includes(avatar)?avatar:AV[0], gender:null, connected:true, score:0, alive:true, rolePublic:null, isBot:false, geniusColorIndex:null }; }
-function botPlayer(r){const n=r.players.filter(p=>p.isBot).length+1;return {id:uid(),sessionId:'bot-'+uid(),name:'소소봇'+n,avatar:AV[(n+2)%AV.length],gender:n%2?'male':'female',connected:true,score:0,alive:true,rolePublic:null,isBot:true,geniusColorIndex:null};}
-function assignGeniusColors(r){const used=new Set(r.players.map(p=>Number.isInteger(p.geniusColorIndex)?p.geniusColorIndex:null).filter(x=>x!==null&&x>=0&&x<10));for(const p of r.players){if(Number.isInteger(p.geniusColorIndex)&&p.geniusColorIndex>=0&&p.geniusColorIndex<10)continue;for(let i=0;i<10;i++)if(!used.has(i)){p.geniusColorIndex=i;used.add(i);break}}}
+function player(name,avatar,sessionId){ return { id:uid(), sessionId, name:clean(name), avatar:AV.includes(avatar)?avatar:AV[0], gender:null, connected:true, score:0, alive:true, rolePublic:null, isBot:false }; }
+function botPlayer(r){const n=r.players.filter(p=>p.isBot).length+1;return {id:uid(),sessionId:'bot-'+uid(),name:'소소봇'+n,avatar:AV[(n+2)%AV.length],gender:n%2?'male':'female',connected:true,score:0,alive:true,rolePublic:null,isBot:true};}
 function bind(s,r,p){ p.socketId=s.id; p.connected=true; s.join(r.code); s.data.roomCode=r.code; s.data.playerId=p.id; }
 function clearTimer(r){ if(r.timer) clearTimeout(r.timer); if(r.nightMinTimer) clearTimeout(r.nightMinTimer); if(r.nightHardTimer) clearTimeout(r.nightHardTimer); if(r.stepTimer) clearTimeout(r.stepTimer); r.timer=null; r.nightMinTimer=null; r.nightHardTimer=null; r.stepTimer=null; r.deadline=null; }
 function setTimer(r,sec,fn){ clearTimer(r); if(!sec)return; r.deadline=Date.now()+sec*1000; r.timer=setTimeout(()=>{r.timer=null;r.deadline=null;fn();},sec*1000); }
@@ -56,7 +55,7 @@ function resetForGameSwitch(r,game){ clearTimer(r); r.game=game; r.mode='normal'
 
 function publicState(r){
   const base={ code:r.code, hostId:r.hostId, game:r.game, gameName:GAME_NAMES[r.game], mode:r.mode, phase:r.phase, round:r.round,
-    players:(assignGeniusColors(r),r.players.map(p=>({id:p.id,name:p.name,avatar:p.avatar,gender:p.gender||null,connected:p.connected,score:p.score,alive:p.alive,rolePublic:p.rolePublic,claimedRole:p.claimedRole||null,isBot:!!p.isBot,geniusName:p.geniusName||null,geniusColorIndex:p.geniusColorIndex,geniusGarnets:p.geniusName?(geniusAccounts[p.geniusName]?.garnets||0):null,geniusWins:p.geniusName?(geniusAccounts[p.geniusName]?.wins||0):null}))),
+    players:r.players.map(p=>({id:p.id,name:p.name,avatar:p.avatar,gender:p.gender||null,connected:p.connected,score:p.score,alive:p.alive,rolePublic:p.rolePublic,claimedRole:p.claimedRole||null,isBot:!!p.isBot,geniusName:p.geniusName||null,geniusGarnets:p.geniusName?(geniusAccounts[p.geniusName]?.garnets||0):null,geniusWins:p.geniusName?(geniusAccounts[p.geniusName]?.wins||0):null})),
     settings:r.settings, deadline:r.deadline, submitted:r.submitted||[], answersRevealed:r.answersRevealed, answers:r.answersRevealed?r.answers:{}, votesSubmitted:r.votesSubmitted||[], voteResult:r.voteResult,
     truthTurnId:r.truthTurnId, truthQuestion:r.truthQuestion, mafiaLog:r.mafiaLog||[], nightSubmitted:[], mafiaRoleRevealSeq:r.mafiaRoleRevealSeq||0, nightMinEndAt:r.nightMinEndAt||null,
     mafiaDealer:r.mafiaDealer||'', mafiaNightStep:r.phase==='mafiaNight'?'all':(r.mafiaNightStep||null), mafiaCandidateId:r.mafiaCandidateId||null, executeVotesSubmitted:r.executeVotesSubmitted||[], mafiaAwards:r.mafiaAwards||[],
