@@ -1,8 +1,8 @@
 {
   "name": "soso-party-game",
-  "version": "12.0.0",
+  "version": "18.0.0",
   "private": true,
-  "description": "SOSO Party Game v12 with immersive Mafia and Genius Stock War",
+  "description": "SOSO Game Room v18 with party games, Genius games, Deathmatch Indian Poker, expanded Stock War and free-input Word Chain",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
