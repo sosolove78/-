@@ -57,11 +57,11 @@ function publicState(r){
   const base={ code:r.code, hostId:r.hostId, game:r.game, gameName:GAME_NAMES[r.game], mode:r.mode, phase:r.phase, round:r.round,
     players:r.players.map(p=>({id:p.id,name:p.name,avatar:p.avatar,gender:p.gender||null,connected:p.connected,score:p.score,alive:p.alive,rolePublic:p.rolePublic,claimedRole:p.claimedRole||null,isBot:!!p.isBot,geniusName:p.geniusName||null,geniusGarnets:p.geniusName?(geniusAccounts[p.geniusName]?.garnets||0):null,geniusWins:p.geniusName?(geniusAccounts[p.geniusName]?.wins||0):null})),
     settings:r.settings, deadline:r.deadline, submitted:r.submitted||[], answersRevealed:r.answersRevealed, answers:r.answersRevealed?r.answers:{}, votesSubmitted:r.votesSubmitted||[], voteResult:r.voteResult,
-    truthTurnId:r.truthTurnId, truthQuestion:r.truthQuestion, mafiaLog:r.mafiaLog||[], nightSubmitted:r.nightSubmitted||[], mafiaRoleRevealSeq:r.mafiaRoleRevealSeq||0, nightMinEndAt:r.nightMinEndAt||null,
-    mafiaDealer:r.mafiaDealer||'', mafiaNightStep:r.mafiaNightStep||null, mafiaCandidateId:r.mafiaCandidateId||null, executeVotesSubmitted:r.executeVotesSubmitted||[], mafiaAwards:r.mafiaAwards||[],
+    truthTurnId:r.truthTurnId, truthQuestion:r.truthQuestion, mafiaLog:r.mafiaLog||[], nightSubmitted:[], mafiaRoleRevealSeq:r.mafiaRoleRevealSeq||0, nightMinEndAt:r.nightMinEndAt||null,
+    mafiaDealer:r.mafiaDealer||'', mafiaNightStep:r.phase==='mafiaNight'?'all':(r.mafiaNightStep||null), mafiaCandidateId:r.mafiaCandidateId||null, executeVotesSubmitted:r.executeVotesSubmitted||[], mafiaAwards:r.mafiaAwards||[],
     terroristPickId:r.terroristPickId||null, discussionStarterId:r.discussionStarterId||null, discussionDirection:r.discussionDirection||null,
     promptMeta:r.game==='liar'&&r.prompt?{category:r.prompt.category,min:r.prompt.min,max:r.prompt.max}:null };
-  if(r.game==='secretvault'&&r.vault) Object.assign(base,{vault:{round:r.vault.round,requirement:r.vault.requirement,reward:r.vault.reward,dealer:r.vault.dealer,proposal:r.vault.proposal?{id:r.vault.proposal.id,members:r.vault.proposal.members,splits:r.vault.proposal.splits,accepted:r.vault.proposal.accepted}:null,log:r.vault.log.slice(-8),final:r.vault.final||false,ranking:r.vault.ranking||[]}});
+  if(r.game==='secretvault'&&r.vault) Object.assign(base,{vault:{round:r.vault.round,requirement:r.vault.requirement,reward:r.vault.reward,dealer:r.vault.dealer,briefingReady:r.vault.briefingReady||[],proposal:r.vault.proposal?{id:r.vault.proposal.id,members:r.vault.proposal.members,splits:r.vault.proposal.splits,accepted:r.vault.proposal.accepted}:null,log:r.vault.log.slice(-8),final:r.vault.final||false,ranking:r.vault.ranking||[]}});
   if(r.game==='stockwar'&&r.stock) Object.assign(base,{stock:{round:r.stock.round,companies:r.stock.companies,news:r.stock.news,marketEvent:r.stock.marketEvent||null,phase:r.stock.phase,portfolioPublic:false,dealer:r.stock.dealer,tradeEndsAt:r.stock.tradeEndsAt||null,ranking:r.stock.ranking||[],volume:r.stock.volume||{},whaleAlerts:(r.stock.whaleAlerts||[]).slice(-5),briefingReady:r.stock.briefingReady||[],briefingTotal:active(r).filter(x=>!x.isBot).length,auction:r.stock.auction?{active:r.stock.auction.active,endsAt:r.stock.auction.endsAt,highBid:r.stock.auction.highBid,highBidderName:r.stock.auction.highBidderName,round:r.stock.auction.round}:null,afterMarket:r.stock.afterMarket||null,garnetPot:r.stock.garnetPot||0,liveRanking:[]}});
   if(r.game==='rummi' && r.rummi) Object.assign(base,{rummi:{turnPlayerId:r.rummi.turnOrder[r.rummi.turnIndex],turnNumber:r.rummi.turnNumber,board:r.rummi.board,poolCount:r.rummi.pool.length,registered:r.rummi.registered,winnerId:r.rummi.winnerId||null,lastAction:r.rummi.lastAction||'',rackCounts:Object.fromEntries(Object.entries(r.rummi.racks).map(([id,rack])=>[id,rack.length]))}});
   if(r.game==='wordchain' && r.wordchain) Object.assign(base,{wordchain:{turnPlayerId:r.wordchain.turnOrder[r.wordchain.turnIndex],turnNumber:r.wordchain.turnNumber,currentWord:r.wordchain.currentWord,required:r.wordchain.required,direction:r.wordchain.direction,lives:r.wordchain.lives,eliminated:r.wordchain.eliminated,history:r.wordchain.history.slice(-18),lastAction:r.wordchain.lastAction||'',winnerId:r.wordchain.winnerId||null,items:r.wordchain.items}});
@@ -80,7 +80,7 @@ function scheduleBots(r){
       const all=active(r).filter(x=>r.game!=='mafia'||x.alive);if(all.every(x=>r.votesSubmitted.includes(x.id)))return r.game==='liar'?tallyLiar(r):resolveMafiaVote(r);
     }
     if(r.game==='mafia'&&r.phase==='mafiaNight'){
-      const step=r.mafiaNightStep,actors=bots.filter(p=>p.alive&&p.role===step&&!r.nightSubmitted.includes(p.id)&&(step!=='reporter'||!r.reporterUsed?.[p.id]));
+      const actors=bots.filter(p=>p.alive&&!r.nightSubmitted.includes(p.id)&&(['mafia','doctor','police'].includes(p.role)||(p.role==='reporter'&&!r.reporterUsed?.[p.id])));
       for(const p of actors){
         let targets=r.players.filter(x=>x.alive&&(p.role==='doctor'||x.id!==p.id)&&(p.role!=='mafia'||!['mafia','spy'].includes(x.role)));if(!targets.length)continue;
         let t;if(p.role==='mafia'&&r.mafiaTargetId)t=by(r,r.mafiaTargetId);else t=pick(targets);
@@ -90,7 +90,7 @@ function scheduleBots(r){
         else r.nightActions[p.id]={type:'save',target:t.id};
         r.nightSubmitted.push(p.id)
       }
-      const current=currentMafiaStepActors(r);if(current.length&&current.every(x=>r.nightSubmitted.includes(x.id)))return advanceMafiaNightStep(r);
+      return maybeFinishMafiaNight(r);
     }
     if(r.game==='mafia'&&r.phase==='mafiaExecuteVote'){
       for(const p of bots.filter(x=>x.alive&&!r.executeVotesSubmitted.includes(x.id))){r.executeVotes[p.id]=Math.random()<.62?'execute':'spare';r.executeVotesSubmitted.push(p.id)}
@@ -130,7 +130,7 @@ function emitRoom(r){
     if(r.game==='mafia' && r.phase!=='lobby'){
       const team=['mafia','spy'].includes(p.role), canSeeMafia=team||!p.alive||r.phase==='mafiaResult';
       const loverId=(r.loverIds||[]).includes(p.id)?r.loverIds.find(x=>x!==p.id):null;
-      s.emit('privateData',{game:'mafia',role:p.role,alive:p.alive,roleRevealSeq:r.mafiaRoleRevealSeq||0,mafiaIds:canSeeMafia?r.players.filter(x=>x.role==='mafia').map(x=>x.id):[],mafiaTeamIds:canSeeMafia?r.players.filter(x=>['mafia','spy'].includes(x.role)).map(x=>x.id):[],mafiaNames:team?r.players.filter(x=>['mafia','spy'].includes(x.role)).map(x=>x.name):[],allRoles:(!p.alive||r.phase==='mafiaResult')?Object.fromEntries(r.players.map(x=>[x.id,x.role])):{},inspection:r.inspections?.[p.id]||null,loverId,loverName:loverId?by(r,loverId)?.name:null,reporterUsed:!!r.reporterUsed?.[p.id],terroristCandidates:r.terroristPickId===p.id?(r.terroristCandidates||[]):[],teamChat:team?(r.mafiaChats?.team||[]):[],deadChat:!p.alive?(r.mafiaChats?.dead||[]):[]});
+      s.emit('privateData',{game:'mafia',role:p.role,alive:p.alive,roleRevealSeq:r.mafiaRoleRevealSeq||0,mafiaIds:canSeeMafia?r.players.filter(x=>x.role==='mafia').map(x=>x.id):[],mafiaTeamIds:canSeeMafia?r.players.filter(x=>['mafia','spy'].includes(x.role)).map(x=>x.id):[],mafiaNames:team?r.players.filter(x=>['mafia','spy'].includes(x.role)).map(x=>x.name):[],allRoles:(!p.alive||r.phase==='mafiaResult')?Object.fromEntries(r.players.map(x=>[x.id,x.role])):{},inspection:r.inspections?.[p.id]||null,loverId,loverName:loverId?by(r,loverId)?.name:null,reporterUsed:!!r.reporterUsed?.[p.id],terroristCandidates:r.terroristPickId===p.id?(r.terroristCandidates||[]):[],teamChat:team?(r.mafiaChats?.team||[]):[],deadChat:!p.alive?(r.mafiaChats?.dead||[]):[],nightDone:(r.nightSubmitted||[]).includes(p.id)});
     }
     if(r.game==='wordchain' && r.wordchain && r.phase!=='lobby'){
       s.emit('privateData',{game:'wordchain',items:r.wordchain.items[p.id]||[]});
@@ -188,39 +188,21 @@ function mafiaSetup(r){
   r.phase='mafiaRoleReveal';r.mafiaDealer='지금부터 마피아 게임을 시작합니다. 당신에게 주어진 역할을 확인하고 기억하십시오.';
   setTimer(r,7,()=>startMafiaNight(r));emitRoom(r);
 }
-function currentMafiaStepActors(r){
-  const step=r.mafiaNightStep;
-  return r.players.filter(x=>x.alive && x.role===step && (step!=='reporter'||!r.reporterUsed?.[x.id]));
-}
-function setMafiaNightStep(r,idx){
-  r.mafiaNightStepIndex=idx;
-  const step=r.mafiaNightSteps[idx]||null;r.mafiaNightStep=step;
-  if(!step)return finishNightWhenReady(r);
-  r.mafiaDealer=mafiaDealerTextForStep(step);
-  emitRoom(r);
-}
-function advanceMafiaNightStep(r){
-  if(r.phase!=='mafiaNight')return;
-  if(r.stepTimer)clearTimeout(r.stepTimer);
-  r.stepTimer=setTimeout(()=>setMafiaNightStep(r,(r.mafiaNightStepIndex||0)+1),2200);
-}
+function mafiaNightActors(r){return r.players.filter(x=>x.alive&&(['mafia','doctor','police'].includes(x.role)||(x.role==='reporter'&&!r.reporterUsed?.[x.id])))}
 function startMafiaNight(r){
-  resetRound(r);r.phase='mafiaNight';r.nightStartedAt=Date.now();r.nightMinEndAt=r.nightStartedAt+30000;r.mafiaTargetId=null;
+  resetRound(r);r.phase='mafiaNight';r.nightStartedAt=Date.now();r.nightMinEndAt=r.nightStartedAt+20000;r.mafiaTargetId=null;
   r.mafiaLog.push(`🌙 ${r.day}일차 밤이 되었습니다.`);
-  r.mafiaNightSteps=['mafia','police','doctor','reporter'].filter(role=>r.players.some(x=>x.alive&&x.role===role&&(role!=='reporter'||!r.reporterUsed?.[x.id])));
-  r.mafiaNightStepIndex=0;r.mafiaNightStep=r.mafiaNightSteps[0]||null;
-  r.mafiaDealer=mafiaDealerTextForStep(r.mafiaNightStep);
-  const maxSec=Math.max(30,+r.settings.roundTime||60);r.deadline=Date.now()+maxSec*1000;
+  r.mafiaNightStep='all';r.mafiaDealer='밤입니다. 능력이 있는 플레이어는 자신의 화면에서 행동을 선택하세요.';
+  const maxSec=Math.max(20,+r.settings.roundTime||60);r.deadline=Date.now()+maxSec*1000;
   r.nightHardTimer=setTimeout(()=>resolveNight(r),maxSec*1000);emitRoom(r);
 }
-function mafiaNightActors(r){return r.players.filter(x=>x.alive&&(['mafia','doctor','police'].includes(x.role)||(x.role==='reporter'&&!r.reporterUsed?.[x.id])))}
-function finishNightWhenReady(r){
+function maybeFinishMafiaNight(r){
   if(r.phase!=='mafiaNight')return;
+  const actors=mafiaNightActors(r);if(!actors.length)return resolveNight(r);
+  if(!actors.every(x=>r.nightSubmitted.includes(x.id)))return emitRoom(r);
   const remain=Math.max(0,(r.nightMinEndAt||0)-Date.now());
   if(remain<=0)return resolveNight(r);
-  r.mafiaNightStep=null;r.mafiaDealer='모든 역할의 행동이 끝났습니다. 밤이 끝날 때까지 잠시 기다려주십시오.';
-  if(r.stepTimer)clearTimeout(r.stepTimer);
-  r.stepTimer=setTimeout(()=>resolveNight(r),remain);emitRoom(r);
+  if(r.stepTimer)clearTimeout(r.stepTimer);r.stepTimer=setTimeout(()=>resolveNight(r),remain);emitRoom(r);
 }
 function mafiaPublicTeam(role){return ['mafia','spy'].includes(role)?'mafiaTeam':'citizenTeam'}
 function killPlayer(r,p,reason){if(!p?.alive)return null;p.alive=false;p.rolePublic=mafiaPublicTeam(p.role);r.mafiaLog.push(reason);return p}
@@ -344,10 +326,12 @@ function validateRummiDraft(r,pid,draft){
 const VAULT_KEYS=['🔴','🔵','🟡','🟢','🟣'];
 const VAULT_REQ=[['🔴','🔵','🟡'],['🟢','🟢','🟣','🔵'],['🔴','🟡','🟣','🟢'],['🔴','🔵','🟢','🟣'],['🟡','🟡','🔴','🔵','🟣'],['🔴','🔴','🔵','🟢','🟡','🟣']];
 const VAULT_REWARD=[250,320,400,520,650,1000],VAULT_TIME=[240,300,300,360,360,480];
+function vaultRoundIntermission(r,nextRound){clearTimer(r);r.phase='vaultIntermission';r.vault.dealer=`잠시 후 ROUND ${nextRound}가 시작됩니다.`;r.deadline=Date.now()+15000;setTimer(r,15,()=>vaultStartRound(r,nextRound));emitRoom(r)}
+function vaultStartRound(r,nextRound){r.vault.round=nextRound;r.round=nextRound;r.vault.requirement=VAULT_REQ[nextRound-1];r.vault.reward=VAULT_REWARD[nextRound-1];r.vault.final=nextRound===6;r.vault.proposal=null;r.vault.dealer=r.vault.final?'마지막 금고입니다. 충분히 협상한 뒤 최종 계약을 완성하세요.':'새로운 금고가 공개되었습니다. 자유롭게 협상하세요.';active(r).forEach(p=>{const a=r.vault.accounts[p.id];if(nextRound>1)a.keys.push(pick(VAULT_KEYS));a.decision=null});r.phase='vaultNegotiate';setTimer(r,VAULT_TIME[nextRound-1],()=>vaultRoundTimeout(r));emitRoom(r)}
 function vaultSetup(r){resetRound(r);r.round=1;r.vault={round:1,accounts:{},messages:{},proposal:null,log:[],dealer:'각자의 비밀 열쇠를 확인하십시오. 필요한 열쇠를 모아 금고를 여세요.',requirement:VAULT_REQ[0],reward:VAULT_REWARD[0],final:false,ranking:[]};active(r).forEach((p,i)=>{r.vault.accounts[p.id]={coins:0,keys:[pick(VAULT_KEYS),pick(VAULT_KEYS)],mission:{text:i%3===0?'게임 종료까지 2개 이상의 금고에 참여하세요.':i%3===1?'한 라운드에서 150코인 이상 획득하세요.':'마지막 금고에 참여하세요.',reward:100},joined:0,decision:null};r.vault.messages[p.id]=[]});r.phase='vaultBriefing';r.vault.briefingReady=[];r.vault.dealer='룰 설명을 확인한 뒤 준비 완료를 눌러주세요. 전원이 준비하면 시작하며 최대 3분 후 자동 시작합니다.';setTimer(r,180,()=>vaultBegin(r));emitRoom(r)}
-function vaultBegin(r){clearTimer(r);r.phase='vaultNegotiate';r.vault.dealer='각자의 비밀 열쇠를 확인하십시오. 필요한 열쇠를 모아 금고를 여세요.';setTimer(r,VAULT_TIME[0],()=>vaultRoundTimeout(r));emitRoom(r)}
+function vaultBegin(r){clearTimer(r);vaultStartRound(r,1)}
 function vaultRoundTimeout(r){if(r.vault.proposal)return vaultResolve(r);r.vault.log.push(`ROUND ${r.vault.round} · 계약 없이 금고가 닫혔습니다.`);vaultNext(r)}
-function vaultNext(r){clearTimer(r);if(r.vault.round>=6){return vaultFinish(r)}r.vault.round++;r.round=r.vault.round;r.vault.requirement=VAULT_REQ[r.vault.round-1];r.vault.reward=VAULT_REWARD[r.vault.round-1];r.vault.final=r.vault.round===6;r.vault.proposal=null;r.vault.dealer=r.vault.final?'마지막 금고입니다. 모든 협상과 신뢰를 걸고 최종 계약을 완성하십시오.':'새로운 금고가 공개되었습니다. 자유롭게 협상하십시오.';active(r).forEach(p=>{const a=r.vault.accounts[p.id];a.keys.push(pick(VAULT_KEYS));a.decision=null});r.phase='vaultNegotiate';setTimer(r,VAULT_TIME[r.vault.round-1],()=>vaultRoundTimeout(r));emitRoom(r)}
+function vaultNext(r){clearTimer(r);if(r.vault.round>=6)return vaultFinish(r);vaultRoundIntermission(r,r.vault.round+1)}
 function vaultResolve(r){const pr=r.vault.proposal;if(!pr)return vaultNext(r);const keys=pr.members.flatMap(id=>r.vault.accounts[id]?.keys||[]),need=[...r.vault.requirement];let ok=true;for(const k of need){const i=keys.indexOf(k);if(i<0){ok=false;break}keys.splice(i,1)}if(!ok){r.vault.log.push(`ROUND ${r.vault.round} · 금고 개방 실패`);return vaultNext(r)}if(r.vault.final){r.phase='vaultFinalDecision';r.vault.dealer='계약이 성립했습니다. 계약 참가자는 협력 또는 배신을 비밀리에 선택하십시오.';clearTimer(r);setTimer(r,30,()=>vaultResolveFinal(r));return emitRoom(r)}for(const id of pr.members){const a=r.vault.accounts[id];a.coins+=(pr.splits[id]||0);a.joined++}r.vault.log.push(`ROUND ${r.vault.round} · 금고 개방 성공! ${r.vault.reward}C 분배`);vaultNext(r)}
 function vaultResolveFinal(r){const pr=r.vault.proposal,ds=pr.members.filter(id=>r.vault.accounts[id].decision==='betray');if(ds.length===1){for(const id of pr.members)r.vault.accounts[id].coins+=pr.splits[id]||0;r.vault.accounts[ds[0]].coins+=300;r.vault.log.push('FINAL · 단 한 명의 배신자가 추가 300C를 차지했습니다.')}else if(ds.length>=2){const coop=pr.members.filter(id=>!ds.includes(id));const each=coop.length?Math.floor(r.vault.reward/coop.length):0;coop.forEach(id=>r.vault.accounts[id].coins+=each);r.vault.log.push('FINAL · 배신자가 둘 이상이어서 배신자들은 0C, 협력자들이 상금을 나눴습니다.')}else{for(const id of pr.members)r.vault.accounts[id].coins+=pr.splits[id]||0;r.vault.log.push('FINAL · 모두 협력하여 약속대로 상금을 나눴습니다.')}vaultFinish(r)}
 function vaultFinish(r){clearTimer(r);for(const p of active(r)){const a=r.vault.accounts[p.id];if((a.joined>=2)|| (r.vault.proposal?.members||[]).includes(p.id)&&a.mission.text.includes('마지막'))a.coins+=a.mission.reward}r.vault.ranking=active(r).map(p=>({id:p.id,name:p.name,coins:r.vault.accounts[p.id].coins})).sort((a,b)=>b.coins-a.coins);const win=r.vault.ranking[0];if(win){const p=by(r,win.id);if(p?.geniusName&&geniusAccounts[p.geniusName]){geniusAccounts[p.geniusName].wins++;geniusAccounts[p.geniusName].garnets+=5;saveAccounts()}}r.phase='vaultFinal';r.vault.dealer='모든 금고가 닫혔습니다. 최종 자산 순위를 공개합니다.';emitRoom(r)}
@@ -396,13 +380,14 @@ function stockMission(r,p,i){const c=r.stock.companies[i%r.stock.companies.lengt
  {text:'최종 자산 3위 안에 들어가세요.',type:'top3',reward:3}
  ]; return list[i%list.length]}
 function stockDealer(r,text){r.stock.dealer=text;emitRoom(r)}
+function stockRoundIntermission(r,nextRound){clearTimer(r);r.phase='stockIntermission';r.stock.phase='intermission';r.stock.dealer=`잠시 후 ROUND ${nextRound}가 시작됩니다.`;r.deadline=Date.now()+15000;setTimer(r,15,()=>{r.stock.round=nextRound;stockPrepareRound(r)});emitRoom(r)}
 function stockSetup(r){
   resetRound(r);r.round=1;const ps=active(r);const companies=STOCK_COMPANIES.map(c=>({...c,price:100,change:0,history:[100]}));
   r.stock={round:1,companies,accounts:{},info:{},messages:{},dealerOffers:{},contractLog:{},tradeLog:{},missions:{},volume:{},netFlow:{},whaleAlerts:[],news:'시장이 곧 개장합니다.',dealer:'주식전쟁을 시작합니다. 모든 플레이어는 1,000코인으로 시작합니다.',phase:'briefing',tradeEndsAt:null,scenario:[],garnetPot:0,botActedRound:{},briefingReady:[]};
   for(let round=1;round<=8;round++){const target=pick(companies),ev=pick(STOCK_EVENTS[target.id]);const market=pick(MARKET_EVENTS);r.stock.scenario.push({round,targetId:target.id,eventText:ev[0],eventPct:ev[1],market})}
   ps.forEach((p,i)=>{r.stock.accounts[p.id]={cash:1000,holdings:{},traded:new Set()};r.stock.info[p.id]=[];r.stock.messages[p.id]=[];r.stock.dealerOffers[p.id]=[];r.stock.contractLog[p.id]=[];r.stock.tradeLog[p.id]=[];r.stock.missions[p.id]=stockMission(r,p,i)});
   if(r.settings.stockGarnetMatch){const eligible=ps.every(p=>p.geniusName&&geniusAccounts[p.geniusName]?.garnets>=1);if(eligible){for(const p of ps){geniusAccounts[p.geniusName].garnets--;r.stock.garnetPot++}saveAccounts()}else r.settings.stockGarnetMatch=false}
-  r.phase='stockBriefing';r.stock.dealer='브리핑을 천천히 확인한 뒤 준비 완료 버튼을 눌러주세요. 전원이 준비하면 시작하며, 최대 3분 후에는 자동으로 시작합니다.';setTimer(r,180,()=>stockPrepareRound(r));emitRoom(r)
+  r.phase='stockBriefing';r.stock.dealer='룰 설명을 확인한 뒤 준비 완료를 눌러주세요. 전원이 준비하면 시작하며, 최대 3분 후 자동 시작합니다.';setTimer(r,180,()=>stockPrepareRound(r));emitRoom(r)
 }
 function makeDealerOffers(r,p,target,sc,i){
   const others=r.stock.companies.filter(c=>c.id!==target.id), other=others[(i+r.stock.round)%others.length];
@@ -417,20 +402,20 @@ function stockPrepareRound(r){
   if(!r.stock||r.stock.round>8)return stockFinish(r);r.round=r.stock.round;const sc=r.stock.scenario[r.stock.round-1],target=r.stock.companies.find(c=>c.id===sc.targetId);r.stock.pending=sc;r.stock.volume=Object.fromEntries(r.stock.companies.map(c=>[c.id,0]));r.stock.netFlow=Object.fromEntries(r.stock.companies.map(c=>[c.id,0]));r.stock.whaleAlerts=[];r.stock.marketEvent=sc.market;
   const ps=active(r);ps.forEach((p,i)=>{r.stock.info[p.id].push(stockInfoCard(r,p,target,[sc.eventText,sc.eventPct],i+r.stock.round));r.stock.dealerOffers[p.id]=makeDealerOffers(r,p,target,sc,i)});
   r.stock.news=sc.market.pct?`시장 브리핑 · ${sc.market.text}`:`${target.sector} 업종을 둘러싼 시장의 관심이 커지고 있습니다.`;
-  r.stock.phase='intro';r.phase='stockRoundIntro';r.stock.dealer=`ROUND ${r.stock.round}. 새로운 정보가 도착했습니다. 30초 동안 비밀정보와 공개 뉴스를 먼저 확인하십시오.`;
-  setTimer(r,30,()=>{if([3,6].includes(r.stock.round))stockAuctionStart(r,target,sc);else stockOpenTrade(r)});emitRoom(r)
+  r.stock.phase='intro';r.phase='stockRoundIntro';r.stock.dealer=`ROUND ${r.stock.round}. 새로운 정보가 도착했습니다. 90초 동안 비밀정보를 확인하고 밀담과 협상을 진행하세요.`;
+  setTimer(r,90,()=>{if([3,6].includes(r.stock.round))stockAuctionStart(r,target,sc);else stockOpenTrade(r)});emitRoom(r)
 }
 function stockAuctionStart(r,target,sc){
   r.stock.phase='auction';r.phase='stockAuction';r.stock.auction={active:true,round:r.stock.round,endsAt:Date.now()+30000,highBid:0,highBidderId:null,highBidderName:'없음',bids:{},info:{id:uid(),round:r.stock.round,grade:'★★★★★ 특급정보',source:'시장 내부자',reliability:5,companyId:target.id,text:`${target.name}은 이번 장 마감 후 ${sc.eventPct>0?'상승':'하락'}하며, 예상 변동폭은 약 ${Math.abs(sc.eventPct)}%입니다.`,truth:{direction:sc.eventPct>0?'상승':'하락',pct:sc.eventPct}}};
-  r.stock.dealer=`특급정보 경매를 시작합니다. 45초 동안 입찰할 수 있습니다.`;setTimer(r,45,()=>stockAuctionClose(r));emitRoom(r)
+  r.stock.dealer=`특급정보 경매를 시작합니다. 60초 동안 입찰과 밀담을 진행할 수 있습니다.`;setTimer(r,60,()=>stockAuctionClose(r));emitRoom(r)
 }
 function stockAuctionClose(r){
   if(!r.stock?.auction?.active)return;const a=r.stock.auction;a.active=false;if(a.highBidderId){const acct=r.stock.accounts[a.highBidderId];if(acct.cash>=a.highBid){acct.cash-=a.highBid;r.stock.info[a.highBidderId].push({...a.info,id:uid(),auction:true});r.stock.news=`특급정보가 ${a.highBid}코인에 낙찰되었습니다.`}}
   r.stock.dealer=a.highBidderId?`${a.highBidderName}님이 특급정보를 ${a.highBid}코인에 낙찰받았습니다. 이제 거래를 시작합니다.`:'낙찰자가 없습니다. 이제 거래를 시작합니다.';stockOpenTrade(r)
 }
-function stockOpenTrade(r){r.stock.phase='trade';r.phase='stockTrade';const sec=240;r.stock.dealer=`ROUND ${r.stock.round}. 새로운 비밀정보가 도착했습니다. 지금부터 ${sec}초 동안 투자와 협상을 진행합니다.`;r.stock.tradeEndsAt=Date.now()+sec*1000;setTimer(r,sec,()=>stockClose(r));emitRoom(r)}
+function stockOpenTrade(r){r.stock.phase='trade';r.phase='stockTrade';const sec=300;r.stock.dealer=`ROUND ${r.stock.round}. 새로운 비밀정보가 도착했습니다. 지금부터 ${sec}초 동안 투자와 협상을 진행합니다.`;r.stock.tradeEndsAt=Date.now()+sec*1000;setTimer(r,sec,()=>stockClose(r));emitRoom(r)}
 function stockClose(r){
-  if(!r.stock||r.phase!=='stockTrade')return;clearTimer(r);const sc=r.stock.pending;for(const c of r.stock.companies){const base=c.id===sc.targetId?sc.eventPct:Math.round(Math.random()*7-3),market=sc.market?.pct||0,flow=clamp(Math.round((r.stock.netFlow[c.id]||0)/4),-8,8),pct=clamp(base+market+flow,-55,65),old=c.price;c.price=Math.max(20,Math.round(old*(1+pct/100)));c.change=Math.round((c.price/old-1)*1000)/10;c.history.push(c.price)}const c=r.stock.companies.find(x=>x.id===sc.targetId);r.stock.news=`긴급속보 · ${c.name}: ${sc.eventText}`;r.stock.phase='result';r.phase='stockResult';r.stock.dealer=`장이 마감되었습니다. ${c.name} 관련 속보입니다. 주가 변동과 거래량을 충분히 확인하세요.`;setTimer(r,30,()=>{r.stock.round++;stockPrepareRound(r)});emitRoom(r)
+  if(!r.stock||r.phase!=='stockTrade')return;clearTimer(r);const sc=r.stock.pending;for(const c of r.stock.companies){const base=c.id===sc.targetId?sc.eventPct:Math.round(Math.random()*7-3),market=sc.market?.pct||0,flow=clamp(Math.round((r.stock.netFlow[c.id]||0)/4),-8,8),pct=clamp(base+market+flow,-55,65),old=c.price;c.price=Math.max(20,Math.round(old*(1+pct/100)));c.change=Math.round((c.price/old-1)*1000)/10;c.history.push(c.price)}const c=r.stock.companies.find(x=>x.id===sc.targetId);r.stock.news=`긴급속보 · ${c.name}: ${sc.eventText}`;r.stock.phase='result';r.phase='stockResult';r.stock.dealer=`장이 마감되었습니다. ${c.name} 관련 속보입니다. 주가 변동과 거래량을 충분히 확인하세요.`;setTimer(r,40,()=>{const next=r.stock.round+1;if(next>8)stockFinish(r);else stockRoundIntermission(r,next)});emitRoom(r)
 }
 function missionSuccess(r,p){const m=r.stock.missions[p.id],a=r.stock.accounts[p.id];if(!m)return false;if(m.type==='hold')return (a.holdings[m.companyId]||0)>=m.target;if(m.type==='cash')return a.cash>=m.target;if(m.type==='diverse')return a.traded?.size>=m.target;if(m.type==='top3')return (r.stock.ranking||[]).slice(0,3).some(x=>x.id===p.id);return false}
 function stockDealerAnswer(r,p,q){
@@ -478,7 +463,8 @@ io.on('connection', s => {
   s.on('nightAction',(d,cb)=>{try{
     const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId),t=by(r,d.targetId);
     if(!r||r.phase!=='mafiaNight'||!p?.alive||!t?.alive)throw Error('지금 선택할 수 없습니다.');
-    if(p.role!==r.mafiaNightStep)throw Error('지금은 다른 역할의 행동 시간입니다.');
+    if(!['mafia','doctor','police','reporter'].includes(p.role))throw Error('밤 능력이 없습니다.');
+    if(p.role==='reporter'&&r.reporterUsed?.[p.id])throw Error('기자 능력은 이미 사용했습니다.');
     if(r.nightSubmitted.includes(p.id))throw Error('이미 행동했습니다.');
     let type;
     if(p.role==='mafia')type='kill';else if(p.role==='doctor')type='save';else if(p.role==='police')type='inspect';else if(p.role==='reporter'&&!r.reporterUsed?.[p.id])type='report';else throw Error('밤 능력이 없습니다.');
@@ -488,7 +474,7 @@ io.on('connection', s => {
     if(type==='kill'){r.mafiaTargetId=t.id;r.nightActions[p.id]={type:'kill',target:t.id}}
     else if(type==='inspect'){r.inspections[p.id]={name:t.name,isMafia:t.role==='mafia'};r.mafiaStats.investigations[p.id]=(r.mafiaStats.investigations[p.id]||0)+(t.role==='mafia'?1:0)}
     else {r.nightActions[p.id]={type,target:t.id};if(type==='report')r.reporterUsed[p.id]=true}
-    r.nightSubmitted.push(p.id);const actors=currentMafiaStepActors(r);if(actors.every(x=>r.nightSubmitted.includes(x.id)))advanceMafiaNightStep(r);else emitRoom(r);cb?.({ok:true});
+    r.nightSubmitted.push(p.id);maybeFinishMafiaNight(r);cb?.({ok:true});
   }catch(e){cb?.({ok:false,error:e.message});}});
   s.on('stockBriefingReady',(_,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||r.phase!=='stockBriefing'||!p)throw Error('지금은 브리핑 단계가 아닙니다.');r.stock.briefingReady=r.stock.briefingReady||[];if(!r.stock.briefingReady.includes(p.id))r.stock.briefingReady.push(p.id);const ready=active(r).filter(x=>!x.isBot).every(x=>r.stock.briefingReady.includes(x.id));if(ready){clearTimer(r);stockPrepareRound(r)}else emitRoom(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message})}});
   s.on('stockDealerAsk',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||r.game!=='stockwar'||!p)throw Error('주식전쟁에서만 질문할 수 있습니다.');cb?.({ok:true,answer:stockDealerAnswer(r,p,d.question)});}catch(e){cb?.({ok:false,error:e.message})}});
