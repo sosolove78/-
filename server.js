@@ -38,8 +38,8 @@ const clamp = (n,a,b) => Math.max(a,Math.min(b,n));
 const shuffle = a => [...a].sort(() => Math.random() - .5);
 const pick = a => a[Math.floor(Math.random()*a.length)];
 function code(){ let c; do { c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'.split('').sort(()=>Math.random()-.5).slice(0,5).join(''); } while(rooms.has(c)); return c; }
-function player(name,avatar,sessionId){ return { id:uid(), sessionId, name:clean(name), avatar:AV.includes(avatar)?avatar:AV[0], gender:null, connected:true, score:0, alive:true, rolePublic:null, isBot:false, geniusColorIndex:null }; }
-function botPlayer(r){const n=r.players.filter(p=>p.isBot).length+1;return {id:uid(),sessionId:'bot-'+uid(),name:'소소봇'+n,avatar:AV[(n+2)%AV.length],gender:n%2?'male':'female',connected:true,score:0,alive:true,rolePublic:null,isBot:true,geniusColorIndex:null};}
+function player(name,avatar,sessionId){ return { id:uid(), sessionId, name:clean(name), avatar:AV.includes(avatar)?avatar:AV[0], gender:null, connected:true, score:0, alive:true, rolePublic:null, isBot:false, geniusColorIndex:null, voiceRoom:'MAIN' }; }
+function botPlayer(r){const n=r.players.filter(p=>p.isBot).length+1;return {id:uid(),sessionId:'bot-'+uid(),name:'소소봇'+n,avatar:AV[(n+2)%AV.length],gender:n%2?'male':'female',connected:true,score:0,alive:true,rolePublic:null,isBot:true,geniusColorIndex:null,voiceRoom:'MAIN'};}
 function assignGeniusColors(r){const used=new Set(r.players.map(p=>Number.isInteger(p.geniusColorIndex)?p.geniusColorIndex:null).filter(x=>x!==null&&x>=0&&x<10));for(const p of r.players){if(Number.isInteger(p.geniusColorIndex)&&p.geniusColorIndex>=0&&p.geniusColorIndex<10)continue;for(let i=0;i<10;i++)if(!used.has(i)){p.geniusColorIndex=i;used.add(i);break}}}
 function bind(s,r,p){ p.socketId=s.id; p.connected=true; s.join(r.code); s.data.roomCode=r.code; s.data.playerId=p.id; }
 function clearTimer(r){ if(r.timer) clearTimeout(r.timer); if(r.nightMinTimer) clearTimeout(r.nightMinTimer); if(r.nightHardTimer) clearTimeout(r.nightHardTimer); if(r.stepTimer) clearTimeout(r.stepTimer); r.timer=null; r.nightMinTimer=null; r.nightHardTimer=null; r.stepTimer=null; r.deadline=null; }
@@ -56,7 +56,7 @@ function resetForGameSwitch(r,game){ clearTimer(r); r.game=game; r.mode='normal'
 
 function publicState(r){
   const base={ code:r.code, hostId:r.hostId, game:r.game, gameName:GAME_NAMES[r.game], mode:r.mode, phase:r.phase, round:r.round,
-    players:(assignGeniusColors(r),r.players.map(p=>({id:p.id,name:p.name,avatar:p.avatar,gender:p.gender||null,connected:p.connected,score:p.score,alive:p.alive,rolePublic:p.rolePublic,claimedRole:p.claimedRole||null,isBot:!!p.isBot,geniusName:p.geniusName||null,geniusColorIndex:p.geniusColorIndex,geniusGarnets:p.geniusName?(geniusAccounts[p.geniusName]?.garnets||0):null,geniusWins:p.geniusName?(geniusAccounts[p.geniusName]?.wins||0):null}))),
+    players:(assignGeniusColors(r),r.players.map(p=>({id:p.id,name:p.name,avatar:p.avatar,gender:p.gender||null,connected:p.connected,score:p.score,alive:p.alive,rolePublic:p.rolePublic,claimedRole:p.claimedRole||null,isBot:!!p.isBot,geniusName:p.geniusName||null,geniusColorIndex:p.geniusColorIndex,geniusGarnets:p.geniusName?(geniusAccounts[p.geniusName]?.garnets||0):null,geniusWins:p.geniusName?(geniusAccounts[p.geniusName]?.wins||0):null,voiceRoom:p.voiceRoom||'MAIN'}))),
     settings:r.settings, deadline:r.deadline, submitted:r.submitted||[], answersRevealed:r.answersRevealed, answers:r.answersRevealed?r.answers:{}, votesSubmitted:r.votesSubmitted||[], voteResult:r.voteResult,
     truthTurnId:r.truthTurnId, truthQuestion:r.truthQuestion, mafiaLog:r.mafiaLog||[], nightSubmitted:[], mafiaRoleRevealSeq:r.mafiaRoleRevealSeq||0, nightMinEndAt:r.nightMinEndAt||null,
     mafiaDealer:r.mafiaDealer||'', mafiaNightStep:r.phase==='mafiaNight'?'all':(r.mafiaNightStep||null), mafiaCandidateId:r.mafiaCandidateId||null, executeVotesSubmitted:r.executeVotesSubmitted||[], mafiaAwards:r.mafiaAwards||[],
@@ -427,7 +427,7 @@ function stockMission(r,p,i){const c=r.stock.companies[i%r.stock.companies.lengt
  {text:'최종 자산 3위 안에 들어가세요.',type:'top3',reward:3}
  ]; return list[i%list.length]}
 function stockDealer(r,text){r.stock.dealer=text;emitRoom(r)}
-function stockRoundIntermission(r,nextRound){clearTimer(r);r.phase='stockIntermission';r.stock.phase='intermission';r.stock.dealer=`잠시 후 ROUND ${nextRound}가 시작됩니다.`;r.deadline=Date.now()+5000;setTimer(r,5,()=>{r.stock.round=nextRound;stockPrepareRound(r)});emitRoom(r)}
+function stockRoundIntermission(r,nextRound){clearTimer(r);forceVoiceMain(r);r.phase='stockIntermission';r.stock.phase='intermission';r.stock.dealer=`잠시 후 ROUND ${nextRound}가 시작됩니다.`;r.deadline=Date.now()+10000;setTimer(r,10,()=>{r.stock.round=nextRound;stockPrepareRound(r)});emitRoom(r)}
 function stockSetup(r){
   resetRound(r);r.geniusGift=null;r.geniusRewardsApplied=false;r.round=1;const ps=active(r);const companies=shuffle(STOCK_COMPANIES).slice(0,5).map(c=>({...c,price:100,change:0,history:[100]}));
   r.stock={round:1,companies,accounts:{},info:{},messages:{},dealerOffers:{},contractLog:{},tradeLog:{},missions:{},volume:{},netFlow:{},whaleAlerts:[],publicAlerts:[],news:'시장이 곧 개장합니다.',dealer:'주식전쟁을 시작합니다. 모든 플레이어는 1,000코인으로 시작합니다.',phase:'briefing',tradeEndsAt:null,scenario:[],garnetPot:0,botActedRound:{},briefingReady:[]};
@@ -454,24 +454,25 @@ function stockPrepareRound(r){
   if(!r.stock||r.stock.round>8)return stockFinish(r);r.round=r.stock.round;const sc=r.stock.scenario[r.stock.round-1],target=r.stock.companies.find(c=>c.id===sc.targetId);r.stock.pending=sc;r.stock.volume=Object.fromEntries(r.stock.companies.map(c=>[c.id,0]));r.stock.netFlow=Object.fromEntries(r.stock.companies.map(c=>[c.id,0]));r.stock.whaleAlerts=[];r.stock.marketEvent=sc.market;
   const ps=active(r);ps.forEach((p,i)=>{const acct=r.stock.accounts[p.id]||(r.stock.accounts[p.id]={cash:1000,holdings:{},traded:new Set(),loanTaken:false,debt:0});acct.transferRound=r.stock.round;acct.transferTotal=0;acct.transferTo={};r.stock.info[p.id]=r.stock.info[p.id]||[];r.stock.messages[p.id]=r.stock.messages[p.id]||[];r.stock.contractLog[p.id]=r.stock.contractLog[p.id]||[];r.stock.tradeLog[p.id]=r.stock.tradeLog[p.id]||[];const second=r.stock.companies[(i+r.stock.round)%r.stock.companies.length];r.stock.info[p.id].push(stockInfoCard(r,p,target,[sc.eventText,sc.eventPct],i+r.stock.round));if(second&&second.id!==target.id){const src=INFO_SOURCES[(i+r.stock.round+2)%INFO_SOURCES.length];r.stock.info[p.id].push({id:uid(),round:r.stock.round,text:`${second.name}은 이번 라운드 핵심 사건의 직접 대상이 아닙니다. 이 회사의 기본 변동성은 ${second.volatility}/5입니다.`,grade:'보조정보',source:src.name,reliability:src.stars,companyId:second.id,truth:{directTarget:false}})}r.stock.dealerOffers[p.id]=makeDealerOffers(r,p,target,sc,i)});
   r.stock.news=sc.market.pct?`시장 브리핑 · ${sc.market.text}`:`${target.sector} 업종을 둘러싼 시장의 관심이 커지고 있습니다.`;
-  r.stock.phase='info';r.phase='stockInfoReview';r.stock.dealer=`ROUND ${r.stock.round}. 지금부터 30초 동안 새 정보와 시장 상황을 확인하세요.`;
-  setTimer(r,30,()=>stockNegotiationStart(r,target,sc));emitRoom(r)
+  const infoSec=r.stock.round===8?60:45;r.stock.phase='info';r.phase='stockInfoReview';r.stock.dealer=`ROUND ${r.stock.round}. 지금부터 ${infoSec}초 동안 새 정보와 시장 상황을 확인하세요.`;
+  setTimer(r,infoSec,()=>stockNegotiationStart(r,target,sc));emitRoom(r)
 }
 function stockNegotiationStart(r,target,sc){
-  if(!r.stock)return;clearTimer(r);r.stock.phase='negotiation';r.phase='stockNegotiation';r.stock.dealer=`정보 확인이 끝났습니다. 지금부터 3분 동안 밀담과 협상을 진행하고 투자 전략을 세우세요.`;
-  setTimer(r,180,()=>{if([3,6].includes(r.stock.round))stockAuctionStart(r,target,sc);else stockOpenTrade(r)});emitRoom(r)
+  if(!r.stock)return;clearTimer(r);r.stock.phase='negotiation';r.phase='stockNegotiation';const sec=r.stock.round<=2?180:r.stock.round<=5?210:r.stock.round<=7?240:270;r.stock.dealer=`정보 확인이 끝났습니다. 지금부터 ${Math.floor(sec/60)}분${sec%60?' '+sec%60+'초':''} 동안 MAIN/A/B/C 음성룸과 밀담을 활용해 협상하세요.`;
+  setTimer(r,sec,()=>{if([3,6].includes(r.stock.round))stockAuctionStart(r,target,sc);else stockOpenTrade(r)});emitRoom(r)
 }
+function forceVoiceMain(r){for(const p of r.players)p.voiceRoom='MAIN'}
 function stockAuctionStart(r,target,sc){
-  r.stock.phase='auction';r.phase='stockAuction';r.stock.auction={active:true,round:r.stock.round,endsAt:Date.now()+60000,highBid:0,highBidderId:null,highBidderName:'없음',bids:{},info:{id:uid(),round:r.stock.round,grade:'★★★★★ 특급정보',source:'시장 내부자',reliability:5,companyId:target.id,text:`${target.name}은 이번 장 마감 후 ${sc.eventPct>0?'상승':'하락'}하며, 예상 변동폭은 약 ${Math.abs(sc.eventPct)}%입니다.`,truth:{direction:sc.eventPct>0?'상승':'하락',pct:sc.eventPct}}};
-  r.stock.dealer=`특급정보 경매를 시작합니다. 1분 동안 입찰과 밀담을 진행할 수 있습니다.`;setTimer(r,60,()=>stockAuctionClose(r));emitRoom(r)
+  forceVoiceMain(r);r.stock.phase='auction';r.phase='stockAuction';r.stock.auction={active:true,round:r.stock.round,endsAt:Date.now()+60000,highBid:0,highBidderId:null,highBidderName:'없음',bids:{},info:{id:uid(),round:r.stock.round,grade:'★★★★★ 특급정보',source:'시장 내부자',reliability:5,companyId:target.id,text:`${target.name}은 이번 장 마감 후 ${sc.eventPct>0?'상승':'하락'}하며, 예상 변동폭은 약 ${Math.abs(sc.eventPct)}%입니다.`,truth:{direction:sc.eventPct>0?'상승':'하락',pct:sc.eventPct}}};
+  r.stock.dealer=`특급정보 경매를 시작합니다. 1분 동안 진행되며 음성은 MAIN ROOM 전체 대화만 가능합니다.`;setTimer(r,60,()=>stockAuctionClose(r));emitRoom(r)
 }
 function stockAuctionClose(r){
   if(!r.stock?.auction?.active)return;const a=r.stock.auction;a.active=false;if(a.highBidderId){const acct=r.stock.accounts[a.highBidderId];if(acct.cash>=a.highBid){acct.cash-=a.highBid;r.stock.info[a.highBidderId].push({...a.info,id:uid(),auction:true});r.stock.news=`특급정보가 ${a.highBid}코인에 낙찰되었습니다.`}}
   r.stock.dealer=a.highBidderId?`${a.highBidderName}님이 특급정보를 ${a.highBid}코인에 낙찰받았습니다. 이제 거래를 시작합니다.`:'낙찰자가 없습니다. 이제 거래를 시작합니다.';stockOpenTrade(r)
 }
-function stockOpenTrade(r){r.stock.phase='trade';r.phase='stockTrade';const sec=120;r.stock.dealer=`ROUND ${r.stock.round} 시장이 열렸습니다. 지금부터 2분 동안 주식을 거래하세요.`;r.stock.tradeEndsAt=Date.now()+sec*1000;setTimer(r,sec,()=>stockClose(r));emitRoom(r)}
+function stockOpenTrade(r){forceVoiceMain(r);r.stock.phase='trade';r.phase='stockTrade';const sec=90;r.stock.dealer=`ROUND ${r.stock.round} 시장이 열렸습니다. 지금부터 1분 30초 동안 주식을 거래하세요. 음성은 MAIN ROOM 전체 대화만 가능합니다.`;r.stock.tradeEndsAt=Date.now()+sec*1000;setTimer(r,sec,()=>stockClose(r));emitRoom(r)}
 function stockClose(r){
-  if(!r.stock||r.phase!=='stockTrade')return;clearTimer(r);const sc=r.stock.pending;for(const c of r.stock.companies){const base=c.id===sc.targetId?Math.round(sc.eventPct*1.15):Math.round(Math.random()*11-5),market=sc.market?.pct||0,flow=clamp(Math.round((r.stock.netFlow[c.id]||0)/2),-20,20),panic=sc.turbulent&&Math.random()<.35?(Math.random()<.5?-1:1)*(5+Math.floor(Math.random()*10)):0,pct=clamp(base+market+flow+panic,-65,80),old=c.price;c.price=Math.max(15,Math.round(old*(1+pct/100)));c.change=Math.round((c.price/old-1)*1000)/10;c.history.push(c.price)}const c=r.stock.companies.find(x=>x.id===sc.targetId);r.stock.news=`긴급속보 · ${c.name}: ${sc.eventText}`;r.stock.phase='result';r.phase='stockResult';r.stock.dealer=`장이 마감되었습니다. ${c.name} 관련 속보입니다. 주가 변동과 거래량을 충분히 확인하세요.`;setTimer(r,30,()=>{const next=r.stock.round+1;if(next>8)stockFinish(r);else stockRoundIntermission(r,next)});emitRoom(r)
+  if(!r.stock||r.phase!=='stockTrade')return;clearTimer(r);const sc=r.stock.pending;for(const c of r.stock.companies){const base=c.id===sc.targetId?Math.round(sc.eventPct*1.15):Math.round(Math.random()*11-5),market=sc.market?.pct||0,flow=clamp(Math.round((r.stock.netFlow[c.id]||0)/2),-20,20),panic=sc.turbulent&&Math.random()<.35?(Math.random()<.5?-1:1)*(5+Math.floor(Math.random()*10)):0,pct=clamp(base+market+flow+panic,-65,80),old=c.price;c.price=Math.max(15,Math.round(old*(1+pct/100)));c.change=Math.round((c.price/old-1)*1000)/10;c.history.push(c.price)}const c=r.stock.companies.find(x=>x.id===sc.targetId);r.stock.news=`긴급속보 · ${c.name}: ${sc.eventText}`;r.stock.phase='result';r.phase='stockResult';r.stock.dealer=`장이 마감되었습니다. ${c.name} 관련 속보입니다. 주가 변동과 거래량을 충분히 확인하세요.`;setTimer(r,r.stock.round===8?60:30,()=>{const next=r.stock.round+1;if(next>8)stockFinish(r);else stockRoundIntermission(r,next)});emitRoom(r)
 }
 function missionSuccess(r,p){const m=r.stock.missions[p.id],a=r.stock.accounts[p.id];if(!m)return false;if(m.type==='hold')return (a.holdings[m.companyId]||0)>=m.target;if(m.type==='cash')return a.cash>=m.target;if(m.type==='diverse')return a.traded?.size>=m.target;if(m.type==='top3')return (r.stock.ranking||[]).slice(0,3).some(x=>x.id===p.id);return false}
 function stockDealerAnswer(r,p,q){
@@ -482,7 +483,7 @@ function stockDealerAnswer(r,p,q){
    [/정보상점|딜러정보|정보구매|정보사/,()=>`딜러 정보상점은 매 라운드 다른 정보 3개를 제시합니다. 딜러에게 구매한 정보는 항상 진실이며 코인으로 결제합니다.`],
    [/비밀정보|개인정보/,()=>`각 플레이어는 매 라운드 서로 다른 비밀정보를 받습니다. 받은 정보는 PRIVATE TERMINAL의 내 비밀정보에서 확인할 수 있습니다.`],
    [/특급|경매|입찰/,()=>`3라운드와 6라운드에는 1분 동안 특급정보 경매가 열립니다. 가장 높은 금액을 입찰한 플레이어가 정보를 얻습니다.`],
-   [/밀담|비밀대화|채팅/,()=>r.phase==='stockTrade'?'시장 거래 2분 동안은 비밀대화가 잠깁니다. 거래 전 전략·협상 시간에 밀담을 이용하세요.':'오른쪽 참가자의 대화 버튼을 누르면 해당 플레이어와 1:1 비밀대화를 할 수 있습니다.'],
+   [/밀담|비밀대화|채팅/,()=>r.phase==='stockTrade'?'시장 거래 1분 30초 동안은 비밀대화가 잠깁니다. 거래 전 전략·협상 시간에 밀담을 이용하세요.':'오른쪽 참가자의 대화 버튼을 누르면 해당 플레이어와 1:1 비밀대화를 할 수 있습니다.'],
    [/송금|돈보내|코인보내/,()=>`송금은 라운드당 총 200C, 같은 플레이어에게는 라운드당 최대 100C까지 가능합니다.`],
    [/대출|빚|은행/,()=>`대출은 게임당 1회, 최대 500C입니다. 최종 정산에서 원금의 120%가 부채로 차감되며 대출 사용 사실은 모두에게 공개됩니다.`],
    [/매수|사기|구매주식/,()=>r.phase==='stockTrade'?'지금 시장이 열려 있습니다. 종목별 수량을 입력하고 매수 버튼을 누르세요.':'주식 매수는 MARKET OPEN 단계에서만 가능합니다.'],
@@ -491,8 +492,8 @@ function stockDealerAnswer(r,p,q){
    [/시간|몇초|몇분|남았/,()=>r.deadline?`현재 단계는 약 ${Math.max(0,Math.ceil((r.deadline-Date.now())/1000))}초 남았습니다.`:'현재 단계에는 별도 카운트다운이 없습니다.'],
    [/가넷/,()=>`가넷은 두뇌게임 프로필의 영구 재화입니다. 주식전쟁 안에서 사용하는 코인과는 별개입니다.`],
    [/거짓|진짜|믿|블러핑/,()=>`딜러가 직접 판매한 정보는 진실입니다. 다른 플레이어가 말하는 정보는 시스템이 인증하지 않으므로 거짓말과 블러핑이 가능합니다.`],
-   [/협상|전략/,()=>`전략·협상 단계는 3분입니다. 밀담, 송금, 정보 해석을 이용해 MARKET OPEN 전에 계획을 세우세요.`],
-   [/시장거래|마켓|marketopen/,()=>`시장 거래는 2분입니다. 거래 중에는 밀담이 잠기고, 매수·매도 수급은 최종 주가에도 영향을 줄 수 있습니다.`]
+   [/협상|전략/,()=>`전략·협상은 초반 3분에서 최종 라운드 4분 30초까지 점차 늘어납니다. MAIN/A/B/C 음성룸, 밀담, 송금과 정보 해석을 활용하세요.`],
+   [/시장거래|마켓|marketopen/,()=>`시장 거래는 1분 30초입니다. 거래 중에는 밀담이 잠기고, 매수·매도 수급은 최종 주가에도 영향을 줄 수 있습니다.`]
   ];
   for(const [re,fn] of rules)if(re.test(text))return fn();
   const company=r.stock.companies.find(c=>text.includes(c.name.replace(/\s+/g,'').toLowerCase()));if(company)return `${company.name}의 현재 가격은 ${company.price}코인이고, 이번 라운드 변동률은 ${company.change>=0?'+':''}${company.change||0}%입니다. 미래 사건이나 숨겨진 방향은 공개할 수 없습니다.`;
@@ -543,6 +544,9 @@ io.on('connection', s => {
     else {r.nightActions[p.id]={type,target:t.id};if(type==='report')r.reporterUsed[p.id]=true}
     r.nightSubmitted.push(p.id);maybeFinishMafiaNight(r);cb?.({ok:true});
   }catch(e){cb?.({ok:false,error:e.message});}});
+  s.on('voiceJoin',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||!p||!['genius','stockwar','secretvault'].includes(r.game))throw Error('지니어스게임에서만 음성을 사용할 수 있습니다.');p.voiceRoom=p.voiceRoom||'MAIN';emitRoom(r);cb?.({ok:true,room:p.voiceRoom});}catch(e){cb?.({ok:false,error:e.message})}});
+  s.on('voiceMove',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||!p)throw Error('방을 찾을 수 없습니다.');const room=String(d.room||'MAIN').toUpperCase();if(!['MAIN','A','B','C'].includes(room))throw Error('올바르지 않은 음성룸입니다.');if(r.game==='stockwar'&&['stockAuction','stockTrade'].includes(r.phase)&&room!=='MAIN')throw Error('경매와 시장 거래 중에는 MAIN ROOM 전체 음성만 사용할 수 있습니다.');p.voiceRoom=room;emitRoom(r);cb?.({ok:true,room});}catch(e){cb?.({ok:false,error:e.message})}});
+  s.on('voiceSignal',(d)=>{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId),t=by(r,d.targetId);if(!r||!p||!t||!p.connected||!t.connected)return;if((p.voiceRoom||'MAIN')!==(t.voiceRoom||'MAIN'))return;const ts=sock(t);if(ts)ts.emit('voiceSignal',{fromId:p.id,data:d.data});});
   s.on('stockBriefingReady',(_,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||r.phase!=='stockBriefing'||!p)throw Error('지금은 브리핑 단계가 아닙니다.');r.stock.briefingReady=r.stock.briefingReady||[];if(!r.stock.briefingReady.includes(p.id))r.stock.briefingReady.push(p.id);const ready=active(r).filter(x=>!x.isBot).every(x=>r.stock.briefingReady.includes(x.id));if(ready){clearTimer(r);stockPrepareRound(r)}else emitRoom(r);cb?.({ok:true});}catch(e){cb?.({ok:false,error:e.message})}});
   s.on('stockDealerAsk',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||r.game!=='stockwar'||!p)throw Error('주식전쟁에서만 질문할 수 있습니다.');cb?.({ok:true,answer:stockDealerAnswer(r,p,d.question)});}catch(e){cb?.({ok:false,error:e.message})}});
   s.on('stockTrade',(d,cb)=>{try{const r=rooms.get(s.data.roomCode),p=by(r,s.data.playerId);if(!r||r.phase!=='stockTrade'||!p)throw Error('지금은 거래할 수 없습니다.');const a=r.stock.accounts[p.id],c=r.stock.companies.find(x=>x.id===d.companyId),q=Math.max(1,Math.min(99,+d.qty||1));if(!c)throw Error('종목을 찾을 수 없습니다.');const amount=c.price*q;if(d.side==='buy'){if(a.cash<amount)throw Error('코인이 부족합니다.');a.cash-=amount;a.holdings[c.id]=(a.holdings[c.id]||0)+q;r.stock.netFlow[c.id]=(r.stock.netFlow[c.id]||0)+q}else{if((a.holdings[c.id]||0)<q)throw Error('보유 수량이 부족합니다.');a.holdings[c.id]-=q;a.cash+=amount;r.stock.netFlow[c.id]=(r.stock.netFlow[c.id]||0)-q}a.traded.add(c.id);r.stock.volume[c.id]=(r.stock.volume[c.id]||0)+q;r.stock.tradeLog[p.id].push({round:r.stock.round,side:d.side,companyId:c.id,company:c.name,qty:q,price:c.price,amount});if(amount>=250){r.stock.whaleAlerts.push({text:`익명의 투자자가 ${c.name}을(를) 대량 ${d.side==='buy'?'매수':'매도'}했습니다.`,at:Date.now()});r.stock.whaleAlerts=r.stock.whaleAlerts.slice(-5)}emitRoom(r);cb?.({ok:true})}catch(e){cb?.({ok:false,error:e.message})}});
