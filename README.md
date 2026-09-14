@@ -98,3 +98,11 @@ npm start
 - 지니어스 대기실 음성 연결/마이크 설정 UI, 게임 중 상단 MAIN/A/B/C 룸 표시
 - 말하는 플레이어 카드 하이라이트
 - 가넷 상점(프로필 테두리/칭호/컬렉션) 추가
+
+
+## v34 Stock War BGM verification
+- Replaced Stock War BGM with the supplied track, audio-only MP3 at 96 kbps for GitHub web upload compatibility.
+- Default Stock War/global BGM is migrated to ON / 10% once for this build.
+- Browser audio is primed from real user gestures and automatically starts when Stock War begins.
+- Audio files bypass service-worker caching to prevent stale BGM playback.
+- Verified with headless Chromium: exact packaged MP3 decoded with readyState 4 and playback currentTime advanced from 0 to >2.8 seconds; prime-on-gesture then later automatic playback also passed.
