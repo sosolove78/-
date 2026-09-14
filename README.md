@@ -106,3 +106,11 @@ npm start
 - Browser audio is primed from real user gestures and automatically starts when Stock War begins.
 - Audio files bypass service-worker caching to prevent stale BGM playback.
 - Verified with headless Chromium: exact packaged MP3 decoded with readyState 4 and playback currentTime advanced from 0 to >2.8 seconds; prime-on-gesture then later automatic playback also passed.
+
+
+## v37 voice fix
+- Resume WebAudio context before transmitting processed microphone audio.
+- Fallback to raw getUserMedia stream if WebAudio processing is unavailable.
+- Robust remote audio autoplay unlock/retry after user gestures.
+- Handle track events without stream object.
+- Less aggressive reconnect on transient WebRTC disconnects.
