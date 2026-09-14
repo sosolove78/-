@@ -180,15 +180,62 @@ const wcItemNames={time:'⏳ +5초',reverse:'🔄 방향전환',shield:'🛡️ 
 function renderWordchain(){const w=state.wordchain;if(!w)return;const myTurn=w.turnPlayerId===me,turnP=state.players.find(p=>p.id===w.turnPlayerId),winner=state.players.find(p=>p.id===w.winnerId);$('#mainCard').innerHTML=`<div class="wordchain-board"><div class="wc-top"><span>턴 ${w.turnNumber}</span><strong>${myTurn?'👉 내 차례':`⏳ ${esc(turnP?.name||'')}님 차례`}</strong><span>${w.direction===1?'진행 →':'← 진행'}</span></div><div class="wc-word">${esc(w.currentWord||'')}</div><div class="wc-next">다음 글자 <b>「${esc(w.required||'')}」</b></div>${w.lastAction?`<div class="wc-action">${esc(w.lastAction)}</div>`:''}</div>`;if(state.phase==='wordchainResult'){ $('#actionArea').innerHTML=`<div class="result"><h2>🏆 ${esc(winner?.name||'')} 승리!</h2><p>마지막까지 살아남았습니다.</p><div class="wc-history">${w.history.map(x=>`<span>${esc(x)}</span>`).join('<i>→</i>')}</div></div>`;return}const items=priv?.game==='wordchain'?(priv.items||[]):[];$('#actionArea').innerHTML=`<div class="wc-play"><div class="wc-input-wrap"><input id="wcInput" autocomplete="off" maxlength="12" placeholder="${myTurn?esc(w.required)+'(으)로 시작하는 단어':'내 차례를 기다리세요'}" ${myTurn?'':'disabled'}><button id="wcSubmit" class="primary" ${myTurn?'':'disabled'}>입력</button></div>${state.settings.wordchainMode==='item'?`<div class="wc-items"><b>내 아이템</b>${items.length?items.map(x=>`<button data-witem="${x}" ${myTurn?'':'disabled'}>${wcItemNames[x]||x}</button>`).join(''):'<span class="muted">사용 가능한 아이템이 없습니다.</span>'}</div>`:''}<div class="wc-history"><b>최근 단어</b>${w.history.map(x=>`<span>${esc(x)}</span>`).join('<i>→</i>')}</div>${w.challenge&&w.challenge.submitterId!==me&&!w.challenge.challengers.includes(me)?`<div class="wc-challenge"><span><b>"${esc(w.challenge.word)}"</b>이 실제 단어가 아니라고 생각하나요?</span><button id="wcChallenge" class="danger-soft">이의제기</button><small>${w.challenge.challengers.length}/${Math.max(1,state.players.filter(p=>p.connected&&!(w.eliminated?.[p.id])&&p.id!==w.challenge.submitterId).length)}명</small></div>`:''}<p class="muted">사전 제한 없이 자유롭게 입력합니다. 앞 글자와 중복 여부만 자동 검사하며, 이상한 단어는 다른 생존자 전원이 이의제기하면 제출자가 목숨 1개를 잃습니다.</p></div>`;if(myTurn){const submit=()=>{const v=$('#wcInput').value.trim();socket.emit('wordchainSubmit',{word:v},r=>{if(!r.ok){toast(r.error);$('#wcInput')?.focus()}})};$('#wcSubmit').onclick=submit;$('#wcInput').onkeydown=e=>{if(e.key==='Enter')submit()};setTimeout(()=>$('#wcInput')?.focus(),0)}if($('#wcChallenge'))$('#wcChallenge').onclick=()=>socket.emit('wordchainChallenge',{},r=>toast(r.ok?'이의제기했습니다.':r.error));$$('[data-witem]').forEach(b=>b.onclick=()=>socket.emit('wordchainItem',{item:b.dataset.witem},r=>!r.ok&&toast(r.error)))}
 
 // ---------- Stock War ----------
-const stockBgm=new Audio('/stock-war-music-v31.mp3?v=31');stockBgm.loop=true;stockBgm.preload='auto';stockBgm.volume=.10;
-let stockBgmPrimed=false;
-async function primeStockBgm(){try{stockBgm.volume=0;await stockBgm.play();stockBgmPrimed=true;stockBgm.volume=bgmVolume();return true}catch(e){return false}}
-async function resumeStockBgm(){if(!(state?.game==='stockwar'&&state.phase!=='lobby'&&bgmOn))return;try{stockBgm.volume=bgmVolume();await stockBgm.play();stockBgmPrimed=true}catch(e){}}
-['pointerdown','keydown','touchstart'].forEach(ev=>document.addEventListener(ev,()=>{if(state?.game==='stockwar'&&state.phase!=='lobby'&&bgmOn)resumeStockBgm()},{passive:true}));
-let lastDealer='';function speakDealer(text,done){if(!text||!narrationOn){done?.();return}try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='ko-KR';const voices=speechSynthesis.getVoices();u.voice=voices.find(v=>v.lang?.toLowerCase().startsWith('ko')&&/natural|neural|sunhi|injoon|google|microsoft/i.test(v.name))||voices.find(v=>v.lang?.toLowerCase().startsWith('ko'))||null;u.rate=1.5;u.pitch=1.0;u.volume=narrationVolume();u.onend=u.onerror=()=>done?.();speechSynthesis.speak(u)}catch{done?.()}}
-function syncStockAudio(){const v=bgmVolume();stockBgm.volume=v;if(state?.game==='stockwar'&&state.phase!=='lobby'&&bgmOn){resumeStockBgm()}else stockBgm.pause();if(state?.game==='stockwar'&&state.stock?.dealer&&state.stock.dealer!==lastDealer){lastDealer=state.stock.dealer;const before=v;if(!stockBgm.paused)stockBgm.volume=Math.min(v,.015);speakDealer(lastDealer,()=>{stockBgm.volume=bgmVolume()})}}
-function stockStars(n){return '★'.repeat(n||0)+'☆'.repeat(Math.max(0,5-(n||0)))}
-function stockSpark(hist=[]){if(!hist.length)return'';const w=120,h=34,min=Math.min(...hist),max=Math.max(...hist),span=Math.max(1,max-min);const pts=hist.map((v,i)=>`${Math.round(i*(w/(Math.max(1,hist.length-1))))},${Math.round(h-(v-min)/span*h)}`).join(' ');return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><polyline points="${pts}" fill="none" stroke="currentColor" stroke-width="2"/></svg>`}
+const stockBgm=new Audio('/stock-war-bgm-v32.mp3?v=32');
+stockBgm.loop=true;stockBgm.preload='auto';stockBgm.playsInline=true;stockBgm.volume=.10;
+let stockBgmPrimed=false,stockBgmRetryTimer=null;
+function stockWarActive(){return state?.game==='stockwar'&&state?.phase!=='lobby'}
+function stockBgmWanted(){return stockWarActive()&&bgmOn&&bgmVolume()>0}
+async function primeStockBgm(){
+  try{
+    stockBgm.muted=true;
+    await stockBgm.play();
+    stockBgmPrimed=true;
+    stockBgm.pause();
+    stockBgm.currentTime=0;
+    stockBgm.muted=false;
+    stockBgm.volume=bgmVolume();
+    return true;
+  }catch(e){
+    stockBgm.muted=false;
+    return false;
+  }
+}
+async function resumeStockBgm(){
+  if(!stockBgmWanted())return false;
+  try{
+    stockBgm.muted=false;
+    stockBgm.volume=bgmVolume();
+    await stockBgm.play();
+    stockBgmPrimed=true;
+    return true;
+  }catch(e){return false}
+}
+function scheduleStockBgmRetry(){
+  clearTimeout(stockBgmRetryTimer);
+  if(!stockBgmWanted())return;
+  let tries=0;
+  const retry=async()=>{
+    if(!stockBgmWanted())return;
+    if(await resumeStockBgm())return;
+    tries++;
+    if(tries<6)stockBgmRetryTimer=setTimeout(retry,500);
+  };
+  retry();
+}
+['pointerdown','keydown','touchstart'].forEach(ev=>document.addEventListener(ev,()=>{
+  if(stockBgmWanted())resumeStockBgm();
+},{passive:true}));
+stockBgm.addEventListener('canplay',()=>{if(stockBgmWanted())resumeStockBgm()});
+stockBgm.addEventListener('ended',()=>{if(stockBgmWanted()){stockBgm.currentTime=0;resumeStockBgm()}});
+function syncStockAudio(){
+  const v=bgmVolume();stockBgm.volume=v;
+  if(stockBgmWanted())scheduleStockBgmRetry();else{clearTimeout(stockBgmRetryTimer);stockBgm.pause()}
+  if(state?.game==='stockwar'&&state.stock?.dealer&&state.stock.dealer!==lastDealer){
+    lastDealer=state.stock.dealer;
+    if(!stockBgm.paused)stockBgm.volume=Math.min(v,.015);
+    speakDealer(lastDealer,()=>{stockBgm.volume=bgmVolume();if(stockBgmWanted())resumeStockBgm()})
+  }
+}
 function stockStageText(){if(!state?.stock)return'';const r=state.stock.round||1,neg=r<=2?'3분':r<=5?'3분 30초':r<=7?'4분':'4분 30초',info=r===8?'1분':'45초',result=r===8?'1분':'30초';const m={stockIntermission:'NEXT ROUND · 10초 후 다음 라운드가 시작됩니다.',stockInfoReview:`정보 확인 · ${info} — 새 정보와 시장 상황을 확인하세요.`,stockNegotiation:`전략·협상 · ${neg} — 음성룸과 비밀대화를 활용해 전략을 세우세요.`,stockAuction:'특급정보 경매 · 1분 — MAIN ROOM 전체 음성으로 진행됩니다.',stockTrade:'MARKET OPEN · 1분 30초 — 주식을 사고팔 수 있습니다. MAIN ROOM 전체 음성만 사용합니다.',stockResult:`결과 확인 · ${result} — 속보와 주가 변동을 확인하세요.`,stockBriefing:'룰 설명 — 모두 준비하면 시작합니다.'};return m[state.phase]||''}
 function geniusGiftUi(){
  const g=state?.geniusGift;if(!g)return'';const winner=state.players.find(p=>p.id===g.winnerId),recipient=state.players.find(p=>p.id===g.recipientId);
@@ -300,7 +347,7 @@ $('#stockShopClose')?.addEventListener('click',()=>$('#stockShopModal')?.classLi
 function sendStockWhisper(){const text=$('#stockWhisperInput')?.value.trim();if(!stockChatTarget||!text)return;socket.emit('stockWhisper',{targetId:stockChatTarget,text},r=>{if(!r.ok)return toast(r.error);$('#stockWhisperInput').value='';setTimeout(()=>$('#stockWhisperInput')?.focus(),0)})}
 $('#stockWhisperSend')?.addEventListener('click',sendStockWhisper);$('#stockWhisperInput')?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();sendStockWhisper()}});
 $('#stockTransferSend')?.addEventListener('click',()=>{const amount=+$('#stockTransferAmount')?.value||0;if(!stockChatTarget)return;socket.emit('stockTransferCoin',{targetId:stockChatTarget,amount},r=>{toast(r.ok?'코인을 보냈습니다.':r.error);if(r.ok)$('#stockTransferAmount').value=''})});
-if('serviceWorker'in navigator)navigator.serviceWorker.register('/sw.js').catch(()=>{});
+if('serviceWorker'in navigator)navigator.serviceWorker.register('/sw.js?v=32').catch(()=>{});
 
 function applyAudioVolumes(){const v=bgmVolume();stockBgm.volume=v;geniusLobbyBgm.volume=v;[mafiaNightBgm,mafiaDayBgm,mafiaVoteBgm].forEach(a=>a.volume=v);mafiaGunSfx.volume=sfxVolume()}
 function syncAudioSettingsUi(){const map=[['sfxToggle',soundOn],['bgmToggle',bgmOn],['narrationToggle',narrationOn],['voiceToggle',voiceOn]];map.forEach(([id,val])=>{const e=$('#'+id);if(e)e.checked=val});const vals=[['sfxVolume','sfxVolumeValue',clampAudio(localStorage.sosoSfxVolume,20)],['bgmVolume','bgmVolumeValue',clampAudio(localStorage.sosoBgmVolume,10)],['narrationVolume','narrationVolumeValue',clampAudio(localStorage.sosoNarrationVolume,85)],['voiceVolume','voiceVolumeValue',clampAudio(localStorage.sosoVoiceVolume,100)]];vals.forEach(([id,lid,val])=>{const e=$('#'+id),l=$('#'+lid);if(e)e.value=val;if(l)l.textContent=val+'%'})}
