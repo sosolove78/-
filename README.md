@@ -114,3 +114,10 @@ npm start
 - Robust remote audio autoplay unlock/retry after user gestures.
 - Handle track events without stream object.
 - Less aggressive reconnect on transient WebRTC disconnects.
+
+## v38
+- 지니어스게임에 좀비게임 추가 (6~10명)
+- 3라운드, 라운드당 10분
+- 인간/최초 좀비 비밀 역할, 접촉 요청/수락, 감염, 승점, 치료제, 무접촉 감염 구현
+- 라운드 종료 시 인간/좀비 인원만 공개
+- 기존 지니어스 음성룸 및 가넷 보상/1위 추가 가넷 선물 연동
