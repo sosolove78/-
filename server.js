@@ -9,6 +9,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: '*' }, maxHttpBufferSize: 2e6 });
 const PORT = process.env.PORT || 3000;
+app.use((req,res,next)=>{if(req.path==='/'||req.path.endsWith('.html')||req.path.endsWith('.js')||req.path.endsWith('.css'))res.set('Cache-Control','no-store, max-age=0');next();});
 app.use(express.static(path.join(__dirname, 'public')));
 
 const words = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/words.json')));
