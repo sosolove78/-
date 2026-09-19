@@ -13,6 +13,20 @@ function sfxVolume(){return clampAudio(localStorage.sosoSfxVolume,20)/100}
 function bgmVolume(){return clampAudio(localStorage.sosoBgmVolume,10)/100}
 function narrationVolume(){return clampAudio(localStorage.sosoNarrationVolume,85)/100}
 function voiceVolume(){return clampAudio(localStorage.sosoVoiceVolume,100)/100}
+function applyAudioVolumes(){
+  const bg=bgmVolume(), sf=sfxVolume();
+  try{[mafiaNightBgm,mafiaDayBgm,mafiaVoteBgm].forEach(a=>a.volume=bg)}catch{}
+  try{mafiaGunSfx.volume=sf}catch{}
+  for(const name of ['stockBgm','zombieBgm','smugglingBgm','geniusLobbyBgm','geniusEndingBgm']){
+    try{const a=eval(name);if(a)a.volume=bg}catch{}
+  }
+}
+function syncAudioSettingsUi(){
+  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.checked=!!v};
+  const range=(id,key,def)=>{const e=document.getElementById(id),out=document.getElementById(id+'Value');const v=clampAudio(localStorage[key],def);if(e)e.value=v;if(out)out.textContent=Math.round(v)+'%'};
+  set('sfxToggle',soundOn);set('bgmToggle',bgmOn);set('narrationToggle',narrationOn);
+  range('sfxVolume','sosoSfxVolume',20);range('bgmVolume','sosoBgmVolume',10);range('narrationVolume','sosoNarrationVolume',85);
+}
 function syncVolumeControl(){applyAudioVolumes();syncAudioSettingsUi()}
 setTimeout(()=>syncVolumeControl(),0);
 function ac(){return audioCtx||(audioCtx=new(window.AudioContext||window.webkitAudioContext)())}
